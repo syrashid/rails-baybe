@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_102600) do
+ActiveRecord::Schema.define(version: 2019_08_20_103304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boxes", force: :cascade do |t|
+    t.decimal "expected_price"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_boxes_on_user_id"
+  end
 
   create_table "cart_options", force: :cascade do |t|
     t.string "content"
@@ -32,6 +41,12 @@ ActiveRecord::Schema.define(version: 2019_08_20_102600) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "options", force: :cascade do |t|
@@ -57,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_102600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "boxes", "users"
   add_foreign_key "cart_options", "carts"
   add_foreign_key "cart_options", "options"
   add_foreign_key "carts", "users"
