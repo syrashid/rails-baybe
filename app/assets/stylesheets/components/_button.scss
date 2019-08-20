@@ -1,0 +1,19 @@
+.buttonPrimary {
+  color: #fff;
+  background-color: #05A4C3;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px
+}
+
+.buttonPrimary:hover {
+  opacity: 0.7;
+  transition: opacity 2s ease-out;
+}
+
+.wide {
+  width: 100%;
+}
