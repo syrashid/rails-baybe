@@ -9,19 +9,19 @@
 
 
 
-.details {
-  width: 55%;
+.product-info-right {
+  width: 650px;
 
- .product-name, .product-price,
- .stock-product-size, .condition-name,
- .stock-produc-color, .product-description {
-  p{
-    flex-grow: 1;
-  }
+ .product-info-row {
+    display: flex;
 
-  p:first-of-type {
-    text-transform: uppercase;
-    font-weight: bold;
+    .product-info-row-title {
+      text-transform: uppercase;
+      font-weight: bold;
+      width: 40%;
+    }
+    .product-info-row-detail {
+      width: 60%;
+    }
   }
- }
 }
