@@ -1,4 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top px-5">
+
   <!-- BABYE LOGO -->
   <%= link_to "babye", root_path , class: "navbar-brand" %>
 
@@ -8,7 +9,7 @@
       <%= link_to "Shop", new_user_session_path, class: "nav-link text-dark" %>
       <%= link_to "Sell", new_user_session_path, class: "nav-link text-dark" %>
 
-      <!-- DIFFERENT NAVBAR IF SIGNED IN -->
+      <!-- RENDER LOGIN OR USERNAME WITH TOOLBAR IF SIGNED IN -->
       <% if user_signed_in? %>
 
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -27,5 +28,26 @@
       <% end %>
       <!-- --------------------------- -->
     </div>
+
+    <!-- SEARCH BAR -->
+    <div class="navbar-right">
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search" />
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      <% end %>
+
+      <!-- RENDER CART IF SIGNED IN -->
+      <% if user_signed_in? %>
+        <i class="fas fa-baby-carriage"></i> (0)
+      <% end %>
+      <!-- --------------------------- -->
+
+    </div>
+    <!-- --------------------------- -->
+
   </div>
 </div>
