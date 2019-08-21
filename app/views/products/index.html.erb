@@ -1,2 +1,40 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="mt-5">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container flex-column">
+      <div class="all-categories">
+        <p class="navbar-text">All Categories</p>
+        <% @categories.each do |category| %>
+          <p class="navbar-text"><%= category.description %></p>
+        <% end %>
+      </div>
+
+      <div class="all-age">
+        <p class="navbar-text">All Sizes</p>
+        <% @categories.each do |category| %>
+          <p class="navbar-text"><%= category.description %></p>
+        <% end %>
+      </div>
+
+      <div class="all-conditions">
+        <p class="navbar-text">All Conditions</p>
+        <% @categories.each do |category| %>
+          <p class="navbar-text"><%= category.description %></p>
+        <% end %>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<!-- PRODUCTS CARDS -->
+<div class="row justify-content-center">
+  <% @products.each do |product| %>
+    <div class="baybe-card baybe-price-card m-3">
+      <p class="fixed-price"><%= product.price %> €</p>
+      <i class="fixed-fav far fa-heart"></i>
+      <img src="https://static2.mumzworld.com/media/catalog/product/cache/6/image/9df78eab33525d08d6e5fb8d27136e95/p/d/pdt-k6-4.jpg" alt="...">
+      <p class="fixed-brand"><%= product.brand %></p>
+    </div>
+  <% end %>
+</div>
+<!-- --------------- -->

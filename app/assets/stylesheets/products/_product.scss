@@ -1,0 +1,8 @@
+.all-categories, .all-age, .all-conditions{
+  text-transform: uppercase;
+
+  p:first-of-type{
+    text-decoration: underline;
+    font-weight: bold;
+  }
+}
