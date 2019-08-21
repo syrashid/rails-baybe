@@ -1,72 +1,88 @@
-<div class="d-flex mt-5">
-  <!-- PRODUCT CAROUSEL -->
-  <div class="baybe-card baybe-carousel-card">
-    <i class="fas fa-chevron-right"></i>
-    <i class="fas fa-chevron-left"></i>
-    <img src="https://static2.mumzworld.com/media/catalog/product/cache/6/image/9df78eab33525d08d6e5fb8d27136e95/p/d/pdt-k6-4.jpg" alt="...">
-    <p class="fixed-brand">Baby Trend TS27760</p>
+<div class="container d-flex justify-content-between">
+  <div>
+    <!-- PRODUCT CAROUSEL -->
+    <div class="baybe-card baybe-carousel-card">
+      <i class="fas fa-chevron-right"></i>
+      <i class="fas fa-chevron-left"></i>
+      <img src="https://static2.mumzworld.com/media/catalog/product/cache/6/image/9df78eab33525d08d6e5fb8d27136e95/p/d/pdt-k6-4.jpg" alt="...">
+      <p class="fixed-brand">Baby Trend TS27760</p>
+    </div>
+    <!-- PRIMARY BUTTON -->
+    <div>
+      <button type="button" class="buttonPrimary">Primary Baybe</button>
+    </div>
+    <!-- -------------- -->
+    <!-- --------------- -->
   </div>
-  <!-- --------------- -->
-
   <!-- STOCK PRODUCT DETAILS -->
-  <div class="details mt-5">
-    <div class="product-name d-flex">
-      <p class="title">Product Name</p>
-      <p class="detail"><%= @product.name %></p>
+  <div class="product-info-right">
+    <div class="product-info-row">
+      <p class="product-info-row-title">Product Name</p>
+      <p class="product-info-row-detail"><%= @product.name %></p>
     </div>
 
-    <div class="product-price d-flex">
-      <p class="title">price</p>
-      <p class="detail"><%= @product.price %> €</p>
+    <div class="product-info-row">
+      <p class="product-info-row-title">price</p>
+      <p class="product-info-row-detail"><%= @product.price %> €</p>
     </div>
 
-    <div class="stock-product-size d-flex">
-      <p class="title">Size</p>
-      <p class="dropdown mr-5">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
-        </button>
+    <div class="product-info-row">
+      <p class="product-info-row-title">Size</p>
+      <div class="dropdown product-info-row-detail">
+        <p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= @product.stock_products.size %>
+        </p>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">0 - 3</a>
-          <a class="dropdown-item" href="#">3 - 6</a>
-          <a class="dropdown-item" href="#">6 -9</a>
+          <% @age_groups.each do |age| %>
+            <a class="dropdown-item" href="#">
+              <%= age %>
+            </a>
+          <% end %>
         </div>
+      </div>
+    </div>
+
+    <div class="product-info-row">
+      <p class="product-info-row-title">Condition</p>
+      <div class="dropdown product-info-row-detail">
+        <p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </p>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @condition_groups.each do |condition| %>
+            <a class="dropdown-item" href="#">
+              <%= condition %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-info-row">
+      <p class="product-info-row-title">Color</p>
+      <div class="dropdown product-info-row-detail">
+        <p class="dropdown-toggle" rid="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </p>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @color_groups.each do |color| %>
+            <a class="dropdown-item" href="#">
+              <%= color %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="product-info-row">
+      <p class="product-info-row-title">Features</p>
+      <p rows="5" cols="50" class="product-info-row-detail">
+        <%= @product.description %>
       </p>
-    </div>
-
-    <div class="condition-name d-flex">
-      <p class="title">Condition</p>
-      <div class="dropdown mr-5">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">New</a>
-          <a class="dropdown-item" href="#">Old</a>
-          <a class="dropdown-item" href="#">Like New</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="stock-produc-color d-flex">
-      <p class="title">Color</p>
-      <div class="dropdown mr-5">
-        <a class="btn btn-secondary dropdown-toggle" rid="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Brown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">RED</a>
-          <a class="dropdown-item" href="#">BLUE</a>
-          <a class="dropdown-item" href="#">ORANGE</a>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="product-description d-flex">
-      <p class="title">Features</p>
-      <p class="detail"><%= @product.description %></p>
     </div>
   </div>
   <!-- --------------- -->
 </div>
+
+
