@@ -1,7 +1,16 @@
-<h1> my list of products</h1>
-<% @products.each do |product| %>
-<h5><%= product.name %></h5>
-<p><%= product.description %></p>
-<% end %>
-
+<h1 class="text-center">Our Products</h1>
+<!-- PRODUCTS CARDS -->
+<div class="row justify-content-center">
+  <% @products.each do |product| %>
+    <div class="baybe-card baybe-price-card m-3">
+      <p class="fixed-price"><%= product.price %> €</p>
+      <i class="fixed-fav far fa-heart"></i>
+      <img src="<%= product.photo %>" alt="<%= product.name %>">
+      <p class="fixed-brand">
+        <%= link_to product.brand, product_path(product), class: "stretched-link" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+<!-- --------------- -->
 
