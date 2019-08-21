@@ -1,41 +1,64 @@
 .baybe-card {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  justify-content: center;
   align-items: center;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 
   img {
-    width: 250px;
-    height: 250px;
-    margin: 10px;
+    width: 285px;
+    height: 285px;
+    // margin: 10px;
     object-fit: contain;
   }
 
   p {
+    font-weight: 700;
+    // Removes default margin
     margin: 0px;
     text-transform: uppercase;
     opacity: 0.5;
   }
 }
 
-
 .baybe-price-card {
-  width: 280px;
-  height: 280px;
+  width: 278px;
+  height: 310px;
+  box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.1);
+  position: relative;
 
   img {
-    width: 230px;
-    height: 230px;
-    margin: -5px;
+    width: 210px;
+    height: 210px;
   }
 
   p {
-    margin-top: 5px;
-    text-transform: none;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .fixed-price {
+    position: absolute;
+    top: 4%;
+    left: 10%;
+  }
+
+  .fixed-brand {
+    position: absolute;
+    bottom: 4%;
+    left: 10%;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  .fixed-fav {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    opacity: 0.5;
+    font-size: 24px;
   }
 }
 
@@ -46,40 +69,39 @@
   position: relative;
 
   img {
-    width: 500px;
-    height: 500px;
+    width: 495px;
+    height: 495px;
   }
 
   p {
-    text-transform: none;
+    text-transform: capitalize;
+    font-size: 24px;
   }
 
-  .carousel-prev {
-    right: 47%;
-  }
-
-  .carousel-next {
-    left: 47%;
-  }
-
-  .carousel-prev, .carousel-next {
-    position: relative;
+  .fa-chevron-left, .fa-chevron-right {
+    position: absolute;
     top: 50%;
-    z-index: 1;
-    display: -webkit-box;
-    color: red;
-    opacity: .5;
-    transition: opacity .15s ease;
+    // z-index: 1;
+    // display: -webkit-box;
+    opacity: 0.5;
+    transition: opacity 0.25s ease;
+    font-size: 24px;
+  }
+  .fa-chevron-left {
+    left: 10%;
   }
 
-  .carousel-next:hover, .carousel-prev:hover {
-    color: #fff;
-    text-decoration: none;
-    outline: 0;
-    opacity: .9;
+  .fa-chevron-right {
+    right: 10%;
+  }
+
+  .fa-chevron-right:hover, .fa-chevron-left:hover {
+    // color: #fff;
+    // text-decoration: none;
+    // outline: 0;
+    opacity: 0.9;
   }
 }
-
 
 .baybe-list-card {
   width: 100%;
@@ -88,29 +110,33 @@
   justify-content: space-between;
   align-items: center;
 
-  .baybe-list{
-
-    img {
-      width: 111px;
-      height: 111px;
+  img {
+      width: 85px;
+      height: 85px;
       object-fit: contain;
-    }
+      box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.1);
+      padding: 2px;
+  }
 
+  p {
+    padding: 0 25px;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0.5;
+  }
 
+  .fa-trash-alt {
+    color: red;
+    opacity: 0.6;
+  }
+
+  .fa-trash-alt:hover {
+    opacity: 1;
+  }
+
+  .baybe-list{
     display: flex;
     align-items: center;
-
-    p {
-      padding: 0 25px;
-      text-transform: uppercase;
-
-    }
-  }
-  .delete-price {
-    display: flex;
-    a {
-      margin-right: 25px
-    }
   }
 }
 
