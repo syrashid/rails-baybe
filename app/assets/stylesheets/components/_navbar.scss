@@ -27,14 +27,18 @@
     input {
       border-color: #66e3fb;
       background-color: #66e3fb;
-      border-radius: 0px;
+      border-radius: 0px !important;
+      opacity: 0.5;
       height: 40px;
     }
     div {
       span {
-        border-color: #66e3fb;
-        background-color: #66e3fb;
-        border-radius: 0px;
+        border-color: #05A4C3;
+        background-color: #05A4C3;
+        border-radius: 0px !important;
+      i {
+          color: white;
+        }
       }
     }
   }
