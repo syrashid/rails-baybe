@@ -10,11 +10,22 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%#= render 'shared/navbar' %>
-    <%= render 'shared/navbar_with_search' %>
+    <!-- RENDER DIFFERENT NAVBAR ON HOME PAGE -->
+    <% if current_page?(categories_path) %>
+      <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/navbar_with_search' %>
+    <% end %>
+    <!-- -------------------------- -->
+
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
+
+
+<% unless current_page?(root_path) %>
+  show some stuff
+<% end %>
