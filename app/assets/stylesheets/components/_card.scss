@@ -13,12 +13,19 @@
     object-fit: contain;
   }
 
-  p {
+  a {
     font-weight: 700;
     // Removes default margin
     margin: 0px;
     text-transform: uppercase;
     opacity: 0.5;
+    color: $light-gray;
+    transition: opacity 0.25s ease;
+  }
+
+  a:hover {
+    opacity: 1;
+    text-decoration: none;
   }
 }
 
@@ -33,7 +40,7 @@
     height: 210px;
   }
 
-  p {
+  a {
     text-transform: capitalize;
     font-size: 18px;
     font-weight: 300;
@@ -73,7 +80,7 @@
     height: 495px;
   }
 
-  p {
+  a {
     text-transform: capitalize;
     font-size: 24px;
   }
@@ -118,13 +125,26 @@
       padding: 2px;
   }
 
+  a {
+    padding: 0 25px;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0.5;
+    color: $light-gray;
+  }
+
+  a:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
   p {
     padding: 0 25px;
     text-transform: uppercase;
     margin: 0;
     opacity: 0.5;
+    color: $light-gray;
   }
-
   .fa-trash-alt {
     color: red;
     opacity: 0.6;
