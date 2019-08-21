@@ -1,0 +1,44 @@
+<div class="mt-5">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container flex-column">
+      <div class="all-categories">
+        <p class="navbar-text">All Categories</p>
+        <% @categories.each do |category| %>
+          <p class="navbar-text"><%= category.description %></p>
+        <% end %>
+      </div>
+
+      <div class="all-age">
+        <p class="navbar-text">All Sizes</p>
+        <% @categories.each do |category| %>
+          <p class="navbar-text"><%= category.description %></p>
+        <% end %>
+      </div>
+
+      <div class="all-conditions">
+        <p class="navbar-text">All Conditions</p>
+        <% @categories.each do |category| %>
+          <p class="navbar-text"><%= category.description %></p>
+        <% end %>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<!-- PRODUCTS CARDS -->
+<div class="row justify-content-center">
+  <% @products.each do |product| %>
+    <div class="baybe-card baybe-price-card m-3">
+      <p class="fixed-price"><%= product.price %> €</p>
+      <i class="fixed-fav far fa-heart"></i>
+      <img src="<%= product.photo %>" alt="<%= product.name %>">
+      <p class="fixed-brand">
+        <%= link_to product.brand, product_path(product), class: "stretched-link" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+<!-- --------------- -->
+
+

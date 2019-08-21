@@ -51,17 +51,17 @@ puts "Done Creating Categories"
 printLine
 
 puts "Creating Products for Each Category 🔨🛠"
-stroller1 = Product.create!(category: stroller, name: "Stroller Style 1", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Stroller Brand")
-stroller2 = Product.create!(category: stroller, name: "Stroller Style 2", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Stroller Brand")
-stroller3 = Product.create!(category: stroller, name: "Stroller Style 3", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Stroller Brand")
+stroller1 = Product.create!(category: stroller, name: "Stroller Style 1", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Stroller Brand", remote_photo_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
+stroller2 = Product.create!(category: stroller, name: "Stroller Style 2", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Stroller Brand", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81WxL5ICcoL._SL1500_.jpg')
+stroller3 = Product.create!(category: stroller, name: "Stroller Style 3", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Stroller Brand", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/513AhM-zUdL._UX385_.jpg')
 puts "Done Created Strollers 🚗"
-crib1 = Product.create!(category: crib, name: "Crib Style 1", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Crib Brand")
-crib2 = Product.create!(category: crib, name: "Crib Style 2", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Crib Brand")
-crib3 = Product.create!(category: crib, name: "Crib Style 3", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Crib Brand")
+crib1 = Product.create!(category: crib, name: "Crib Style 1", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Crib Brand", remote_photo_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
+crib2 = Product.create!(category: crib, name: "Crib Style 2", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Crib Brand", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81WxL5ICcoL._SL1500_.jpg')
+crib3 = Product.create!(category: crib, name: "Crib Style 3", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Crib Brand", remote_photo_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
 puts "Done Creating Cribs 🛏"
-clothing1 = Product.create!(category: clothes, name: "Clothing Style 1", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Clothing Brand")
-clothing2 = Product.create!(category: clothes, name: "Clothing Style 2", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Clothing Brand")
-clothing3 = Product.create!(category: clothes, name: "Clothing Style 3", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Clothing Brand")
+clothing1 = Product.create!(category: clothes, name: "Clothing Style 1", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Clothing Brand", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81WxL5ICcoL._SL1500_.jpg')
+clothing2 = Product.create!(category: clothes, name: "Clothing Style 2", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Clothing Brand", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/513AhM-zUdL._UX385_.jpg')
+clothing3 = Product.create!(category: clothes, name: "Clothing Style 3", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, perspiciatis.", price: rand(300), brand: "Clothing Brand", remote_photo_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
 puts "Done Creating Clothes 👕👖👗"
 puts "Done Creating Products for Each Category 😓"
 
