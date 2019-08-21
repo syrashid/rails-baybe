@@ -1,12 +1,15 @@
 .buttonPrimary {
-  color: #fff;
-  background-color: #05A4C3;
+  color: $white;
+  background-color: $blue;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
-  padding: 15px
+  padding: 15px;
+  width: 100%;
+  // WHY DO I NEED THIS?
+  border: none;
 }
 
 .buttonPrimary:hover {
@@ -14,6 +17,21 @@
   transition: opacity 1s ease-out;
 }
 
-.wide {
+.ghostPrimary {
+  color: $blue;
+  background-color: $white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
   width: 100%;
+  border: 1px solid $blue;
+}
+
+.ghostPrimary:hover {
+  background-color: $blue;
+  color: $white;
+  transition: background-color 1s ease-out;
 }
