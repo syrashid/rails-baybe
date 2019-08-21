@@ -1,5 +1,4 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: white;
 }
 
@@ -9,4 +8,45 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+
+
+.baybe-navbar {
+  display: flex;
+  justify-content: space-between;
+
+  .navbar-login, .navbar-search, .navbar-cart {
+    display: flex;
+  }
+
+  .navbar-search {
+    margin-left: 40%;
+    width: 100%;
+    margin-right: 40px;
+    input {
+      border-color: #66e3fb;
+      background-color: #66e3fb;
+      border-radius: 0px !important;
+      opacity: 0.5;
+      height: 40px;
+    }
+    div {
+      span {
+        border-color: #05A4C3;
+        background-color: #05A4C3;
+        border-radius: 0px !important;
+      i {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .navbar-cart{
+    .fa-shopping-cart:before {
+      margin-right: 10px;
+    }
+  }
+
 }
