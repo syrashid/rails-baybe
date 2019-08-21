@@ -43,9 +43,9 @@ puts "Done Creating Boxes"
 printLine
 
 puts "Creating Categories for Products"
-stroller = Category.create!(description: "Stroller")
-crib = Category.create!(description: "Crib")
-clothes = Category.create!(description: "Clothes")
+stroller = Category.create!(description: "Stroller", remote_photo_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
+crib = Category.create!(description: "Crib", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81WxL5ICcoL._SL1500_.jpg')
+clothes = Category.create!(description: "Clothes", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/513AhM-zUdL._UX385_.jpg')
 puts "Done Creating Categories"
 
 printLine
