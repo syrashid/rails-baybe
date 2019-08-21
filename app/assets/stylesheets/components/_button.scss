@@ -6,7 +6,10 @@
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
-  padding: 15px
+  padding: 15px;
+  width: 100%;
+  // WHY DO I NEED THIS?
+  border: none;
 }
 
 .buttonPrimary:hover {
@@ -14,6 +17,21 @@
   transition: opacity 1s ease-out;
 }
 
-.wide {
+.ghostPrimary {
+  color: #05A4C3;
+  background-color: #fefdff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
   width: 100%;
+  border: 1px solid #05A4C3;
+}
+
+.ghostPrimary:hover {
+  background-color: #05A4C3;
+  color: white;
+  transition: background-color 1s ease-out;
 }
