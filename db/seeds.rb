@@ -9,6 +9,7 @@ puts "Beginning Seeding Process 🌱"
 printLine
 
 puts "Deleting Old Users & Categories, removing dependencies 🔪 ☠️"
+StockProduct.destroy_all
 User.destroy_all
 Category.destroy_all
 Condition.destroy_all
@@ -29,6 +30,7 @@ sycart = Cart.create!(total_price: 0, paid: "Pending", user: sy)
 kavehcart = Cart.create!(total_price: 0, paid: "Pending", user: kaveh)
 chadcart = Cart.create!(total_price: 0, paid: "Pending", user: chad)
 nicocart = Cart.create!(total_price: 0, paid: "Pending", user: nico)
+nicocart2 = Cart.create!(total_price: 0, paid: "Pending", user: nico)
 puts "Done Creating Carts"
 
 printLine
@@ -77,17 +79,17 @@ puts "Done Creating Conditions"
 printLine
 
 puts "Creating Stock_Products for Each Product 📦📦📦"
-strollerprod1 = StockProduct.create!(condition: likenew, product: stroller1, color: "black")
-strollerprod2 = StockProduct.create!(condition: verygood, product: stroller1, color: "black")
-strollerprod3 = StockProduct.create!(condition: verygood, product: stroller2, color: "black")
-strollerprod4 = StockProduct.create!(condition: likenew, product: stroller2, color: "black")
-strollerprod5 = StockProduct.create!(condition: acceptable, product: stroller3, color: "black")
+strollerprod1 = StockProduct.create!(cart: nicocart, condition: likenew, product: stroller1, color: "black")
+strollerprod2 = StockProduct.create!(cart: nicocart, condition: verygood, product: stroller1, color: "black")
+strollerprod3 = StockProduct.create!(cart: nicocart, condition: verygood, product: stroller2, color: "black")
+strollerprod4 = StockProduct.create!(cart: nicocart, condition: likenew, product: stroller2, color: "black")
+strollerprod5 = StockProduct.create!(cart: nicocart, condition: acceptable, product: stroller3, color: "black")
 puts "Done creating stock strollers"
-cribsprod1 = StockProduct.create!(condition: likenew, product: crib1, color: "brown")
-cribsprod2 = StockProduct.create!(condition: verygood, product: crib1, color: "white")
-cribsprod3 = StockProduct.create!(condition: verygood, product: crib2, color: "black")
-cribsprod4 = StockProduct.create!(condition: likenew, product: crib2, color: "pink")
-cribsprod5 = StockProduct.create!(condition: acceptable, product: crib3, color: "brown")
+cribsprod1 = StockProduct.create!(cart: nicocart2, condition: likenew, product: crib1, color: "brown")
+cribsprod2 = StockProduct.create!(cart: nicocart2, condition: verygood, product: crib1, color: "white")
+cribsprod3 = StockProduct.create!(cart: nicocart2, condition: verygood, product: crib2, color: "black")
+cribsprod4 = StockProduct.create!(cart: nicocart2, condition: likenew, product: crib2, color: "pink")
+cribsprod5 = StockProduct.create!(cart: nicocart2, condition: acceptable, product: crib3, color: "brown")
 puts "Done creating stock cribs"
 clothprod1 = StockProduct.create!(condition: likenew, product: clothing1, color: "blue", size: "large")
 clothprod2 = StockProduct.create!(condition: acceptable, product: clothing1, color: "pink", size: "small")
@@ -109,7 +111,7 @@ photo5 = Photo.create(stock_product: strollerprod5, remote_photolink_url: 'https
 photo6 = Photo.create(stock_product: cribsprod1, remote_photolink_url: 'https://images-na.ssl-images-amazon.com/images/I/81WxL5ICcoL._SL1500_.jpg')
 photo7 = Photo.create(stock_product: cribsprod2, remote_photolink_url: 'https://storkcraftdirect.com/wp-content/uploads/2019/06/StorkcraftMissionRidgeCrib_White1.jpg')
 photo8 = Photo.create(stock_product: cribsprod3, remote_photolink_url: 'https://storkcraftdirect.com/wp-content/uploads/2019/06/StorkcraftMontereyCrib_Driftwood1.jpg')
-photo9 = Photo.create(stock_product: cribsprod4, remote_photolink_url: 'https://www.shopmyexchange.com/products/images/xlarge/5303724_1498.jpg')
+photo9 = Photo.create(stock_product: cribsprod4, remote_photolink_url: 'https://images-na.ssl-images-amazon.com/images/I/81CUwl-g2iL._SY355_.jpg')
 photo10 = Photo.create(stock_product: cribsprod5, remote_photolink_url: 'http://ep.yimg.com/ay/yhst-32204204442389/storkcraft-valentia-4-in-1-convertible-crib-in-dove-brown-44.jpg')
 photo11 = Photo.create(stock_product: clothprod1, remote_photolink_url: 'https://images-na.ssl-images-amazon.com/images/I/513AhM-zUdL._UX385_.jpg')
 photo12 = Photo.create(stock_product: clothprod2, remote_photolink_url: 'https://www.dhresource.com/0x0s/f2-albu-g5-M00-91-B9-rBVaI1nPU3eAAqmcAAH9LQS4Tck878.jpg')
@@ -123,6 +125,9 @@ printLine
 
 puts "Left To Do: Review, Cart Option, and Option Seeds"
 puts "But for now we're Done!!  🎊 🥳🎉 🥳🎉 🥳🎉 🎊"
+
+
+
 
 
 
