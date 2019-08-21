@@ -1,0 +1,2 @@
+class CardOptionsController < ApplicationController
+end
