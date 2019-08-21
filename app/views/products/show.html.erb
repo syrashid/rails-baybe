@@ -1,0 +1,72 @@
+<div class="d-flex mt-5">
+  <!-- PRODUCT CAROUSEL -->
+  <div class="baybe-card baybe-carousel-card">
+    <i class="fas fa-chevron-right"></i>
+    <i class="fas fa-chevron-left"></i>
+    <img src="https://static2.mumzworld.com/media/catalog/product/cache/6/image/9df78eab33525d08d6e5fb8d27136e95/p/d/pdt-k6-4.jpg" alt="...">
+    <p class="fixed-brand">Baby Trend TS27760</p>
+  </div>
+  <!-- --------------- -->
+
+  <!-- STOCK PRODUCT DETAILS -->
+  <div class="details mt-5">
+    <div class="product-name d-flex">
+      <p class="title">Product Name</p>
+      <p class="detail"><%= @product.name %></p>
+    </div>
+
+    <div class="product-price d-flex">
+      <p class="title">price</p>
+      <p class="detail"><%= @product.price %> €</p>
+    </div>
+
+    <div class="stock-product-size d-flex">
+      <p class="title">Size</p>
+      <p class="dropdown mr-5">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">0 - 3</a>
+          <a class="dropdown-item" href="#">3 - 6</a>
+          <a class="dropdown-item" href="#">6 -9</a>
+        </div>
+      </p>
+    </div>
+
+    <div class="condition-name d-flex">
+      <p class="title">Condition</p>
+      <div class="dropdown mr-5">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">New</a>
+          <a class="dropdown-item" href="#">Old</a>
+          <a class="dropdown-item" href="#">Like New</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-produc-color d-flex">
+      <p class="title">Color</p>
+      <div class="dropdown mr-5">
+        <a class="btn btn-secondary dropdown-toggle" rid="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Brown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">RED</a>
+          <a class="dropdown-item" href="#">BLUE</a>
+          <a class="dropdown-item" href="#">ORANGE</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="product-description d-flex">
+      <p class="title">Features</p>
+      <p class="detail"><%= @product.description %></p>
+    </div>
+  </div>
+  <!-- --------------- -->
+</div>

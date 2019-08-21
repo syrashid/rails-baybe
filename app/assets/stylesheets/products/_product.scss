@@ -6,3 +6,22 @@
     font-weight: bold;
   }
 }
+
+
+
+.details {
+  width: 55%;
+
+ .product-name, .product-price,
+ .stock-product-size, .condition-name,
+ .stock-produc-color, .product-description {
+  p{
+    flex-grow: 1;
+  }
+
+  p:first-of-type {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+ }
+}
