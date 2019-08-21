@@ -9,13 +9,18 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
-    <!-- RENDER DIFFERENT NAVBAR ON HOME PAGE -->
-    <% if current_page?(categories_path) %>
+
+  <!-- RENDER DIFFERENT NAVBAR & BODY CLASS ON HOME PAGE -->
+  <% if current_page?(categories_path) %>
+
+  <body class="home-page">
       <%= render 'shared/navbar' %>
     <% else %>
+
+  <body>
       <%= render 'shared/navbar_with_search' %>
     <% end %>
+
     <!-- -------------------------- -->
 
     <%= render 'shared/flashes' %>
