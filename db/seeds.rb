@@ -72,8 +72,8 @@ puts "Done Creating Products for Each Category 😓"
 printLine
 
 puts "Creating Conditions for Stock Products 🌤"
-likenew = Condition.create!(name: "LikeNew", buy_ratio: 0.8, sell_ratio: 0.9)
-verygood  = Condition.create!(name: "VeryGood", buy_ratio: 0.7, sell_ratio: 0.8)
+likenew = Condition.create!(name: "Like New", buy_ratio: 0.8, sell_ratio: 0.9)
+verygood  = Condition.create!(name: "Very Good", buy_ratio: 0.7, sell_ratio: 0.8)
 good = Condition.create!(name: "Good", buy_ratio: 0.5, sell_ratio: 0.7)
 acceptable = Condition.create!(name: "Acceptable", buy_ratio: 0.3, sell_ratio: 0.5)
 puts "Done Creating Conditions"
