@@ -1,5 +1,25 @@
 class CartsController < ApplicationController
+  before_action :find_info, only: [:index, :current]
+
   def index
-    @carts = Cart.where("user_id=?", current_user.id)
+    @newcart = Cart.create(paid: "Pending", user: @user)
+    @currentcart.update(paid: "Paid")
   end
+
+  def show
+    @cart = Cart .find(params[:id])
+    @stockproducts = @cart.stock_products
+  end
+
+  def current
+  end
+
+  private
+
+  def find_info
+    @user = current_user
+    @carts = Cart.where("user_id=?", @user.id)
+    @currentcart = @carts.find_by(paid: "Pending")
+  end
+
 end

@@ -9,6 +9,7 @@ puts "Beginning Seeding Process 🌱"
 printLine
 
 puts "Deleting Old Users & Categories, removing dependencies 🔪 ☠️"
+Photo.destroy_all
 StockProduct.destroy_all
 User.destroy_all
 Category.destroy_all
@@ -30,7 +31,7 @@ sycart = Cart.create!(total_price: 0, paid: "Pending", user: sy)
 kavehcart = Cart.create!(total_price: 0, paid: "Pending", user: kaveh)
 chadcart = Cart.create!(total_price: 0, paid: "Pending", user: chad)
 nicocart = Cart.create!(total_price: 0, paid: "Pending", user: nico)
-nicocart2 = Cart.create!(total_price: 0, paid: "Pending", user: nico)
+nicocart2 = Cart.create!(total_price: 0, paid: "Paid", user: nico)
 puts "Done Creating Carts"
 
 printLine
@@ -39,7 +40,11 @@ puts "Creating a Box per User 📦"
 sybox = Box.create!(expected_price: 0, status: "Shipping", user: sy)
 kavehbox = Box.create!(expected_price: 0, status: "Shipping", user: kaveh)
 chadbox = Box.create!(expected_price: 0, status: "Shipping", user: chad)
+
 nicobox = Box.create!(expected_price: 0, status: "Pending", user: nico)
+
+chadbox2 = Box.create!(expected_price: 0, status: "Shipping", user: chad)
+
 puts "Done Creating Boxes"
 
 printLine
@@ -90,6 +95,20 @@ cribsprod2 = StockProduct.create!(cart: nicocart2, condition: verygood, product:
 cribsprod3 = StockProduct.create!(cart: nicocart2, condition: verygood, product: crib2, color: "black")
 cribsprod4 = StockProduct.create!(cart: nicocart2, condition: likenew, product: crib2, color: "pink")
 cribsprod5 = StockProduct.create!(cart: nicocart2, condition: acceptable, product: crib3, color: "brown")
+
+puts "Creating Stock_Products for Each Product 📦📦📦"
+strollerprod1 = StockProduct.create!(box: chadbox, condition: likenew, product: stroller1, color: "black")
+strollerprod2 = StockProduct.create!(box: chadbox, condition: verygood, product: stroller1, color: "black")
+strollerprod3 = StockProduct.create!(box: chadbox, condition: verygood, product: stroller2, color: "black")
+strollerprod4 = StockProduct.create!(box: chadbox, condition: likenew, product: stroller2, color: "black")
+strollerprod5 = StockProduct.create!(box: chadbox, condition: acceptable, product: stroller3, color: "black")
+puts "Done creating stock strollers"
+cribsprod1 = StockProduct.create!(box: chadbox2, condition: likenew, product: crib1, color: "brown")
+cribsprod2 = StockProduct.create!(box: chadbox2, condition: verygood, product: crib1, color: "white")
+cribsprod3 = StockProduct.create!(box: chadbox2, condition: verygood, product: crib2, color: "black")
+cribsprod4 = StockProduct.create!(box: chadbox2, condition: likenew, product: crib2, color: "pink")
+cribsprod5 = StockProduct.create!(box: chadbox2, condition: acceptable, product: crib3, color: "brown")
+
 puts "Done creating stock cribs"
 clothprod1 = StockProduct.create!(condition: likenew, product: clothing1, color: "blue", size: "large")
 clothprod2 = StockProduct.create!(condition: acceptable, product: clothing1, color: "pink", size: "small")

@@ -1,25 +1,21 @@
 <div class="nicontainer">
   <h4>YOUR ORDERS</h4>
-  <% @carts.each do |cart| %>
+  <% @boxes.each do |box| %>
     <div class="order">
       <!-- ORDER TITLE, STATUS AND PRICE -->
       <div class="order-title">
         <div class="order-title">
-          <p>ORDER Nº: <%= cart.id %> - </p>
-          <p class="status"> <%= cart.paid %></p>
+          <p>ORDER Nº: <%= box.id %> - </p>
+          <p class="status"> <%= box.status %></p>
         </div>
-        <p><%= cart.total_price %> EUR</p>
+        <p><%= box.expected_price %> EUR</p>
       </div>
       <!------------------------>
-        <% cart.stock_products.each do |stockProd| %>
+        <% box.stock_products.each do |stockProd| %>
           <!-- ORDER STOCK PRODUCTS -->
           <div class="baybe-list-card">
               <div class="baybe-list">
-
-                <% if stockProd.photos.any? %>
-                  <%= cl_image_tag stockProd.photos.first.photolink %>
-                <% end %>
-
+                <%= cl_image_tag stockProd.photos.first.photolink %>
                 <p><%= stockProd.product.name %></p>
               </div>
               <div class="baybe-list">
