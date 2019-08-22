@@ -13,6 +13,7 @@
               <i class="far fa-trash-alt"></i> &nbsp &nbsp
               <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
             </p>
+            <%= link_to "Delete", restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
           </div>
       </div>
       <!------------------------>
