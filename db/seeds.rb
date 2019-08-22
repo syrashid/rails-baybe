@@ -30,7 +30,7 @@ sycart = Cart.create!(total_price: 0, paid: "Pending", user: sy)
 kavehcart = Cart.create!(total_price: 0, paid: "Pending", user: kaveh)
 chadcart = Cart.create!(total_price: 0, paid: "Pending", user: chad)
 nicocart = Cart.create!(total_price: 0, paid: "Pending", user: nico)
-nicocart2 = Cart.create!(total_price: 0, paid: "Pending", user: nico)
+nicocart2 = Cart.create!(total_price: 0, paid: "Paid", user: nico)
 puts "Done Creating Carts"
 
 printLine

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :products, only: [ :index, :show ]
   resources :categories, only: [ :index, :show]
 
-  resources :carts, only: [ :index ]
+  resources :carts, only: [ :index, :show ]
 end

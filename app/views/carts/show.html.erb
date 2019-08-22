@@ -1,0 +1,35 @@
+
+​
+<div class="nicontainer">
+  <h4>YOUR CART</h4>
+  <div class="order">
+    <% @stockproducts.each do |stockProd| %>
+    <!-- ORDER STOCK PRODUCTS -->
+    <div class="baybe-list-card">
+      <div class="baybe-list">
+        <%= cl_image_tag stockProd.photos.first.photolink %>
+        <p><%= stockProd.product.name %></p>
+      </div>
+      <div class="baybe-list">
+        <p>
+          <i class="far fa-trash-alt"></i> &nbsp &nbsp
+          <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
+        </p>
+      </div>
+    </div>
+    <!------------------------>
+    <% end %>
+    <div class="box-info-row">
+      <div class="box-info-title">
+        <p>TOTAL CART</p>
+        <p>
+          <i class="fas fa-gift"></i>
+        </p>
+      </div>
+      <p class="box-info-title"><%= @cart.total_price %></p>
+    </div>
+  </div>
+  <%= link_to "Proceed to Pay " + @cart.total_price.to_s + " EUR", carts_path, class: "buttonPrimary form-control" %>
+</div>
+
+
