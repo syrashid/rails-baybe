@@ -1,0 +1,62 @@
+<form action="<%= add_product_path(@product) %>" method="GET">
+  <div class="container d-flex justify-content-between">
+    <div>
+      <!-- PRODUCT CAROUSEL -->
+      <div class="baybe-card baybe-carousel-card">
+
+        <i class="fas fa-chevron-right"></i>
+        <i class="fas fa-chevron-left"></i>
+        <%= cl_image_tag @product.photo %>
+        <p class="fixed-brand"><%= @product.name %></p>
+      </div>
+      <!-- PRIMARY BUTTON -->
+      <div>
+        <button type="submit" class="buttonPrimary">Add to box (<%= @product.price %> EUR)</button>
+      </div>
+      <!-- -------------- -->
+      <!-- --------------- -->
+    </div>
+    <!-- STOCK PRODUCT DETAILS -->
+    <div class="product-info-right">
+      <div class="product-info-row">
+        <p class="product-info-row-title">Product Name</p>
+        <p class="product-info-row-detail"><%= @product.name %></p>
+      </div>
+
+      <div class="product-info-row">
+        <p class="product-info-row-title">price</p>
+        <p class="product-info-row-detail"><%= @product.price %> €</p>
+      </div>
+
+      <div class="product-info-row">
+        <p class="product-info-row-title">Size</p>
+        <select class="baybe-dropdown" name="stock_product[size]">
+          <%= options_for_select(@age_groups) %>
+        </select>
+      </div>
+
+      <div class="product-info-row">
+        <p class="product-info-row-title">Condition</p>
+        <select class="baybe-dropdown" name="stock_product[condition]">
+          <%= options_for_select(@condition_groups) %>
+        </select>
+      </div>
+
+      <div class="product-info-row">
+        <p class="product-info-row-title">Color</p>
+        <select class="baybe-dropdown" name="stock_product[color]">
+          <%= options_for_select(@color_groups) %>
+        </select>
+      </div>
+
+      <div class="product-info-row">
+        <p class="product-info-row-title">Features</p>
+        <p rows="5" cols="50" class="product-info-row-detail">
+          <%= @product.description %>
+        </p>
+      </div>
+    </div>
+    <!-- --------------- -->
+  </div>
+</form>
+
