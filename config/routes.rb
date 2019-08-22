@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home', as: :home
   resources :products, only: [ :index, :show ]
   resources :categories, only: [ :index, :show]
+
+  resources :carts, only: [ :index ]
 end
