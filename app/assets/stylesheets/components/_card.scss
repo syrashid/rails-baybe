@@ -1,5 +1,4 @@
 .baybe-card {
-  width: 350px;
   height: 350px;
   display: flex;
   flex-direction: column;
@@ -7,8 +6,8 @@
   align-items: center;
 
   img {
-    width: 285px;
     height: 285px;
+    width: 100%;
     // margin: 10px;
     object-fit: contain;
   }
