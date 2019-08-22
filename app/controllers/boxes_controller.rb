@@ -4,6 +4,7 @@ class BoxesController < ApplicationController
   end
 
   def show
-    @stockproducts = Box.find(params[:id]).stock_products
+    @box = Box.find(params[:id])
+    @stockproducts = @box.stock_products
   end
 end

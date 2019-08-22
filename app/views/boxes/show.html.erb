@@ -17,14 +17,18 @@
       </div>
       <!------------------------>
     <% end %>
-      <div class="box-info-row">
-        <div class="box-info-title">
-          <p>TOTAL CART</p>
-          <p>
-            <i class="fas fa-gift"></i>
-          </p>
-        </div>
-        <p class="box-info-title">750 EUR</p>
+    <div class="box-info-row">
+      <div class="box-info-title">
+        <p>TOTAL CART</p>
+        <p>
+          <i class="fas fa-gift"></i>
+        </p>
       </div>
+      <p class="box-info-title"><%= @box.expected_price %>  EUR</p>
     </div>
+  </div>
+  <!-- PRIMARY BUTTON -->
+  <%= link_to "Proceed to Pay " + @box.expected_price.to_s + " EUR", boxes_path, class: "buttonPrimary form-control" %>
+  <!-- -------------- -->
+  <br>
 </div>
