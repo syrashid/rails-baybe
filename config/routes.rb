@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :categories, only: [ :index, :show]
 
   resources :boxes, only: [ :index, :show ]
-  resources :carts, only: [ :index, :show ]
+  resources :carts, only: [ :index, :show ] do
+    member do
+      get 'current'
+    end
+  end
 end

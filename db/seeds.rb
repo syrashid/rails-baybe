@@ -9,6 +9,7 @@ puts "Beginning Seeding Process 🌱"
 printLine
 
 puts "Deleting Old Users & Categories, removing dependencies 🔪 ☠️"
+Photo.destroy_all
 StockProduct.destroy_all
 User.destroy_all
 Category.destroy_all
