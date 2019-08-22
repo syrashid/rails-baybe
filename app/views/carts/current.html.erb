@@ -1,0 +1,29 @@
+<div class="sycontainer">
+  <div class="productconfirmation">
+    <p><strong><%= @currentcart.stock_products.last.product.name %></strong> was successfully added to your cart</p>
+  </div>
+  <div class="currentcart">
+    <h5>Your Cart</h5>
+    <% @currentcart.stock_products.each do  |stockproduct| %>
+      <div class="baybe-list-card">
+        <div class="baybe-list">
+          <% if stockproduct.photos.any? %>
+            <%= cl_image_tag stockproduct.photos.first.photolink %>
+          <% end %>
+          <p><%= stockproduct.product.name %></p>
+        </div>
+        <div class="baybe-list">
+          <i class="far fa-trash-alt"></i>
+          <p><%= stockproduct.condition.buy_ratio * stockproduct.product.price %> EUR</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
+  </div>
+</div>
+
+<div class="carousel">
+  <p>bunch of cards</p>
+</div>
