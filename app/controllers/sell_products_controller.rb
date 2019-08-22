@@ -7,6 +7,11 @@ class SellProductsController < ApplicationController
     @color_groups = ['Red', 'Black', 'Blue', 'Braun']
   end
 
+  def current
+
+  end
+
+
   def addToBox
     # @stock_product = findStockProduct(params)
     stock_product = StockProduct.new
@@ -21,15 +26,13 @@ class SellProductsController < ApplicationController
     userbox = current_user.boxes.find_by("status=?", "Pending")
     stock_product.box = userbox
 
-    stock_product.color = stock_product_params[:condition]
+    stock_product.color = stock_product_params[:color]
 
     stock_product.size = stock_product_params[:size]
 
-    stock_product.save
-
-    redirect_to boxes_path
-
+    stock_product.save!
     raise
+    redirect_to current_box_path(userbox)
   end
 
   def findStockProduct

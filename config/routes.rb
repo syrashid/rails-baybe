@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :sell_products, only: [ :index, :show ]
 
   get 'sell_products/:id/added', to: 'sell_products#addToBox', as: :add_product
+
 end
