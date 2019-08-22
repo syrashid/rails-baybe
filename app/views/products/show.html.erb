@@ -85,4 +85,19 @@
   <!-- --------------- -->
 </div>
 
-
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<div class="container">
+  <h1 class="">People also Bought ....</h1>
+  <div class="cards-grid">
+    <% @rel_products.each do |product| %>
+      <div class="baybe-card">
+        <%= cl_image_tag product.photo %>
+        <%= link_to product.brand, product_path(product) %>
+      </div>
+    <% end %>
+  </div>
+</div>

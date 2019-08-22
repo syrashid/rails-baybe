@@ -1,16 +1,17 @@
-<h1 class="text-center">Our Products</h1>
-<!-- PRODUCTS CARDS -->
-<div class="row justify-content-center">
-  <% @products.each do |product| %>
-    <div class="baybe-card baybe-price-card m-3">
-      <p class="fixed-price"><%= product.price %> €</p>
-      <i class="fixed-fav far fa-heart"></i>
-      <img src="<%= product.photo %>" alt="<%= product.name %>">
-      <p class="fixed-brand">
-        <%= link_to product.brand, product_path(product), class: "stretched-link" %>
-      </p>
-    </div>
-  <% end %>
+<div class="container">
+  <h1 class="text-center">Our Products</h1>
+  <div class="cards-grid">
+    <!-- PRODUCTS CARDS -->
+      <% @products.each do |product| %>
+      <div class="baybe-card baybe-price-card m-3">
+        <p class="fixed-price"><%= product.price %> €</p>
+        <i class="fixed-fav far fa-heart"></i>
+        <img src="<%= product.photo %>" alt="<%= product.name %>">
+        <p class="fixed-brand">
+          <%= link_to product.brand, product_path(product), class: "stretched-link" %>
+        </p>
+      </div>
+    <% end %>
+    <!-- --------------- -->
+  </div>
 </div>
-<!-- --------------- -->
-

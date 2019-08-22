@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @rel_products = Product.all.sample(4)
     @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
     @condition_groups = ['Like new', 'Very good', 'Good', 'Acceptable']
     @color_groups = ['Red', 'Black', 'Blue', 'Braun']
