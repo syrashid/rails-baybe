@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :products, only: [ :index, :show ]
   resources :categories, only: [ :index, :show]
 
+  resources :carts, only: [ :index, :show ] do
+    member do
+      get 'current'
+    end
+  end
+
   resources :boxes, only: [ :index, :show, :destroy ] do
     member do
       patch "confirm"
@@ -12,6 +18,4 @@ Rails.application.routes.draw do
   end
 
   resources :stock_products, only: :destroy
-
-  resources :carts, only: [ :index, :show ]
 end

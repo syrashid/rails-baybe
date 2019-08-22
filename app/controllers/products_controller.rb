@@ -15,5 +15,8 @@ class ProductsController < ApplicationController
     @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
     @condition_groups = ['Like new', 'Very good', 'Good', 'Acceptable']
     @color_groups = ['Red', 'Black', 'Blue', 'Braun']
+    @user = current_user
+    @carts = Cart.where("user_id=?", @user.id)
+    @currentcart = @carts.find_by(paid: "Pending")
   end
 end
