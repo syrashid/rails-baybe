@@ -1,0 +1,10 @@
+.order-title {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  .status {
+    font-weight: 400;
+  }
+}
