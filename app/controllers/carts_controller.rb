@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
   def index
-    @carts = Cart.where("user_id=?", current_user.id)
+    @user = current_user
+    @carts = Cart.where("user_id=?", @user.id)
+    @currentcart = @carts.find_by(paid: "Pending")
+    @newcart = Cart.create(paid: "Pending", user: @user)
+    @currentcart.update(paid: "Paid")
   end
 
   def show
