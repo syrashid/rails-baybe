@@ -15,7 +15,7 @@
 
         <div class="dropdown nav-link text-dark" >
           <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.first_name %>
+            <%= current_user.first_name.downcase %>
           </div>
           <div id="show" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <%= link_to 'Edit Profile',edit_user_registration_path, class: "dropdown-item" %>
