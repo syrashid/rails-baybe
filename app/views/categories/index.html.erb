@@ -3,16 +3,7 @@
     <h1>Your baby gets more</h1>
     <h1>You pay less</h1>
     <br>
-    <div class="searchbar">
-      <%= form_tag products_path, method: :get do %>
-      <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search"
-      %>
-      <%= submit_tag "Search", class: "buttonPrimary form-control" %>
-      <% end %>
-    </div>
+    <%= render 'shared/searchbar' %>
   </div>
 </div>
 
