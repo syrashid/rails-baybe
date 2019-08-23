@@ -77,6 +77,12 @@
   align-content: center;
   align-items: center;
 
+  .search {
+    .form-group {
+      margin: 0;
+    }
+  }
+
   i {
     padding: 2%;
     font-size: 2rem;
@@ -92,4 +98,13 @@
     }
   }
 
+}
+
+
+#show {
+  background-color: #ffffff6e;
+  padding: 0px;
+  a {
+    background-color: #ffffff6e;
+  }
 }

@@ -11,14 +11,15 @@
       <!-- DIFFERENT NAVBAR IF SIGNED IN -->
       <% if user_signed_in? %>
 
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
-        <!-- DROPDOWN MENU -->
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to 'Edit Profile',edit_user_registration_path, class: "dropdown-item" %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <div class="dropdown nav-link text-dark" >
+          <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.first_name %>
+          </div>
+          <div id="show" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'Edit Profile',edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
         </div>
-        <!-- --------------------------- -->
 
       <% else %>
 
