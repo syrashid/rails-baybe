@@ -7,9 +7,9 @@
     <% @currentcart.stock_products.each do  |stockproduct| %>
       <div class="baybe-list-card">
         <div class="baybe-list">
-          <% if stockproduct.photos.any? %>
-            <%= cl_image_tag stockproduct.photos.first.photolink %>
-          <% end %>
+          <%# if stockproduct.photos.any? %>
+            <%= cl_image_tag stockproduct.product.photo %>
+          <%# end %>
           <p><%= stockproduct.product.name %></p>
         </div>
         <div class="baybe-list">
