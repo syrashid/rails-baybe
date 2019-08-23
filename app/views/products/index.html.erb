@@ -1,28 +1,4 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container flex-column">
-    <div class="all-categories justify-content-between">
-      <p class="navbar-text">All Categories</p>
-      <% @categories.each do |category| %>
-        <p class="navbar-text"><%= category.description %></p>
-      <% end %>
-    </div>
-
-    <div class="all-age">
-      <p class="navbar-text">All Sizes</p>
-      <% @categories.each do |category| %>
-        <p class="navbar-text"><%= category.description %></p>
-      <% end %>
-    </div>
-
-    <div class="all-conditions">
-      <p class="navbar-text">All Conditions</p>
-      <% @categories.each do |category| %>
-        <p class="navbar-text"><%= category.description %></p>
-      <% end %>
-    </div>
-  </div>
-</nav>
-
+<%= render 'filter_bar' %>
 
 <!-- PRODUCTS CARDS -->
 <div class="container">
