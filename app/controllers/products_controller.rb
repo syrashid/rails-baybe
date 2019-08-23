@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index ]
   def index
     @categories = Category.all
     # Do I need to do some protection
