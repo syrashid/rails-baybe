@@ -14,6 +14,7 @@ class CartsController < ApplicationController
   end
 
   def current
+    @rel_products = Product.all.sample(4)
   end
 
   private
