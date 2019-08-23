@@ -5,18 +5,18 @@
     <br>
     <%= render 'shared/searchbar' %>
   </div>
+</div>
+  <br>
+  <br>
 
-  <br>
-  <br>
-  <h1 class="text-center">Categories</h1>
   <div class="container">
+    <h1 class="text-center">Categories</h1>
     <div class="cards-grid">
       <% @categories.each do |category| %>
       <a href="<%= category_path(category) %>">
         <div class="baybe-card">
           <%= cl_image_tag category.photo %>
           <p><%= category.description %></p>
-
         </div>
       </a>
       <% end %>
