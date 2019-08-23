@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center">Our Products</h1>
+  <h1 class="text-center"><%= Category.find(params[:id]).description %> products</h1>
   <div class="cards-grid">
     <!-- PRODUCTS CARDS -->
       <% @products.each do |product| %>
