@@ -9,6 +9,7 @@ class CartsController < ApplicationController
   def show
     @cart = Cart .find(params[:id])
     @stockproducts = @cart.stock_products
+    @rel_products = Product.all.sample(4)
   end
 
   def current

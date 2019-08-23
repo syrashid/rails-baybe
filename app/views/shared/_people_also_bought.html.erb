@@ -2,10 +2,12 @@
   <h1 class="">People also Bought ....</h1>
   <div class="cards-grid">
     <% @rel_products.each do |product| %>
+    <a href="<%= product_path(product) %>">
       <div class="baybe-card">
         <%= cl_image_tag product.photo %>
-        <%= link_to product.brand, product_path(product) %>
+        <p><%= product.brand%></p>
       </div>
+    </a>
     <% end %>
   </div>
 </div>
