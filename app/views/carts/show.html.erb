@@ -15,7 +15,7 @@
       <div class="baybe-list">
         <p>
           <i class="far fa-trash-alt"></i> &nbsp &nbsp
-          <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
+          <%= (stockProd.product.price * stockProd.condition.buy_ratio).round(2) %> EUR
         </p>
       </div>
     </div>
