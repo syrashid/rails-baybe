@@ -9,9 +9,16 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
+
+  <!-- something -->
+  <% if current_page?(root_path) %>
+  <body class="home-page">
+    <%= render 'shared/navbar' %>
+  <% else %>
   <body>
-    <%#= render 'shared/navbar' %>
     <%= render 'shared/navbar_with_search' %>
+  <% end %>
+
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
@@ -20,3 +27,5 @@
     <%= render 'shared/footer' %>
   </body>
 </html>
+
+
