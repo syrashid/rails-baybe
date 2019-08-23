@@ -17,6 +17,12 @@ class CartsController < ApplicationController
     @rel_products = Product.all.sample(4)
   end
 
+  def confirm
+    @cart = Cart.find(params[:id])
+    @cart.update_attributes(paid: "confirmed")
+    redirect_to current_cart_path
+  end
+
   private
 
   def sum_total
@@ -32,5 +38,4 @@ class CartsController < ApplicationController
     @carts = Cart.where("user_id=?", @user.id)
     @currentcart = @carts.find_by(paid: "Pending")
   end
-
 end

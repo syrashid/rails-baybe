@@ -1,5 +1,3 @@
-
-​
 <div class="nicontainer">
   <h4>YOUR CART</h4>
   <div class="order">
@@ -14,7 +12,7 @@
       </div>
       <div class="baybe-list">
         <p>
-          <i class="far fa-trash-alt"></i> &nbsp &nbsp
+          <%= link_to "", stock_product_path(stockProd, parent: "cart"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
           <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
         </p>
       </div>
@@ -31,7 +29,7 @@
       <p class="box-info-title"><%= @cart.total_price %> EUR</p>
     </div>
   </div>
-  <%= link_to "Proceed to Pay " + @cart.total_price.to_s + " EUR", carts_path, class: "buttonPrimary form-control" %>
+  <%= link_to "Proceed to Pay " + @cart.total_price.to_s + " EUR", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary form-control" %>
 </div>
 
 
