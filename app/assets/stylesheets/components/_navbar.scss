@@ -14,12 +14,11 @@
   }
 
   .navbar-brand {
-    font-size: 46px;
+    font-size: 40px;
   }
   .navbar-brand:hover {
     text-decoration: none;
   }
-
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -27,7 +26,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 70px;
 }
 
 
@@ -58,7 +57,7 @@
 }
 
 .search-form-control .form-control {
-  height: 3.5rem;
+  height: 2.4rem;
   background-color: $light-blue;
   width: 35rem;
   border: none;
@@ -81,12 +80,27 @@
   align-content: center;
   align-items: center;
 
-  i {
-    padding: 2%;
-    font-size: 2rem;
+  .form-inline {
+    margin-right: 20px;
+    .search {
+      .form-group {
+        margin: 0;
+      }
+    }
   }
-  p {
 
+  a {
+    i {
+      padding: 2%;
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-left: 15px;
+    font-size: 25px;
+    color: #05A4C3;
   }
 }
 
@@ -96,4 +110,13 @@
     }
   }
 
+}
+
+
+#show {
+  background-color: #ffffff6e;
+  padding: 0px;
+  a {
+    background-color: #ffffff6e;
+  }
 }
