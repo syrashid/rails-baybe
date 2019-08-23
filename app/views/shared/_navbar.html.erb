@@ -1,6 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top px-5">
   <!-- BABYE LOGO -->
-  <%= link_to "baybe", root_path , class: "navbar-brand" %>
+  <%= link_to root_path, :class => "navbar-brand" do %>
+    <%= cl_image_tag("https://res.cloudinary.com/syrashid/image/upload/v1566557725/baybelogo_oeccrt.png") %>
+  <% end %>
 
 
   <div class="baybe-navbar w-100">
