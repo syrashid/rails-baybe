@@ -28,16 +28,14 @@
 <div class="container">
   <div class="cards-grid">
     <% @products.each do |product| %>
-    <a href="<%= product_path(product) %>">
       <div class="baybe-card baybe-price-card">
         <p class="fixed-price"><%= product.price %> €</p>
         <i class="fixed-fav far fa-heart"></i>
         <img src="<%= product.photo %>" alt="<%= product.name %>">
         <p class="fixed-brand">
-          <%= product.brand %>
+          <%= link_to product.brand, product_path(product), class: "stretched-link" %>
         </p>
       </div>
-    </a>
     <% end %>
   </div>
 </div>
