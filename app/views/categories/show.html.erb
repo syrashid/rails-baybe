@@ -1,12 +1,12 @@
 <div class="container">
-  <h1 class="text-center">Our Products</h1>
+  <h1 class="text-center"><%= Category.find(params[:id]).description %> products</h1>
   <div class="cards-grid">
     <!-- PRODUCTS CARDS -->
       <% @products.each do |product| %>
       <a href="<%= product_path(product) %>">
         <div class="baybe-card baybe-price-card m-3">
           <p class="fixed-price"><%= product.price %> €</p>
-          <i class="fixed-fav far fa-heart"></i>
+          <!-- <i class="fixed-fav far fa-heart"></i> -->
           <img src="<%= product.photo %>" alt="<%= product.name %>">
           <p class="fixed-brand">
             <%= product.brand %>

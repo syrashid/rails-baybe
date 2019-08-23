@@ -1,7 +1,18 @@
-.footer-mail, .footer-social-medias, .footer-policies {
-  color: rgba(0, 0, 0, 0.5);
-  .footer-social-medias-icons {
-    margin: 0px 25px;
-    color: rgba(0, 0, 0, 0.5);
+.footer {
+  justify-content: center;
+  margin-top: 20vh;
+}
+
+.footer-mail {
+  align-items: center;
+  width: 50%;
+
+  a {
+    color: $light-gray;
+    text-decoration: underline;
+    font-size: 12px;
+    margin: 0 2% 0 2%;
   }
 }
+
+
