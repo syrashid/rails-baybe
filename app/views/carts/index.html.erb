@@ -23,7 +23,7 @@
                 <p><%= stockProd.product.name %></p>
               </div>
               <div class="baybe-list">
-                <p><%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR</p>
+                <p><%= (stockProd.product.price * stockProd.condition.buy_ratio).round(2) %> EUR</p>
               </div>
           </div>
           <!------------------------>
