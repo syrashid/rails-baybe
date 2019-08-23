@@ -40,8 +40,11 @@ puts "Creating a Box per User 📦"
 sybox = Box.create!(expected_price: 0, status: "Shipping", user: sy)
 kavehbox = Box.create!(expected_price: 0, status: "Shipping", user: kaveh)
 chadbox = Box.create!(expected_price: 0, status: "Shipping", user: chad)
+
+nicobox = Box.create!(expected_price: 0, status: "Pending", user: nico)
+
 chadbox2 = Box.create!(expected_price: 0, status: "Shipping", user: chad)
-nicobox = Box.create!(expected_price: 0, status: "Shipping", user: nico)
+
 puts "Done Creating Boxes"
 
 printLine

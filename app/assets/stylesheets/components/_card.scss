@@ -12,12 +12,19 @@
     object-fit: contain;
   }
 
-  p {
+  a {
     font-weight: 700;
     // Removes default margin
     margin: 0px;
     text-transform: uppercase;
     opacity: 0.5;
+    color: $light-gray;
+    transition: opacity 0.25s ease;
+  }
+
+  a:hover {
+    opacity: 0.9;
+    text-decoration: none;
   }
 }
 
@@ -32,10 +39,10 @@
     height: 210px;
   }
 
-  p {
+  a {
     text-transform: capitalize;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 700;
   }
 
   .fixed-price {

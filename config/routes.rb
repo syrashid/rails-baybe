@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'products/:id/added', to: 'products#addToCart', as: :add_to_cart
   resources :categories, only: [ :index, :show]
 
+  resources :sell_products, only: [ :index, :show ]
+  get 'sell_products/:id/added', to: 'sell_products#addToBox', as: :add_product
+
   resources :carts, only: [ :index, :show ] do
     member do
       get 'current'
@@ -15,8 +18,10 @@ Rails.application.routes.draw do
   resources :boxes, only: [ :index, :show, :destroy ] do
     member do
       patch "confirm"
+      get 'current'
     end
   end
 
   resources :stock_products, only: :destroy
+
 end
