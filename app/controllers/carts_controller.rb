@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
-  before_action :find_info, only: [:index, :current]
+  before_action :find_info, only: [:index, :current, :show, :sum_total]
+  after_action :sum_total
 
   def index
     @newcart = Cart.create(paid: "Pending", user: @user)
@@ -16,6 +17,14 @@ class CartsController < ApplicationController
   end
 
   private
+
+  def sum_total
+    stockproducts = @currentcart.stock_products
+    @currentcart.total_price = stockproducts.sum do |stockproduct|
+      stockproduct.product.price * stockproduct.condition.buy_ratio
+    end
+    @currentcart.save
+  end
 
   def find_info
     @user = current_user
