@@ -1,0 +1,22 @@
+<%= render 'shared/filter_bar' %>
+
+
+<!-- PRODUCTS CARDS -->
+<div class="container">
+  <h1>What product would you like to sell?</h1>
+  <div class="cards-grid">
+    <% @products.each do |product| %>
+    <a href="<%= sell_product_path(product) %>">
+      <div class="baybe-card baybe-price-card">
+        <p class="fixed-price"><%= product.price %> €</p>
+        <!-- <i class="fixed-fav far fa-heart"></i> -->
+        <img src="<%= product.photo %>" alt="<%= product.name %>">
+        <p class="fixed-brand">
+          <%= product.brand %>
+        </p>
+      </div>
+    </a>
+    <% end %>
+  </div>
+</div>
+<!-- --------------- -->

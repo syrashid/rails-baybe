@@ -1,0 +1,30 @@
+<div class="sycontainer">
+  <div class="productconfirmation">
+    <p>
+      <strong><%= @currentbox.stock_products.last.product.name %></strong> was successfully added to your cart
+    </p>
+  </div>
+  <div class="currentbox">
+    <h5>Your Cart</h5>
+    <% @currentbox.stock_products.each do  |stockproduct| %>
+      <div class="baybe-list-card">
+        <div class="baybe-list">
+          <%# if stockproduct.photos.any? %>
+            <%= cl_image_tag stockproduct.product.photo %>
+          <%# end %>
+          <p><%= stockproduct.product.name %></p>
+        </div>
+        <div class="baybe-list">
+          <p>
+            <%= link_to "", stock_product_path(stockproduct, parent: "cart"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
+            <%= stockproduct.product.price * stockproduct.condition.buy_ratio%> EUR
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "Proceed to Confirmation", box_path(@currentbox), class: "buttonPrimary btn-block" %>
+    <%#= link_to "Proceed to Checkout ", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary btn-block" %>
+  </div>
+</div>
