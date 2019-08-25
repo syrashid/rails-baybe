@@ -5,7 +5,7 @@
       <!-- ORDER STOCK PRODUCTS -->
       <div class="baybe-list-card">
           <div class="baybe-list">
-            <%= cl_image_tag stockProd.photos.first.photolink %>
+            <%= cl_image_tag stockProd.product.photo %>
             <p><%= stockProd.product.name %></p>
           </div>
           <div class="baybe-list">
@@ -29,7 +29,10 @@
     </div>
   </div>
   <!-- PRIMARY BUTTON -->
-  <%= link_to "Proceed to Pay " + @box.expected_price.to_s + " EUR", confirm_box_path(@box), method: :patch, class: "buttonPrimary form-control" %>
+  <%= link_to "Confirm Your Box for:  " + @box.expected_price.to_s + " EUR", confirm_box_path(@box),
+      method: :patch,
+      class: "buttonPrimary form-control",
+      id: "confBoxBtn"  %>
   <!-- -------------- -->
   <br>
 </div>

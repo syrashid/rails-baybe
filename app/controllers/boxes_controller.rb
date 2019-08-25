@@ -10,8 +10,14 @@ class BoxesController < ApplicationController
   end
 
   def confirm
-    @box.update_attributes(status: "confirmed")
+    @box.update_attributes(status: "Confirmed")
     redirect_to boxes_path
+  end
+
+  def current
+    @user = current_user
+    @boxes = Box.where("user_id=?", @user.id)
+    @currentbox = @boxes.find_by(status: "Pending")
   end
 
   private
