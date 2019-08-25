@@ -1,6 +1,8 @@
 <div class="sycontainer">
   <div class="productconfirmation">
-    <p><strong><%= @currentcart.stock_products.last.product.name %></strong> was successfully added to your cart</p>
+    <p>
+      <strong><%= @currentcart.stock_products.last.product.name %></strong> was successfully added to your cart
+    </p>
   </div>
   <div class="currentcart">
     <h5>Your Cart</h5>
@@ -13,14 +15,17 @@
           <p><%= stockproduct.product.name %></p>
         </div>
         <div class="baybe-list">
-          <i class="far fa-trash-alt"></i>
-          <p><%= (stockproduct.condition.buy_ratio * stockproduct.product.price).round(2) %> EUR</p>
+          <p>
+            <%= link_to "", stock_product_path(stockproduct, parent: "cart"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
+            <%= stockproduct.product.price * stockproduct.condition.buy_ratio%> EUR
+          </p>
         </div>
       </div>
     <% end %>
   </div>
   <div>
     <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
+    <%#= link_to "Proceed to Checkout ", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary btn-block" %>
   </div>
 </div>
 
