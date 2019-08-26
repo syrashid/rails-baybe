@@ -1,6 +1,6 @@
 <div class="nicontainer">
   <h4>YOUR ORDERS</h4>
-  <% @boxes.each do |box| %>
+  <% @boxes.order(id: :desc).where(status: "pending").each do |box| %>
     <div class="order">
       <!-- ORDER TITLE, STATUS AND PRICE -->
       <div class="order-title">
