@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @conditions = Condition.all
     @rel_products = Product.all.sample(4)
 
     @user = current_user

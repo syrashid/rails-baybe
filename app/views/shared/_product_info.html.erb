@@ -24,7 +24,7 @@
 
       <div class="product-info-row">
         <p class="product-info-row-title">price</p>
-        <p class="product-info-row-detail"><%= @product.price %> €</p>
+        <p id= "product-price" class="product-info-row-detail"><%= @product.price %> €</p>
       </div>
 
       <div class="product-info-row">
@@ -36,7 +36,7 @@
 
       <div class="product-info-row">
         <p class="product-info-row-title">Condition</p>
-        <select class="baybe-dropdown" name="stock_product[condition]">
+        <select id="selected-condition" class="baybe-dropdown" name="stock_product[condition]">
           <%= options_for_select(@condition_groups) %>
         </select>
       </div>
@@ -58,3 +58,9 @@
     <!-- --------------- -->
   </div>
 </form>
+
+<!-- ADDED THIS TO ACCESS IT FROM PRICE-CALC JS -->
+<%= tag("div", id: "product", data: {product: @product}) %>
+<%= tag("div", id: "conditions", data: {conditions: @conditions}) %>
+
+<!-- --------------- -->
