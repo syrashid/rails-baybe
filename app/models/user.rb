@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def current_cart
     carts.find(&:pending?) || Cart.create(user: self, paid: 'pending')
   end
+
+  def current_box
+    boxes.find(&:shipping?) || Box.create(user: self, status: 'shipping')
+  end
 end
