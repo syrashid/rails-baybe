@@ -1,5 +1,6 @@
 import "bootstrap";
 
-import { priceCalc } from '../components/price_calc'
+import { priceCalc } from '../components/price_calc';
 
 priceCalc();
+
