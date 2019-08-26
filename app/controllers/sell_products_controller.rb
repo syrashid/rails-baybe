@@ -1,5 +1,7 @@
 class SellProductsController < ApplicationController
   before_action :filter_load, only: [ :index, :show ]
+  layout "applicationseller"
+
   def index
     @categories = Category.all
     # Do I need to do some protection
