@@ -15,13 +15,6 @@ class ProductsController < ApplicationController
   def show
     @conditions = Condition.all
     @rel_products = Product.all.sample(4)
-<<<<<<< HEAD
-    @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
-    @condition_groups = ['Like New', 'Very Good', 'Good', 'Acceptable']
-    @color_groups = ['Red', 'Black', 'Blue', 'Brown']
-=======
-
->>>>>>> e89e3e125f6ddead856d1cd1162474fbbaeff333
     @user = current_user
     @carts = Cart.where("user_id=?", @user.id)
     @currentcart = @carts.find_by(paid: "pending")
