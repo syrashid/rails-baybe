@@ -5,6 +5,8 @@ class Cart < ApplicationRecord
   has_many :options, through: :cart_options
   validates :paid, presence: true, inclusion: { in: STATUS }
 
+  monetize :total_price_cents
+
   STATUS.each do |state|
     define_method "#{state}?" do
       paid == state

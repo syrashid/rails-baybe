@@ -17,8 +17,23 @@ class CartsController < ApplicationController
 
   def confirm
     @cart = Cart.find(params[:id])
-    @cart.update_attributes(paid: "paid")
-    current_user.current_cart
+
+    user = Stripe::Customer.create(
+      source: params[:stripeToken],
+      email:  params[:stripeEmail]
+    )
+
+    charge = Stripe::Charge.create(
+      customer:     user.id,   # You should store this customer id and re-use it.
+      amount:       @cart.total_price_cents,
+      description:  "Payment for cart #{@cart.id}",
+      currency:     @cart.total_price.currency
+    )
+
+    @cart.update(payment: charge.to_json, paid: 'paid')
+    redirect_to carts_path
+  rescue Stripe::CardError => e
+    flash[:alert] = e.message
     redirect_to carts_path
   end
 

@@ -29,7 +29,22 @@
       <p class="box-info-title"><%= @cart.total_price %> EUR</p>
     </div>
   </div>
-  <%= link_to "Proceed to Pay " + @cart.total_price.to_s + " EUR", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary form-control" %>
+  <%#= link_to "Proceed to Pay " + @cart.total_price.to_s + " EUR", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary form-control" %>
+
+  <%= form_tag confirm_cart_path(@cart), method: :patch do %>
+    <article>
+      <label class="amount">
+        <span>Amount: <%= humanized_money_with_symbol(@cart.total_price) %></span>
+      </label>
+    </article>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button buttonPrimary"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-name="ORDER Nº: <%= @cart.id %>"
+      data-email="<%= current_user.email %>"
+      data-amount="<%= @cart.total_price_cents %>"
+      data-currency="<%= @cart.total_price.currency %>">
+    </script>
+  <% end %>
 </div>
 
 
