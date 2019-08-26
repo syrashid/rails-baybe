@@ -29,10 +29,10 @@ puts "Done Creating Users"
 printLine
 
 puts "Creating a Cart per User 🛒"
-sycart = Cart.create!(total_price: 0, paid: "Pending", user: sy)
-kavehcart = Cart.create!(total_price: 0, paid: "Pending", user: kaveh)
-chadcart = Cart.create!(total_price: 0, paid: "Pending", user: chad)
-nicocart = Cart.create!(total_price: 0, paid: "Pending", user: nico)
+sycart = Cart.create!(total_price: 0, paid: "pending", user: sy)
+kavehcart = Cart.create!(total_price: 0, paid: "pending", user: kaveh)
+chadcart = Cart.create!(total_price: 0, paid: "pending", user: chad)
+nicocart = Cart.create!(total_price: 0, paid: "pending", user: nico)
 #Leave some wiggle room for carts that have already been paid for
 
 
@@ -41,10 +41,10 @@ puts "Done Creating Carts"
 printLine
 
 puts "Creating a Box per User 📦"
-sybox = Box.create!(expected_price: 0, status: "Shipping", user: sy)
-kavehbox = Box.create!(expected_price: 0, status: "Shipping", user: kaveh)
-chadbox = Box.create!(expected_price: 0, status: "Shipping", user: chad)
-nicobox = Box.create!(expected_price: 0, status: "Shipping", user: nico)
+sybox = Box.create!(expected_price: 0, status: "shipping", user: sy)
+kavehbox = Box.create!(expected_price: 0, status: "shipping", user: kaveh)
+chadbox = Box.create!(expected_price: 0, status: "shipping", user: chad)
+nicobox = Box.create!(expected_price: 0, status: "shipping", user: nico)
 
 puts "Done Creating Boxes"
 

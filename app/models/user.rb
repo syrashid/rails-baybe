@@ -14,6 +14,6 @@ class User < ApplicationRecord
   end
 
   def current_box
-    boxes.find(&:pending?) || Box.create(user: self, status: 'pending')
+    boxes.find(&:shipping?) || Box.create(user: self, status: 'shipping')
   end
 end

@@ -1,5 +1,5 @@
 class Box < ApplicationRecord
-  STATUS = %w[pending shipping accepted rejected].freeze
+  STATUS = %w[shipping pending accepted rejected].freeze
   belongs_to :user
   has_many :stock_products
   validates :status, presence: true, inclusion: { in: STATUS }
