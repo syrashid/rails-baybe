@@ -22,6 +22,19 @@ class ProductsController < ApplicationController
     @currentcart = @carts.find_by(paid: "pending")
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   def addToCart
     stock_product = StockProduct.new
     stock_product.product = @product
@@ -43,6 +56,10 @@ class ProductsController < ApplicationController
 
   def stock_product_params
     params.require(:stock_product).permit(:color, :size, :condition)
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :gender, :age_min, :photo, :age_max, :brand, :category_id)
   end
 
   def prod_vars
