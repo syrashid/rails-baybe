@@ -10,6 +10,7 @@ class SellProductsController < ApplicationController
   end
 
   def show
+    @conditions = Condition.all
     @product = Product.find(params[:id])
     @rel_products = Product.all.sample(4)
     @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
