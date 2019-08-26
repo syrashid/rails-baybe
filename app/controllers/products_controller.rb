@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     @color_groups = ['Red', 'Black', 'Blue', 'Braun']
     @user = current_user
     @carts = Cart.where("user_id=?", @user.id)
-    @currentcart = @carts.find_by(paid: "Pending")
+    @currentcart = @carts.find_by(paid: "pending")
   end
 
   def addToCart
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
     condition = Condition.find_by("name=?", stock_product_params[:condition])
     stock_product.condition = condition
 
-    usercart = current_user.carts.find_by(paid: "Pending")
+    usercart = current_user.current_cart
     stock_product.cart = usercart
 
     stock_product.color = stock_product_params[:color]
