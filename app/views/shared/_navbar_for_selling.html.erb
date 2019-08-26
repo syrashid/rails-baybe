@@ -1,13 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top px-5 bg-w">
 
   <!-- BABYE LOGO -->
-  <%#= link_to "baybe", root_path , class: "navbar-brand" %>
 
   <%= link_to root_path, :class => "navbar-brand" do %>
     <%= cl_image_tag("https://res.cloudinary.com/syrashid/image/upload/v1566557725/baybelogo_oeccrt.png") %>
   <% end %>
 
-
+  <!-- NAVBAR OPTIONS -->
   <div class="baybe-navbar w-100">
     <div class="navbar-login">
       <%= link_to "Shop", new_user_session_path, class: "nav-link text-dark" %>
@@ -36,11 +35,11 @@
 
     <!-- SEARCH BAR -->
     <div class="navbar-right">
-      <%= render 'shared/searchbar' %>
+      <%= render 'shared/searchbarforsell' %>
       <!-- RENDER CART IF SIGNED IN -->
       <% if user_signed_in? %>
-      <%= link_to ('<i class="fas fa-baby-carriage"></i>').html_safe, cart_path(current_user.current_cart) %>
-      <p>(<%= current_user.current_cart.stock_products.count %>)</p>
+      <%= link_to ('<i class="fas fa-box-open"></i>').html_safe, box_path(current_user.current_box) %>
+      <p>(<%= current_user.current_box.stock_products.count %>)</p>
 
       <% end %>
       <!-- --------------------------- -->

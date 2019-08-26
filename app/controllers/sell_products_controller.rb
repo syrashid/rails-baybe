@@ -1,5 +1,7 @@
 class SellProductsController < ApplicationController
   before_action :filter_load, only: [ :index, :show ]
+  layout "applicationseller"
+
   def index
     @categories = Category.all
     # Do I need to do some protection
@@ -11,6 +13,7 @@ class SellProductsController < ApplicationController
   end
 
   def show
+    @conditions = Condition.all
     @product = Product.find(params[:id])
   end
 
@@ -18,7 +21,6 @@ class SellProductsController < ApplicationController
   end
 
   def addToBox
-    # @stock_product = findStockProduct(params)
     stock_product = StockProduct.new
 
     product = Product.find(params[:id])
@@ -28,7 +30,7 @@ class SellProductsController < ApplicationController
     stock_product.condition = condition
 
     # FIND CURRENT USER BOX
-    userbox = current_user.boxes.find_by(status: "Pending")
+    userbox = current_user.current_box
     stock_product.box = userbox
 
     stock_product.color = stock_product_params[:color]
