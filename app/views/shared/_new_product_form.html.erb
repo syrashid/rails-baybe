@@ -1,0 +1,10 @@
+<%= simple_form_for @product do |f|%>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :age_min %>
+  <%= f.input :age_max %>
+  <%= f.association :category, :label_method => :description, :value_method => :id %>
+  <%= f.input :brand %>
+  <%= f.input :gender %>
+  <%= f.submit "submit", class: "btn btn-primary" %>
+<% end %>
