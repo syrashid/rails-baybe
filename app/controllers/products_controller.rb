@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   def show
     @conditions = Condition.all
     @rel_products = Product.all.sample(4)
+
     @user = current_user
     @carts = Cart.where("user_id=?", @user.id)
     @currentcart = @carts.find_by(paid: "pending")
