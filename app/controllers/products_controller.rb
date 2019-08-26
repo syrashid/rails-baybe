@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :prod_vars, only: [:index, :show]
   before_action :find_prod, only: [:addToCart, :show]
 
+
   def index
     @categories = Category.all
     if params[:query].present?

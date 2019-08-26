@@ -1,0 +1,51 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top px-5 bg-w">
+
+  <!-- BABYE LOGO -->
+
+  <%= link_to root_path, :class => "navbar-brand" do %>
+    <%= cl_image_tag("https://res.cloudinary.com/syrashid/image/upload/v1566557725/baybelogo_oeccrt.png") %>
+  <% end %>
+
+  <!-- NAVBAR OPTIONS -->
+  <div class="baybe-navbar w-100">
+    <div class="navbar-login">
+      <%= link_to "Shop", new_user_session_path, class: "nav-link text-dark" %>
+      <%= link_to "Sell", sell_products_path, class: "nav-link text-dark" %>
+
+      <!-- RENDER LOGIN OR USERNAME WITH TOOLBAR IF SIGNED IN -->
+      <% if user_signed_in? %>
+
+        <div class="dropdown nav-link text-dark" >
+          <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.first_name.downcase %>
+          </div>
+          <div id="show" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'Edit Profile',edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </div>
+
+      <% else %>
+
+        <%= link_to "Login", new_user_session_path, class: "nav-link text-dark" %>
+
+      <% end %>
+      <!-- --------------------------- -->
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="navbar-right">
+      <%= render 'shared/searchbarforsell' %>
+      <!-- RENDER CART IF SIGNED IN -->
+      <% if user_signed_in? %>
+      <%= link_to ('<i class="fas fa-box-open"></i>').html_safe, box_path(current_user.current_box) %>
+      <p>(<%= current_user.current_box.stock_products.count %>)</p>
+
+      <% end %>
+      <!-- --------------------------- -->
+
+    </div>
+    <!-- --------------------------- -->
+
+  </div>
+</div>
