@@ -11,6 +11,7 @@ class SellProductsController < ApplicationController
   end
 
   def show
+    @conditions = Condition.all
     @product = Product.find(params[:id])
   end
 
