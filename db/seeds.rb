@@ -72,7 +72,7 @@ stroller2 = Product.create!(category: transport,
   price: 671.90, brand: "THULE",
   remote_photo_url: 'https://activestyle.nl/images/detailed/112/Thule_URBAN_Glide_2_Dark_shadow.jpg')
 stroller3 = Product.create!(category: transport,
-  name: "Stomp V3 All-in-One Travel System with Isofix Base",
+  name: "Stomp V3 All-in-One Travel System",
   description: "The Stomp V3 all-in-one travel system combines the latest design trends for maximum comfort and safety making life easier to easily adapt during the growth of your child from newborn to the stroller first (from birth to 6 months) to the saddle (from 6 months to 3 years) and the baby seat to travel effortlessly anywhere.
 With the all-inclusive Stomp V3 travel system you can mix and match chassis colors and fabric. It also includes multiple accessories and an isofix base compatible with the Galaxy Group 0+ car seat to create your own custom cart that attaches to the stroller chassis. The Stomp V3 with integrated isofix base is the only purchase you will need to carry your baby from day one safely and comfortably. The set includes isofix base.",
 price: 599,
@@ -85,19 +85,19 @@ crib1 = Product.create!(category: bedroom,
   price: 100, brand: "Delta",
   remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81Au2ZOQLKL._SX522_.jpg')
 crib2 = Product.create!(category: bedroom,
-  name: "2in1 Stationary&Rock Mode Bassinet One-Second Fold Travel Crib",
+  name: "2in1 Stationary&Rock Mode Bassinet",
   description: "a perfect way to upgrade your child's room décor and can easily adjust to pad any area of the room: Crib, changing table, toddler bed, junior bed.  For the childhood the braided crib bumper can be used as a pillow for snuggling during story time, play time and sleep.  Add some fun, color and style to your child's room.  It will embrace and create the coziest environment for your baby.",
   price: 85,
   brand: "MiC kids",
   remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/615xkWBPc4L._SX522_.jpg')
 crib3 = Product.create!(category: bedroom,
-  name: "LA Baby Compact Non-Folding Wooden Window Crib",
+  name: "LA Baby Compact Wooden Window Crib",
   description: "Simply arched end panels add elegance and charm to a day care and provide a cozy sleep environment for little ones during nap time. Clear acrylic panels at each end of the crib allow a caretaker to watch little ones while they sleep or play in the cozy wooden window crib. Meets the Mandatory CPSC 16 CFR 1220 regulations for non-full size cribs and is JPMA Certified Three position adjustable mattress height. Heavy duty ball bearing casters, two of which lock, are attached to the legs by a Chicago bolt system through the leg post instead of the leg bottom. This is not only a stronger system but also eliminates the danger of exposed bolt threads. Includes a deluxe thick foam mattress that is compliant with Federal Flammability standard 16 CFR 1633. Add strength and sturdiness to the 510 crib for a fire drill situation with the additional purchase of WC-504-EVA evacuation frame. Bilingual instructions in English and Spanish.",
   price: 239, brand: "LA Baby",
   remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81x8Si07dUL._SX522_.jpg')
 puts "Done Creating Cribs 🛏"
 clothing1 = Product.create!(category: clothes,
-  name: "Simple Joys by Carter's Baby Girls' 2-Pack Fleece Footed Sleep and Play",
+  name: "Simple Joys by Carter's Baby Girls' 2-Pack",
   description: "Full-zip closures promise easier outfit changes in these footed sleep-and-play suits featuring whimsical designs.",
   price: 15.67,
   brand: "Simple Joy",
