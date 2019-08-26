@@ -1,0 +1,24 @@
+.web-description {
+  display: flex;
+  margin-top: 15vh;
+  width: 85vh;
+  justify-content: space-between;
+
+  div {
+    // display: flex;
+    align-items: center;
+    margin-right: 1vh;
+    text-align: center;
+  }
+
+  p {
+    padding-left: 2vh;
+    margin: 0;
+        width: 50%;
+  }
+
+  i {
+    font-size: 24px;
+  }
+
+}
