@@ -1,46 +1,86 @@
-<div class="nicontainer">
-  <h4>YOUR CART</h4>
-  <div class="order">
-    <% @stockproducts.each do |stockProd| %>
-    <!-- ORDER STOCK PRODUCTS -->
-    <div class="baybe-list-card">
-      <div class="baybe-list">
-        <%# if stockProd.photos.any? %>
-          <%= cl_image_tag stockProd.product.photo %>
-        <%# end %>
-        <p><%= stockProd.product.name %></p>
+<div class="container d-flex justify-content-between">
+  <div class="your-cart">
+    <h4>YOUR CART</h4>
+    <div class="order">
+      <% @stockproducts.each do |stockProd| %>
+      <!-- ORDER STOCK PRODUCTS -->
+      <div class="baybe-list-card">
+        <div class="baybe-list">
+          <%# if stockProd.photos.any? %>
+            <%= cl_image_tag stockProd.product.photo %>
+          <%# end %>
+          <p><%= stockProd.product.name %></p>
+        </div>
+        <div class="baybe-list">
+          <p>
+            <%= link_to "", stock_product_path(stockProd, parent: "cart"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
+            <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
+          </p>
+        </div>
       </div>
-      <div class="baybe-list">
-        <p>
-          <%= link_to "", stock_product_path(stockProd, parent: "cart"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
-          <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
-        </p>
+      <!------------------------>
+      <% end %>
+      <div class="box-info-row">
+        <div class="box-info-title">
+          <p>TOTAL CART</p>
+          <p>
+            <i class="fas fa-gift"></i>
+          </p>
+        </div>
+        <p class="box-info-title"><%= humanized_money_with_symbol(@cart.total_price) %></p>
       </div>
     </div>
-    <!------------------------>
+    <%#= link_to "Proceed to Pay " + @cart.total_price.to_s + " EUR", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary form-control" %>
+
+    <%= form_tag confirm_cart_path(@cart), method: :patch,class: "stripe-form" do %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="ORDER Nº: <%= Time.now.strftime("%Y%m%dT%H%M") %>N<%= @cart.id %>"
+        data-email="<%= current_user.email %>"
+        data-amount="<%= @cart.total_price_cents %>"
+        data-currency="<%= @cart.total_price.currency %>">
+      </script>
     <% end %>
-    <div class="box-info-row">
-      <div class="box-info-title">
-        <p>TOTAL CART</p>
-        <p>
-          <i class="fas fa-gift"></i>
-        </p>
-      </div>
-      <p class="box-info-title"><%= humanized_money_with_symbol(@cart.total_price) %></p>
-    </div>
   </div>
-  <%#= link_to "Proceed to Pay " + @cart.total_price.to_s + " EUR", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary form-control" %>
+  <div class="delivery-address">
+    <form>
+      <h4>DELIVERY ADDRESS</h4>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">First Name</label>
+          <input type="text" class="form-control" id="inputEmail4" placeholder="Chad">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Last Name</label>
+          <input type="text" class="form-control" id="inputPassword4" placeholder="Saglam">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Zürich">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputCountry">Country</label>
+          <input type="text" class="form-control" id="inputCountry" placeholder="Switzerland">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <input type="text" class="form-control" id="inputZip" placeholder="8307">
+        </div>
+      </div>
 
-  <%= form_tag confirm_cart_path(@cart), method: :patch,class: "stripe-form" do %>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-name="ORDER Nº: <%= Time.now.strftime("%Y%m%dT%H%M") %>N<%= @cart.id %>"
-      data-email="<%= current_user.email %>"
-      data-amount="<%= @cart.total_price_cents %>"
-      data-currency="<%= @cart.total_price.currency %>">
-    </script>
-  <% end %>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+  </div>
 </div>
-
 
 
