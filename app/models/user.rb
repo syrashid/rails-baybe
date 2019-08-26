@@ -8,4 +8,12 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   mount_uploader :avatar, PhotoUploader
+
+  def current_cart
+    carts.find(&:pending?) || Cart.create(user: self, paid: 'pending')
+  end
+
+  def current_box
+    boxes.find(&:shipping?) || Box.create(user: self, status: 'shipping')
+  end
 end

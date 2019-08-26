@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
+  before_action :prod_vars, only: [:index, :show]
+  before_action :find_prod, only: [:addToCart, :show]
+
   def index
     @categories = Category.all
-    @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
-    @condition_groups = ['Like New', 'Very Good', 'Good', 'Acceptable']
-    # Do I need to do some protection
     if params[:query].present?
       @products = Product.search_by_name_and_description(params[:query])
     else
@@ -13,26 +13,28 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @conditions = Condition.all
     @rel_products = Product.all.sample(4)
+<<<<<<< HEAD
     @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
     @condition_groups = ['Like New', 'Very Good', 'Good', 'Acceptable']
     @color_groups = ['Red', 'Black', 'Blue', 'Brown']
+=======
+
+>>>>>>> e89e3e125f6ddead856d1cd1162474fbbaeff333
     @user = current_user
     @carts = Cart.where("user_id=?", @user.id)
-    @currentcart = @carts.find_by(paid: "Pending")
+    @currentcart = @carts.find_by(paid: "pending")
   end
 
   def addToCart
     stock_product = StockProduct.new
-
-    product = Product.find(params[:id])
-    stock_product.product = product
+    stock_product.product = @product
 
     condition = Condition.find_by("name=?", stock_product_params[:condition])
     stock_product.condition = condition
 
-    usercart = current_user.carts.find_by(paid: "Pending")
+    usercart = current_user.current_cart
     stock_product.cart = usercart
 
     stock_product.color = stock_product_params[:color]
@@ -42,7 +44,19 @@ class ProductsController < ApplicationController
     redirect_to current_cart_path(usercart)
   end
 
+  private
+
   def stock_product_params
     params.require(:stock_product).permit(:color, :size, :condition)
+  end
+
+  def prod_vars
+    @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
+    @condition_groups = ['Like New', 'Very Good', 'Good', 'Acceptable']
+    @color_groups = ['Red', 'Black', 'Blue', 'Braun']
+  end
+
+  def find_prod
+    @product = Product.find(params[:id])
   end
 end

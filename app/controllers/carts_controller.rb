@@ -1,10 +1,8 @@
 class CartsController < ApplicationController
-  before_action :find_info, only: [:index, :current, :show, :sum_total]
-  after_action :sum_total
+  before_action :find_info, only: [ :index, :current, :show, :sum_total]
+  after_action :sum_total, only: [ :current, :show ]
 
   def index
-    @newcart = Cart.create(paid: "Pending", user: @user)
-    @currentcart.update(paid: "Paid")
   end
 
   def show
@@ -19,8 +17,9 @@ class CartsController < ApplicationController
 
   def confirm
     @cart = Cart.find(params[:id])
-    @cart.update_attributes(paid: "confirmed")
-    redirect_to current_cart_path
+    @cart.update_attributes(paid: "paid")
+    current_user.current_cart
+    redirect_to carts_path
   end
 
   private
@@ -36,6 +35,6 @@ class CartsController < ApplicationController
   def find_info
     @user = current_user
     @carts = Cart.where("user_id=?", @user.id)
-    @currentcart = @carts.find_by(paid: "Pending")
+    @currentcart = current_user.current_cart
   end
 end
