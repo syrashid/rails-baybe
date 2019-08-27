@@ -1,8 +1,14 @@
 <div class="sycontainer">
   <div class="productconfirmation">
-    <p>
-      <strong><%= @currentcart.stock_products.last.product.name %></strong> was successfully added to your cart
-    </p>
+    <% if @currentcart.stock_products.any? %>
+      <p>
+        <strong><%= @currentcart.stock_products.last.product.name %></strong> was successfully added to your cart
+     </p>
+    <% else %>
+      <p>
+        You currently don't have any products in your Cart!
+      </p>
+    <% end %>
   </div>
   <div class="currentcart">
     <h5>Your Cart</h5>
@@ -24,7 +30,11 @@
     <% end %>
   </div>
   <div>
-    <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
+    <% if @currentcart.stock_products.any? %>
+      <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
+    <% else %>
+      <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary btn-block" %>
+    <% end %>
   </div>
 </div>
 
