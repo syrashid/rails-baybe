@@ -183,6 +183,13 @@ puts "Done Creating Stock_Products for Each Product 🥵"
 
 printLine
 
+puts "Creating options Gift and Address"
+
+gift = Option.create!(name: "gift")
+address = Option.create!(name: "address")
+
+printLine
+
 # puts "Adding Photos to each Stock_Product 📸"
 # photo1 = Photo.create(stock_product: strollerprod1, remote_photolink_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
 # photo2 = Photo.create(stock_product: strollerprod2, remote_photolink_url: 'https://cdn.shopify.com/s/files/1/1267/0473/products/icandy-peach-stroller-phantom-dove-grey-2_2000x.jpg')
