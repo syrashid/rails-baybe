@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       patch "confirm"
       get 'current'
     end
+    resources :payments, only: [:new, :create]
   end
 
   resources :boxes, only: [ :index, :show, :destroy ] do

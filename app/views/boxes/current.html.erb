@@ -1,8 +1,14 @@
 <div class="sycontainer">
   <div class="productconfirmation">
-    <p>
-      <strong><%= @currentbox.stock_products.last.product.name %></strong> was successfully added to your cart
-    </p>
+    <% if @currentbox.stock_products.last.product.empty? %>
+      <p>
+        Currently don't have any Cart!
+      </p>
+    <% else %>
+      <p>
+        <strong><%= @currentbox.stock_products.last.product.name %></strong> was successfully added to your cart
+      </p>
+    <% end %>
   </div>
   <div class="currentbox">
     <h5>Your Cart</h5>
@@ -25,6 +31,5 @@
   </div>
   <div>
     <%= link_to "Proceed to Confirmation", box_path(@currentbox), class: "buttonPrimary btn-block" %>
-    <%#= link_to "Proceed to Checkout ", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary btn-block" %>
   </div>
 </div>
