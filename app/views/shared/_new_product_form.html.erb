@@ -6,5 +6,9 @@
   <%= f.association :category, :label_method => :description, :value_method => :id %>
   <%= f.input :brand %>
   <%= f.input :gender %>
+  <%= f.input :photo %>
+  <% if current_user.admin %>
+    <%= f.input :public %>
+  <% end %>
   <%= f.submit "submit", class: "btn btn-primary" %>
 <% end %>
