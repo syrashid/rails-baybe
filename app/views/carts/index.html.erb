@@ -1,11 +1,11 @@
 <div class="nicontainer">
   <h4>YOUR ORDERS</h4>
-  <% @carts.order(id: :desc).where(paid: "paid").each do |cart| %>
+  <% @carts.order(id: :desc).active.each do |cart| %>
     <div class="order">
       <!-- ORDER TITLE, STATUS AND PRICE -->
       <div class="order-title">
         <div class="order-title">
-          <p>ORDER Nº: <%= cart.id %> - </p>
+          <p>ORDER Nº: <%= cart.updated_at.strftime("%Y%m%dT%H%M") %>N<%= cart.id %> - </p>
           <p class="status"> <%= cart.paid %></p>
         </div>
         <p><%= cart.total_price %> EUR</p>
