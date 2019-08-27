@@ -1,6 +1,6 @@
 <div class="sycontainer">
   <div class="productconfirmation">
-    <% if @currentbox.stock_products.last.product.empty? %>
+    <% if @currentbox.stock_products.any? %>
       <p>
         Currently don't have any Cart!
       </p>
