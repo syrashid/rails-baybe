@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
   before_action :prod_vars, only: [:index, :show]
-  before_action :find_prod, only: [:addToCart, :show]
+  before_action :find_prod, only: [:addToCart, :show, :edit, :update]
 
 
   def index
@@ -35,6 +35,20 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @product.update_attributes(product_params)
+      redirect_to review_products_path
+    else
+      render :edit
+    end
+  end
+  def review_products
+    @products = Product.where(public: false)
+  end
+
   def addToCart
     stock_product = StockProduct.new
     stock_product.product = @product
@@ -59,7 +73,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :gender, :age_min, :photo, :age_max, :brand, :category_id)
+    params.require(:product).permit(:name, :description, :price, :public, :gender, :age_min, :photo, :age_max, :brand, :category_id)
   end
 
   def prod_vars
