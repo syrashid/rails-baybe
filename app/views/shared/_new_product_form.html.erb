@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-lg-6 offset-lg-3">
-      <h2 class="text-center mr-5">Add Product Details</h2>
+      <h2 class="text-center mr-10">Add Product Details</h2>
       <br>
       <%= simple_form_for @product do |f|%>
       <%= f.input :name %>
@@ -13,8 +13,8 @@
       <%= f.input :gender %>
       <%= f.input :photo %>
       <% if current_user.admin %>
-      <%= f.input :price %>
-      <%= f.input :public %>
+        <%= f.input :price %>
+        <%= f.input :public %>
       <% end %>
       <%= f.submit "submit", class: "btn btn-primary" %>
       <% end %>
