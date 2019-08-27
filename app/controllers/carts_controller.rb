@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   after_action :sum_total, only: [ :current, :show ]
 
   def index
+    @activecarts = @carts.active
   end
 
   def show
@@ -16,7 +17,7 @@ class CartsController < ApplicationController
   end
 
   def confirm
-    @cart = Cart.find(params[:id])
+    @cart = current_user.current_cart
 
     user = Stripe::Customer.create(
       source: params[:stripeToken],
