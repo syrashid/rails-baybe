@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
 
 
   def index
+    @max_buy_ratio = Condition.find_by("name=?", "Like New").buy_ratio
+    @min_buy_ratio = Condition.find_by("name=?", "Acceptable").buy_ratio
     @categories = Category.all
     if params[:query].present?
       @products = Product.search_by_name_and_description(params[:query])
@@ -15,6 +17,8 @@ class ProductsController < ApplicationController
 
   def show
     @conditions = Condition.all
+    @ratio = Condition.find_by("name=?", "Like New").buy_ratio
+
     @rel_products = Product.all.sample(4)
 
     @user = current_user

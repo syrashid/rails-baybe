@@ -14,6 +14,7 @@ class SellProductsController < ApplicationController
 
   def show
     @conditions = Condition.all
+    @ratio = Condition.find_by("name=?", "Like New").sell_ratio
     @product = Product.find(params[:id])
   end
 
