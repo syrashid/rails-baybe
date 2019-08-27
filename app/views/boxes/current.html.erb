@@ -1,12 +1,12 @@
 <div class="sycontainer">
   <div class="productconfirmation">
-    <% if @currentbox.stock_products.last.product.empty? %>
+    <% if @currentbox.stock_products.any? %>
       <p>
-        Currently don't have any Cart!
+        <strong><%= @currentbox.stock_products.last.product.name %></strong> was successfully added to your box
       </p>
     <% else %>
       <p>
-        <strong><%= @currentbox.stock_products.last.product.name %></strong> was successfully added to your cart
+        Currently don't have any Cart!
       </p>
     <% end %>
   </div>
@@ -22,7 +22,7 @@
         </div>
         <div class="baybe-list">
           <p>
-            <%= link_to "", stock_product_path(stockproduct, parent: "cart"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
+            <%= link_to "", stock_product_path(stockproduct, parent: "box"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
             <%= stockproduct.product.price * stockproduct.condition.buy_ratio%> EUR
           </p>
         </div>
