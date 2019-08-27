@@ -25,11 +25,13 @@ class CartsController < ApplicationController
     )
 
     charge = Stripe::Charge.create(
-      customer:     user.id,   # You should store this customer id and re-use it.
+      customer:     user.id, # You should store this customer id and re-use it.
       amount:       @cart.total_price_cents,
       description:  "Payment for cart #{@cart.id}",
       currency:     @cart.total_price.currency
     )
+
+    cart_options = CartOption.new()
 
     @cart.update(payment: charge.to_json, paid: 'paid')
     redirect_to carts_path
