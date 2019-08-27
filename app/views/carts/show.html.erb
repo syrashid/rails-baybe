@@ -95,6 +95,10 @@
       </div>
     </div>
   </div>
+  <% if @cart.stock_products.any? %>
+  <%= link_to "Proceed to Pay" + @cart.total_price.to_s + " EUR", confirm_cart_path(@cart), method: :patch, class: "buttonPrimary form-control" %>
+  <% else %>
+  <%= link_to "Add Items to Cart", products_path, class: "buttonPrimary form-control" %>
   <% end %>
 </div>
 
