@@ -1,6 +1,15 @@
 import swal from 'sweetalert';
 
-const initSweetalert = (selector, options = {}, callback = () => {}) => {
+const initSweetalert = (selector, options = {}) => {
+  const swalButton = document.querySelector(selector);
+  if (swalButton) { // protect other pages
+    swalButton.addEventListener('click', () => {
+      swal(options);
+    });
+  }
+};
+
+const initSweetalertCallback = (selector, options = {}, callback = () => {}) => {
   const swalButton = document.querySelector(selector);
   if (swalButton) { // protect other pages
     swalButton.addEventListener('click', () => {
@@ -9,8 +18,20 @@ const initSweetalert = (selector, options = {}, callback = () => {}) => {
   }
 };
 
+const currentCart = document.querySelector('.currentcart')
+if (currentCart) {
+  console.log(currentCart)
+  swal({
+    title: "A nice alert",
+    text: "<%= @currentcart.stock_products.last.product.name %>",
+    icon: "success",
+    timer: 9000
+  })
+}
 
-initSweetalert('#sweet-alert-demo', {
+
+
+initSweetalertCallback('#sweet-alert-demo', {
   title: "Are you sure?",
   text: "Are you sure the delete product?",
   icon: "warning",
@@ -24,4 +45,5 @@ initSweetalert('#sweet-alert-demo', {
 });
 
 export { initSweetalert };
+export { initSweetalertCallback };
 
