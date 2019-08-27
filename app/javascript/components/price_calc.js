@@ -5,13 +5,14 @@ const priceCalc = () => {
   if (buyProduct || sellProduct) {
     const select_condition = document.getElementById("selected-condition")
     const price = document.getElementById("product-price")
+    const savings = document.getElementById("savings")
+
 
     function calculateTotalPrice() {
 
       var condition = document.getElementById("selected-condition").value
 
       const conds = document.getElementById('conditions')
-      console.log(conds);
       const conditions = JSON.parse(conds.dataset["conditions"])
 
       var prod = document.getElementById('product')
@@ -19,15 +20,21 @@ const priceCalc = () => {
 
       if (buyProduct) {
         var buy_ratio = conditions.find(element => element.name === condition).buy_ratio
-        price.innerText = `${Math.round(prod_price * buy_ratio, 2)} €`;
+        var new_price = Math.round(prod_price * buy_ratio, 2)
+        price.innerText = `${new_price} €`;
+        savings.innerText = `save ${ 100 - (buy_ratio * 100) }%`;
 
       } else if (sellProduct) {
         var sell_ratio = conditions.find(element => element.name === condition).sell_ratio
-        price.innerText = `${Math.round(prod_price * sell_ratio, 2)} €`;
+        var new_price = Math.round(prod_price * sell_ratio, 2)
+        price.innerText = `${new_price} €`;
+        savings.innerText = ``;
       }
     }
 
     select_condition.addEventListener("change", calculateTotalPrice)
+
+    calculateTotalPrice();
   }
 }
 

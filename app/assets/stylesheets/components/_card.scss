@@ -107,6 +107,24 @@
     // outline: 0;
     opacity: 0.9;
   }
+
+  #product-price {
+    position: absolute;
+    top: -2%;
+    left: 2%;
+    opacity: 1;
+    font-size: 6vh;
+  }
+
+  #savings {
+    position: absolute;
+    top: 6%;
+    left: 2%;
+    opacity: 1;
+    font-size: 3vh;
+    color: $blue;
+    text-transform: none;
+  }
 }
 
 .baybe-list-card {
