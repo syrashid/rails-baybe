@@ -1,5 +1,6 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :confirm]
+  layout "applicationseller"
 
   def index
     @boxes = Box.where("user_id=?", current_user.id)

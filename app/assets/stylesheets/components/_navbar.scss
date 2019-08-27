@@ -39,7 +39,7 @@
   .navbar-login, .navbar-search, .navbar-cart {
     display: flex;
   }
-
+}
 // LE WAGON SEARCH CSS
 .search-form-control {
   position: relative;
@@ -59,7 +59,7 @@
 
 .search-form-control .form-control {
   height: 2.4rem;
-  background-color: $light-blue;
+  background-color: white;
   width: 35rem;
   border: none;
 
@@ -75,6 +75,23 @@
   border: none !important;
 }
 
+.selling {
+  .searchbar {
+    background-color: $light-red !important;
+  }
+
+  .buttonPrimarySearch {
+    background-color: $red;
+  }
+
+  a {
+    color: $red;
+  }
+
+  .navbar-right p {
+    color: $red;
+  }
+}
 
 .navbar-right {
   display: flex;
@@ -83,7 +100,12 @@
 
   .form-inline {
     margin-right: 20px;
+
+    .searchbar {
+      background-color: $light-blue;
+    }
     .search {
+
       .form-group {
         margin: 0;
       }
@@ -105,13 +127,13 @@
   }
 }
 
-  .navbar-cart{
-    .fa-shopping-cart:before {
-      margin-right: 10px;
-    }
+.navbar-cart{
+  .fa-shopping-cart:before {
+    margin-right: 10px;
   }
-
 }
+
+
 
 
 #show {
@@ -121,3 +143,5 @@
     background-color: #ffffff6e;
   }
 }
+
+

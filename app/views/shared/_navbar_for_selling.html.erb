@@ -1,16 +1,18 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top px-5">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top px-5 bg-w">
+
   <!-- BABYE LOGO -->
+
   <%= link_to root_path, :class => "navbar-brand" do %>
     <%= cl_image_tag("https://res.cloudinary.com/syrashid/image/upload/v1566557725/baybelogo_oeccrt.png") %>
   <% end %>
 
-
+  <!-- NAVBAR OPTIONS -->
   <div class="baybe-navbar w-100">
     <div class="navbar-login">
       <%= link_to "Shop", products_path, class: "nav-link text-dark" %>
       <%= link_to "Sell", sell_products_path, class: "nav-link text-dark" %>
 
-      <!-- DIFFERENT NAVBAR IF SIGNED IN -->
+      <!-- RENDER LOGIN OR USERNAME WITH TOOLBAR IF SIGNED IN -->
       <% if user_signed_in? %>
 
         <div class="dropdown nav-link text-dark" >
@@ -30,5 +32,20 @@
       <% end %>
       <!-- --------------------------- -->
     </div>
+
+    <!-- SEARCH BAR -->
+    <div class="navbar-right">
+      <%= render 'shared/searchbarforsell' %>
+      <!-- RENDER CART IF SIGNED IN -->
+      <% if user_signed_in? %>
+      <%= link_to ('<i class="fas fa-box-open"></i>').html_safe, box_path(current_user.current_box) %>
+      <p>(<%= current_user.current_box.stock_products.count %>)</p>
+
+      <% end %>
+      <!-- --------------------------- -->
+
+    </div>
+    <!-- --------------------------- -->
+
   </div>
 </div>

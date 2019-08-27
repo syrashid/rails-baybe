@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
   before_action :prod_vars, only: [:index, :show]
-  before_action :find_prod, only: [:addToCart, :show]
+  before_action :find_prod, only: [:addToCart, :show, :edit, :update]
+
 
   def index
     @categories = Category.all
@@ -19,6 +20,33 @@ class ProductsController < ApplicationController
     @user = current_user
     @carts = Cart.where("user_id=?", @user.id)
     @currentcart = @carts.find_by(paid: "pending")
+  end
+
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @product.update_attributes(product_params)
+      redirect_to review_products_path
+    else
+      render :edit
+    end
+  end
+  def review_products
+    @products = Product.where(public: false)
   end
 
   def addToCart
@@ -42,6 +70,10 @@ class ProductsController < ApplicationController
 
   def stock_product_params
     params.require(:stock_product).permit(:color, :size, :condition)
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :public, :gender, :age_min, :photo, :age_max, :brand, :category_id)
   end
 
   def prod_vars

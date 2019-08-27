@@ -14,14 +14,9 @@
   </head>
 
   <!-- something -->
-
-  <% if current_page?(root_path) %>
-  <body class="home-page <%= theme %>">
-    <%= render 'shared/navbar' %>
-  <% else %>
   <body class="<%= theme %>">
-    <%= render 'shared/navbar_with_search' %>
-  <% end %>
+    <%= render 'shared/navbar_for_selling' %>
+
 
     <%= render 'shared/flashes' %>
     <%= yield %>
@@ -31,5 +26,3 @@
     <%= render 'shared/footer' %>
   </body>
 </html>
-
-

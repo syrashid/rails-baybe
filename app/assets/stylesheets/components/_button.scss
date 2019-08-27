@@ -12,6 +12,15 @@
   border: none;
 }
 
+.selling .buttonPrimary  {
+  background-color: $red;
+  color: $white !important;
+}
+
+.selling .options div {
+  border: 1px solid $red;
+}
+
 .buttonPrimary:hover {
   opacity: 0.7;
   transition: opacity 1s ease-out;
@@ -56,3 +65,4 @@
 .form-control {
   height: inherit;
 }
+
