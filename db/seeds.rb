@@ -20,19 +20,19 @@ Condition.destroy_all
 printLine
 
 puts "Creating Users 😀"
-sy = User.create!(first_name: "Sy", last_name: "Rashid", email: "sy@gmail.com", password: "holla123")
-kaveh = User.create!(first_name: "Kaveh", last_name: "Jalilian", email: "kaveh@gmail.com", password: "password")
-chad = User.create!(first_name: "Chad", last_name: "Saglam", email: "chad@gmail.com", password: "password")
-nico = User.create!(first_name: "Nico", last_name: "Proto", email: "nico@gmail.com", password: "password")
+sy = User.create!(first_name: "Sy", last_name: "Rashid", email: "sy@gmail.com", password: "holla123", address: "Carrer d'en Grassot, 101, 08025 Barcelona")
+kaveh = User.create!(first_name: "Kaveh", last_name: "Jalilian", email: "kaveh@gmail.com", password: "password", address: "Carrer d'en Grassot, 101, 08025 Barcelona")
+chad = User.create!(first_name: "Chad", last_name: "Saglam", email: "chad@gmail.com", password: "password", address: "Carrer d'en Grassot, 101, 08025 Barcelona")
+nico = User.create!(first_name: "Nico", last_name: "Proto", email: "nico@gmail.com", password: "password", address: "Carrer d'en Grassot, 101, 08025 Barcelona")
 puts "Done Creating Users"
 
 printLine
 
 puts "Creating a Cart per User 🛒"
-sycart = Cart.create!(total_price: 0, paid: "pending", user: sy)
-kavehcart = Cart.create!(total_price: 0, paid: "pending", user: kaveh)
-chadcart = Cart.create!(total_price: 0, paid: "pending", user: chad)
-nicocart = Cart.create!(total_price: 0, paid: "pending", user: nico)
+sycart = Cart.create!(total_price_cents: 0, paid: "pending", user: sy)
+kavehcart = Cart.create!(total_price_cents: 0, paid: "pending", user: kaveh)
+chadcart = Cart.create!(total_price_cents: 0, paid: "pending", user: chad)
+nicocart = Cart.create!(total_price_cents: 0, paid: "pending", user: nico)
 #Leave some wiggle room for carts that have already been paid for
 
 
