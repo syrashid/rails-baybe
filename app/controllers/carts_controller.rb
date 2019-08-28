@@ -7,7 +7,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    @cart = Cart .find(params[:id])
+    @cart = Cart.find(params[:id])
     @stockproducts = @cart.stock_products
     @rel_products = Product.all.sample(4)
   end
@@ -31,9 +31,32 @@ class CartsController < ApplicationController
       currency:     @cart.total_price.currency
     )
 
-    cart_options = CartOption.new()
+    # CART OPTIONS PART
+    if params[:gift] == "on"
+      @gift_option = Option.find_by("name=?", "gift")
 
+      @cart_gift_option = CartOption.new
+      @cart_gift_option.cart = @cart
+      @cart_gift_option.option = @gift_option
+
+      @cart_gift_option.save!
+    end
+
+    @address_option = Option.find_by("name=?", "address")
+
+    @cart_address_option = CartOption.new
+    @cart_address_option.cart = @cart
+    @cart_address_option.option = @address_option
+
+    params[:delivery_place] == "home" ? @address = current_user.address : @address = "#{params[:address]}, #{params[:address2]}, #{params[:city]}, #{params[:country]}, #{params[:zip]}"
+
+    @cart_address_option.content = @address
+
+    @cart_address_option.save!
+
+    # -----------------
     @cart.update(payment: charge.to_json, paid: 'paid')
+
     redirect_to carts_path
   rescue Stripe::CardError => e
     flash[:alert] = e.message

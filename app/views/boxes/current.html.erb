@@ -6,7 +6,7 @@
       </p>
     <% else %>
       <p>
-        Currently don't have any Cart!
+        You currently don't have any products in your Box!
       </p>
     <% end %>
   </div>
@@ -32,6 +32,10 @@
     <% end %>
   </div>
   <div>
+    <% if @currentbox.stock_products.any? %>
     <%= link_to "Proceed to Confirmation", box_path(@currentbox), class: "buttonPrimary btn-block" %>
+    <% else %>
+    <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary btn-block" %>
+    <% end %>
   </div>
 </div>

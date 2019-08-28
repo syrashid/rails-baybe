@@ -17,7 +17,14 @@
             </p>
           </div>
       </div>
-      <!------------------------>
+      <div class="baybe-list">
+        <p>
+          <%= link_to "", stock_product_path(stockProd, parent: "box"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
+          <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
+        </p>
+      </div>
+    </div>
+    <!------------------------>
     <% end %>
     <div class="box-info-row">
       <div class="box-info-title">
@@ -29,11 +36,15 @@
       <p class="box-info-title"><%= @box.expected_price %>  EUR</p>
     </div>
   </div>
-  <!-- PRIMARY BUTTON -->
-  <%= link_to "Confirm Your Box for:  " + @box.expected_price.to_s + " EUR", confirm_box_path(@box),
-      method: :patch,
-      class: "buttonPrimary form-control",
-      id: "confBoxBtn"  %>
-  <!-- -------------- -->
-  <br>
-</div>
+
+  <% if @stockproducts.any? %>
+    <%= link_to "Confirm Your Box for:  " + @box.expected_price.to_s + " EUR", confirm_box_path(@box),
+    method: :patch,
+    class: "buttonPrimary form-control",
+    id: "confBoxBtn"  %>
+  <% else %>
+    <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary btn-block" %>
+  <% end %>
+
+    <br>
+  </div>
