@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   resources :stock_products, only: :destroy
 
   get 'filtercategory', to: 'products#filter_category', as: :filt_cat
+  get 'filtercondition', to: 'products#filter_condition', as: :filt_con
 end
