@@ -26,21 +26,25 @@ class ProductsController < ApplicationController
     @currentcart = @carts.find_by(paid: "pending")
   end
 
-  def filtertransport
+  def filter_transport
+    @max_buy_ratio = Condition.find_by("name=?", "Like New").buy_ratio
+    @min_buy_ratio = Condition.find_by("name=?", "Acceptable").buy_ratio
     if params[:query].present?
-      @prods = Product.search_by_name_and_description(params[:query])
+      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
     end
-    @transprods = @prods.select { |prod| prod.category.description == "Transport" }
-    raise
+    @products = @searchprods.select { |prod| prod.category.description == "Transport" }
+    respond_to do |format|
+      format.js { render :filtertransport}
+    end
   end
 
-  def filterbedroom
+  def filter_bedroom
   end
 
-  def filterclothes
+  def filter_clothes
   end
 
-  def filtertoys
+  def filter_toys
   end
 
   def new

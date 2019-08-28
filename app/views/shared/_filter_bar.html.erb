@@ -6,14 +6,14 @@
           class: "navbar-text filter-active" %>
       <% @categories.each do |category| %>
         <%= link_to category.description,
-            trans_prod_path,
+            trans_prod_path(query: params[:query]),
             class: "navbar-text",
-            remote: true  %>
+            remote: true %>
       <% end %>
     </div>
 
     <div class="filter-bar all-age">
-      <%= link_to "All Categories",
+      <%= link_to "All Ages",
           products_path,
           class: "navbar-text filter-active" %>
       <% @age_groups.each do |size| %>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="filter-bar all-conditions">
-      <%= link_to "All Categories",
+      <%= link_to "All Conditions",
           products_path,
           class: "navbar-text filter-active" %>
       <% @condition_groups.each do |condition| %>
