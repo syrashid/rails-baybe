@@ -49,9 +49,27 @@ class ProductsController < ApplicationController
   end
 
   def filter_clothes
+    if params[:query].present?
+      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
+      @products = @searchprods.select { |prod| prod.category.description == "Clothes" }
+    else
+      @products = Category.find_by(description: "Clothes").products
+    end
+    respond_to do |format|
+      format.js { render :filtercategory }
+    end
   end
 
   def filter_toys
+    if params[:query].present?
+      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
+      @products = @searchprods.select { |prod| prod.category.description == "Toys" }
+    else
+      @products = Category.find_by(description: "Toys").products
+    end
+    respond_to do |format|
+      format.js { render :filtercategory }
+    end
   end
 
   def new
