@@ -4,18 +4,24 @@
     <% @stockproducts.each do |stockProd| %>
       <!-- ORDER STOCK PRODUCTS -->
       <div class="baybe-list-card">
-        <div class="baybe-list">
-          <%= cl_image_tag stockProd.product.photo %>
-          <p><%= stockProd.product.name %></p>
-        </div>
-        <div class="baybe-list">
-          <p>
-            <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
-            <%= link_to "", stock_product_path(stockProd, parent: "box"),method: :delete, id: "delete-link", class: "hidden" %>
-            &nbsp &nbsp
-            <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
-          </p>
-        </div>
+          <div class="baybe-list">
+            <%= cl_image_tag stockProd.product.photo %>
+            <p><%= stockProd.product.name %></p>
+          </div>
+          <div class="baybe-list">
+            <p>
+              <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
+              <%= link_to "", stock_product_path(stockProd, parent: "box"),method: :delete, id: "delete-link", class: "hidden" %>
+              &nbsp &nbsp
+              <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
+            </p>
+          </div>
+      </div>
+      <div class="baybe-list">
+        <p>
+          <%= link_to "", stock_product_path(stockProd, parent: "box"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
+          <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
+        </p>
       </div>
     </div>
     <!------------------------>
