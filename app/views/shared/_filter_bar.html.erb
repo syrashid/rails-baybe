@@ -18,7 +18,11 @@
           products_path,
           class: "navbar-text filter-active-con" %>
       <% @condition_groups.each do |condition| %>
-        <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search " class="navbar-text"><%= condition %></a>
+        <%= link_to condition,
+            filt_con_path(query: params[:query], con: condition),
+            class: "navbar-text",
+            id: condition,
+            remote: true  %>
       <% end %>
     </div>
   </div>

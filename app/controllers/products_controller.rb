@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
   before_action :prod_vars, only: [:index, :show]
   before_action :find_prod, only: [:addToCart, :show, :edit, :update]
-  before_action :load_ratios, only: [:index, :filter_category]
+  before_action :load_ratios, only: [:index, :filter_category, :filter_condition]
 
   def index
     @categories = Category.all
@@ -34,6 +34,23 @@ class ProductsController < ApplicationController
     @cat = params[:cat]
     respond_to do |format|
       format.js { render :filtercategory }
+    end
+  end
+
+  def filter_condition
+    if params[:query].present?
+      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:stock_products)
+      @products = @searchprods.select do |product|
+        product.stock_products.find { |stock_product| stock_product.condition.name == params[:con] }
+      end
+    else
+      @products = Product.all.select do |product|
+        product.stock_products.find { |stock_product| stock_product.condition.name == params[:con] }
+      end
+    end
+    @con = params[:con]
+    respond_to do |format|
+      format.js { render :filtercondition }
     end
   end
 
