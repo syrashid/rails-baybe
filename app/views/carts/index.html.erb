@@ -8,9 +8,14 @@
           <p>ORDER Nº: <%= cart.updated_at.strftime("%Y%m%dT%H%M") %>N<%= cart.id %> - </p>
           <p class="status"> <%= cart.paid %></p>
         </div>
+
+        <p class="nav-link text-dark" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> Delivery Address
+        </p>
+
         <p><%= cart.total_price %> EUR</p>
       </div>
       <!------------------------>
+
        <% cart.cart_options.each do |option| %>
           <% if option.content %>
             <p><strong>Address:</strong> <%= option.content %></p>
