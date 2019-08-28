@@ -20,12 +20,22 @@ const initSweetalertCallback = (selector, options = {}, callback = () => {}) => 
 
 const currentCart = document.querySelector('.currentcart')
 if (currentCart) {
-  console.log(currentCart)
   swal({
-    title: "A nice alert",
-    text: "<%= @currentcart.stock_products.last.product.name %>",
+    title: "Your Product",
+    text: "Selected produckt added successfully!",
     icon: "success",
-    timer: 9000
+    timer: 4000
+  })
+}
+
+
+const order = document.querySelector('.order-title')
+if (order) {
+  swal({
+    title: "Your Product",
+    text: "You order Paid, as soon as will be traking in your adress!",
+    icon: "success",
+    timer: 5000
   })
 }
 
