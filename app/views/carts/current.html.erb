@@ -33,7 +33,11 @@
     <% end %>
   </div>
   <div>
-    <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
+    <% if @currentcart.stock_products.any? %>
+      <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
+    <% else %>
+      <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary btn-block" %>
+    <% end %>
   </div>
 </div>
 
