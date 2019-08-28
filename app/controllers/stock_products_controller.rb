@@ -1,4 +1,6 @@
 class StockProductsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def destroy
     @stockproduct = StockProduct.find(params[:id])
     parent = params[:parent]
@@ -7,6 +9,13 @@ class StockProductsController < ApplicationController
     elsif parent == "cart"
       @stockproduct.update_attributes(cart_id: nil)
     end
-    redirect_back(fallback_location: root_path)
+    @stockproduct.destroy
+    respond_to do |format|
+      format.js {
+            render :template => 'carts/destroy.js.erb', :layout => false
+        }
+      format.html{ redirect_to root_path }
+    end
+    #redirect_back(fallback_location: root_path)
   end
 end
