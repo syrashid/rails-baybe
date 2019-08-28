@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
     else
       @products = Category.find_by(description: params[:cat]).products
     end
+    @cat = params[:cat]
     respond_to do |format|
       format.js { render :filtercategory }
     end

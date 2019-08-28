@@ -23,7 +23,19 @@
   }
 }
 
-.filter-active {
+.filter-active-cat {
+  font-weight: 700;
+  text-decoration: underline !important;
+  opacity: 0.9 !important;
+}
+
+.filter-active-age {
+  font-weight: 700;
+  text-decoration: underline !important;
+  opacity: 0.9 !important;
+}
+
+.filter-active-con {
   font-weight: 700;
   text-decoration: underline !important;
   opacity: 0.9 !important;
