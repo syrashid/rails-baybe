@@ -2,8 +2,14 @@
     background-color: white;
 }
 
+.relative {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
 .navbar-lewagon {
-  // background: white;
+
 
   a {
     text-transform: lowercase;
