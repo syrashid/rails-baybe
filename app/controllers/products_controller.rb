@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
       @prods = Product.search_by_name_and_description(params[:query])
     end
     @transprods = @prods.select { |prod| prod.category.description == "Transport" }
+    raise
   end
 
   def filterbedroom

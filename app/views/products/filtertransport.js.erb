@@ -1,5 +1,8 @@
 function updateDom() {
-  const cards = document.getElementById('cards-container')
+  const cards = document.getElementById('cards-container');
+
+  const html = '<%= j render "product_card_partial", products: @products %>';
+  cards.innerHTML = html
 }
 
 updateDom()

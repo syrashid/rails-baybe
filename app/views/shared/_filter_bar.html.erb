@@ -1,9 +1,14 @@
 <nav class="navbar">
   <div class="container flex-column mb-4">
     <div class="filter-bar all-categories justify-content-between">
-      <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search" class="navbar-text filter-active">All Categories</a>
+      <%= link_to "All Categories",
+          products_path,
+          class: "navbar-text filter-active" %>
       <% @categories.each do |category| %>
-        <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search" class="navbar-text"><%= category.description %></a>
+        <%= link_to category.description,
+            trans_prod_path,
+            class: "navbar-text",
+            remote: true  %>
       <% end %>
     </div>
 
