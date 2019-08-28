@@ -1,0 +1,39 @@
+.chadainer {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 5%;
+  text-align: center;
+
+  // NOT SURE IF THIS SHOULD BE HERE
+  .order {
+    margin-top: 5%;
+    .order-info {
+      margin: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      .order-title-info {
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        a {
+          padding: 0;
+          color: #121416 ;
+          text-transform: none;
+          cursor: pointer;
+        }
+        a:hover {
+          text-decoration: underline;
+          color: #121416;
+        }
+
+        .status {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+}
