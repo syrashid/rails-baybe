@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
   before_action :prod_vars, only: [:index, :show]
   before_action :find_prod, only: [:addToCart, :show, :edit, :update]
-  before_action :load_ratios, only: [:index, :filter_transport, :filter_bedroom, :filter_clothes, :filter_toys]
+  before_action :load_ratios, only: [:index, :filter_category]
 
   def index
     @categories = Category.all
@@ -24,48 +24,12 @@ class ProductsController < ApplicationController
     @currentcart = @carts.find_by(paid: "pending")
   end
 
-  def filter_transport
+  def filter_category
     if params[:query].present?
       @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
-      @products = @searchprods.select { |prod| prod.category.description == "Transport" }
+      @products = @searchprods.select { |prod| prod.category.description == params[:cat] }
     else
-      @products = Category.find_by(description: "Transport").products
-    end
-    respond_to do |format|
-      format.js { render :filtercategory }
-    end
-  end
-
-  def filter_bedroom
-    if params[:query].present?
-      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
-      @products = @searchprods.select { |prod| prod.category.description == "Bedroom" }
-    else
-      @products = Category.find_by(description: "Bedroom").products
-    end
-    respond_to do |format|
-      format.js { render :filtercategory }
-    end
-  end
-
-  def filter_clothes
-    if params[:query].present?
-      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
-      @products = @searchprods.select { |prod| prod.category.description == "Clothes" }
-    else
-      @products = Category.find_by(description: "Clothes").products
-    end
-    respond_to do |format|
-      format.js { render :filtercategory }
-    end
-  end
-
-  def filter_toys
-    if params[:query].present?
-      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
-      @products = @searchprods.select { |prod| prod.category.description == "Toys" }
-    else
-      @products = Category.find_by(description: "Toys").products
+      @products = Category.find_by(description: params[:cat]).products
     end
     respond_to do |format|
       format.js { render :filtercategory }

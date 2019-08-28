@@ -4,22 +4,12 @@
       <%= link_to "All Categories",
           products_path,
           class: "navbar-text filter-active" %>
-        <%= link_to "transport",
-            trans_prod_path(query: params[:query]),
+      <% @categories.each do |category| %>
+        <%= link_to category.description,
+            filt_cat_path(query: params[:query], cat: category.description),
             class: "navbar-text",
-            remote: true %>
-        <%= link_to "bedroom",
-            bed_prod_path(query: params[:query]),
-            class: "navbar-text",
-            remote: true %>
-        <%= link_to "clothes",
-            clothes_prod_path(query: params[:query]),
-            class: "navbar-text",
-            remote: true %>
-        <%= link_to "toys",
-            toys_prod_path(query: params[:query]),
-            class: "navbar-text",
-            remote: true %>
+            remote: true  %>
+      <% end %>
     </div>
 
     <div class="filter-bar all-age">

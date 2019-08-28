@@ -27,8 +27,5 @@ Rails.application.routes.draw do
 
   resources :stock_products, only: :destroy
 
-  get 'transportproducts', to: 'products#filter_transport', as: :trans_prod
-  get 'bedroomproducts', to: 'products#filter_bedroom', as: :bed_prod
-  get 'clothesproducts', to: 'products#filter_clothes', as: :clothes_prod
-  get 'toysproducts', to: 'products#filter_toys', as: :toys_prod
+  get 'filtercategory', to: 'products#filter_category', as: :filt_cat
 end
