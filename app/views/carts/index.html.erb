@@ -1,6 +1,6 @@
 <div class="nicontainer">
   <h4>YOUR ORDERS</h4>
-  <% @carts.order(id: :desc).active.each do |cart| %>
+  <% @activecarts.order(id: :desc).each do |cart| %>
     <div class="order">
       <!-- ORDER TITLE, STATUS AND PRICE -->
       <div class="order-title">
