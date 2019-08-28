@@ -1,7 +1,7 @@
-const buyProduct = document.querySelector(".buy-product");
-const sellProduct = document.querySelector(".sell-product");
-
 const priceCalc = () => {
+  const buyProduct = document.querySelector(".buy-product");
+  const sellProduct = document.querySelector(".sell-product");
+
   if (buyProduct || sellProduct) {
     const select_condition = document.getElementById("selected-condition")
     const price = document.getElementById("product-price")
@@ -9,7 +9,7 @@ const priceCalc = () => {
 
 
     function calculateTotalPrice() {
-
+      console.log("hi there")
       var condition = document.getElementById("selected-condition").value
 
       const conds = document.getElementById('conditions')
@@ -32,7 +32,7 @@ const priceCalc = () => {
       }
     }
 
-    select_condition.addEventListener("change", calculateTotalPrice)
+    select_condition.addEventListener("click", calculateTotalPrice)
 
     calculateTotalPrice();
   }
