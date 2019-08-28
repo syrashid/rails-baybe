@@ -23,11 +23,16 @@
         <div class="baybe-list">
           <p>
             <%= link_to "", stock_product_path(stockproduct, parent: "cart"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
-            <%= stockproduct.product.price * stockproduct.condition.buy_ratio%> EUR
+            <%= humanized_money(stockproduct.product.price * stockproduct.condition.buy_ratio) %> EUR
           </p>
         </div>
       </div>
     <% end %>
+    <div class="box-info-row">
+          <p>TOTAL ACTUAL CART</p>
+          <p class="box-info-title">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+        <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
+      </div>
   </div>
   <div>
     <% if @currentcart.stock_products.any? %>

@@ -11,21 +11,29 @@
     <% end %>
   </div>
   <div class="currentbox">
-    <h5>Your Cart</h5>
-    <% @currentbox.stock_products.each do  |stockproduct| %>
-      <div class="baybe-list-card">
-        <div class="baybe-list">
-          <%# if stockproduct.photos.any? %>
-            <%= cl_image_tag stockproduct.product.photo %>
-          <%# end %>
-          <p><%= stockproduct.product.name %></p>
+    <% if @currentbox.stock_products.any? %>
+      <h5>Your Cart</h5>
+      <% @currentbox.stock_products.each do  |stockproduct| %>
+        <div class="baybe-list-card">
+          <div class="baybe-list">
+            <%# if stockproduct.photos.any? %>
+              <%= cl_image_tag stockproduct.product.photo %>
+            <%# end %>
+            <p><%= stockproduct.product.name %></p>
+          </div>
+          <div class="baybe-list">
+            <p>
+              <%= link_to "", stock_product_path(stockproduct, parent: "box"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
+              <%= humanized_money((stockproduct.product.price * stockproduct.condition.sell_ratio * 0.8).round) %> - <%= humanized_money((stockproduct.product.price * stockproduct.condition.sell_ratio).round) %> EUR
+            </p>
+          </div>
         </div>
-        <div class="baybe-list">
-          <p>
-            <%= link_to "", stock_product_path(stockproduct, parent: "box"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
-            <%= stockproduct.product.price * stockproduct.condition.buy_ratio%> EUR
-          </p>
-        </div>
+      <% end %>
+    <% end %>
+    <% if @currentbox.stock_products.any? %>
+    <div class="box-info-row">
+          <p>TOTAL BOX RANGE</p>
+        <p class="box-info-title"><%= humanized_money((@currentbox.expected_price * 0.8).round) %> - <%= humanized_money((@currentbox.expected_price).round) %> EUR</p>
       </div>
     <% end %>
   </div>
@@ -35,5 +43,6 @@
     <% else %>
     <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary btn-block" %>
     <% end %>
+  </div>
   </div>
 </div>

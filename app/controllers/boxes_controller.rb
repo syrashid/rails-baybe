@@ -1,5 +1,6 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :confirm]
+  before_action :find_info, only: [:show, :sum_total, :current]
   layout "applicationseller"
 
   def index
@@ -8,6 +9,8 @@ class BoxesController < ApplicationController
 
   def show
     @stockproducts = @box.stock_products
+    sum_total
+
   end
 
   def confirm
@@ -18,12 +21,26 @@ class BoxesController < ApplicationController
 
   def current
     @boxes = Box.where("user_id=?", current_user.id)
-    @currentbox = current_user.current_box
+    sum_total
   end
 
   private
 
   def set_box
     @box = Box.find(params[:id])
+  end
+
+  def sum_total
+    @stockproducts = @currentbox.stock_products
+    @currentbox.expected_price = @stockproducts.sum do |stockproduct|
+      stockproduct.product.price * stockproduct.condition.sell_ratio
+    end
+    @currentbox.save
+  end
+
+  def find_info
+    @user = current_user
+    @boxes = Box.where("user_id=?", @user.id)
+    @currentbox = current_user.current_box
   end
 end

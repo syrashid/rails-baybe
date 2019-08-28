@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_action :find_info, only: [ :index, :current, :show, :sum_total]
-  after_action :sum_total, only: [ :current, :show ]
+  after_action :sum_total, only: :show
+  before_action :sum_total, only: [:current, :show]
 
   def index
     @activecarts = @carts.active
@@ -10,10 +11,15 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @stockproducts = @cart.stock_products
     @rel_products = Product.all.sample(4)
+
+    @cart_savings = savings
+
   end
 
   def current
     @rel_products = Product.all.sample(4)
+    @stockproducts = @currentcart.stock_products
+    @cart_savings = savings
   end
 
   def confirm
@@ -77,5 +83,13 @@ class CartsController < ApplicationController
     @user = current_user
     @carts = Cart.where("user_id=?", @user.id)
     @currentcart = current_user.current_cart
+  end
+
+  def savings
+    saving = 0
+    @stockproducts.each do |stockprod|
+      saving += ((1 - stockprod.condition.buy_ratio) * stockprod.product.price)
+    end
+    saving
   end
 end
