@@ -37,6 +37,19 @@ class ProductsController < ApplicationController
     end
   end
 
+  def filter_condition
+    if params[:query].present?
+      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:stock_products)
+      @products = @searchprods.select { |prod| prod.stock_product.condition.name == params[:con] }
+    else
+      @products = Prod.all.select { |prod| prod.stock_product.condition.name == params[:con] }
+    end
+    @con = params[:con]
+    respond_to do |format|
+      format.js { render :filtercondition }
+    end
+  end
+
   def new
     @product = Product.new
   end
