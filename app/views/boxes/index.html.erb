@@ -8,7 +8,7 @@
           <p>ORDER Nº: <%= box.id %> - </p>
           <p class="status"> <%= box.status %></p>
         </div>
-        <p><%= box.expected_price %> EUR</p>
+        <p><%= humanized_money(box.expected_price) %> EUR</p>
       </div>
       <!------------------------>
         <% box.stock_products.each do |stockProd| %>
@@ -19,7 +19,7 @@
                 <p><%= stockProd.product.name %></p>
               </div>
               <div class="baybe-list">
-                <p><%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR</p>
+                <p><%= humanized_money(stockProd.product.price * stockProd.condition.buy_ratio)%> EUR</p>
               </div>
           </div>
           <!------------------------>
