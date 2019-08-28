@@ -29,20 +29,20 @@
             <i class="fas fa-gift"></i>
           </p>
         </div>
-        <p class="box-info-title"><%= humanized_money_with_symbol(@cart.total_price) %></p>
+        <p class="box-info-title"><%= humanized_money_with_symbol(@currentcart.total_price) %></p>
       </div>
     </div>
 
     <% if !@stockproducts.any? %>
       <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary btn-block" %>
     <% else %>
-      <%= form_tag confirm_cart_path(@cart), method: :patch,class: "stripe-form" do %>
+      <%= form_tag confirm_cart_path(@currentcart), method: :patch,class: "stripe-form" do %>
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="ORDER Nº: <%= Time.now.strftime("%Y%m%dT%H%M") %>N<%= @cart.id %>"
+          data-name="ORDER Nº: <%= Time.now.strftime("%Y%m%dT%H%M") %>N<%= @currentcart.id %>"
           data-email="<%= current_user.email %>"
-          data-amount="<%= @cart.total_price_cents %>"
-          data-currency="<%= @cart.total_price.currency %>">
+          data-amount="<%= @currentcart.total_price_cents %>"
+          data-currency="<%= @currentcart.total_price.currency %>">
         </script>
 
   </div>
