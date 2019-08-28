@@ -42,7 +42,7 @@
           data-amount="<%= @cart.total_price_cents %>"
           data-currency="<%= @cart.total_price.currency %>">
         </script>
-    <% end %>
+
   </div>
 
 
@@ -54,11 +54,11 @@
       </div>
 
       <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio1" name="delivery-place" value="home" class="custom-control-input">
+        <input type="radio" id="customRadio1" name="delivery_place" value="home" class="custom-control-input">
         <label class="custom-control-label" for="customRadio1">HOME ADDRESS</label>
       </div>
       <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio2" name="delivery-place" value="delivery" class="custom-control-input">
+        <input type="radio" id="customRadio2" name="delivery_place" value="delivery" class="custom-control-input">
         <label class="custom-control-label" for="customRadio2">DELIVERY ADDRESS</label>
       </div>
     </div>
@@ -98,6 +98,7 @@
       </div>
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>
 
