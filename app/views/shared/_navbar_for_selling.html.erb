@@ -21,6 +21,8 @@
           </div>
           <div id="show" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <%= link_to 'Edit Profile',edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to 'Buying orders',carts_path, class: "dropdown-item" %>
+            <%= link_to 'Selling orders',boxes_path, class: "dropdown-item" %>
             <%= link_to 'Review Products', review_products_path, class: "dropdown-item" if current_user.admin %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
