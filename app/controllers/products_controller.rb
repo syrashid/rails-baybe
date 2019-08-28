@@ -26,6 +26,22 @@ class ProductsController < ApplicationController
     @currentcart = @carts.find_by(paid: "pending")
   end
 
+  def filtertransport
+    if params[:query].present?
+      @prods = Product.search_by_name_and_description(params[:query])
+    end
+    @transprods = @prods.select { |prod| prod.category.description == "Transport" }
+  end
+
+  def filterbedroom
+  end
+
+  def filterclothes
+  end
+
+  def filtertoys
+  end
+
   def new
     @product = Product.new
   end
