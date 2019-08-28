@@ -11,18 +11,19 @@
             <%= f.input :first_name,
                         hint: "leave it blank if you don't want to change it",
                         required: false,
-                        input_html: { autocomplete: "new-password" } %>
+                        input_html: { autocomplete: "first_name" } %>
           </div>
+
           <div class="col-6">
             <%= f.input :last_name,
                         required: false,
-                        input_html: { autocomplete: "new-password" } %>
+                        input_html: { autocomplete: "last_name" } %>
           </div>
-           <div class="col-12">
-            <%= f.input :avatar, required: true, autofocus: true %>
-          </div>
+
           <div class="col-12">
-            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true %>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -35,22 +36,30 @@
                         required: false,
                         input_html: { autocomplete: "new-password" } %>
           </div>
+
           <div class="col-6">
             <%= f.input :password_confirmation,
                         required: false,
                         input_html: { autocomplete: "new-password" } %>
           </div>
+
           <div class="col-12">
             <%= f.input :current_password,
                         hint: "we need your current password to confirm your changes",
                         required: true,
                         input_html: { autocomplete: "current-password" } %>
           </div>
-           <div class="col-12">
-            <%= f.input :phone, required: true, autofocus: true %>
-          </div>
+
           <div class="col-12">
-            <%= f.input :address, required: true, autofocus: true %>
+            <%= f.input :phone,
+                        required: true,
+                        autofocus: true %>
+          </div>
+
+          <div class="col-12">
+            <%= f.input :address,
+                        required: true,
+                        autofocus: true %>
           </div>
         </div>
         <div class="form-actions text-center mb-4">

@@ -10,10 +10,10 @@ class User < ApplicationRecord
   mount_uploader :avatar, PhotoUploader
 
   def current_cart
-    carts.find(&:pending?) || Cart.create(user: self, paid: 'pending')
+    Cart.find_by(user: self, paid: "pending") || Cart.create(user: self, paid: 'pending')
   end
 
   def current_box
-    boxes.find(&:shipping?) || Box.create(user: self, status: 'shipping')
+    Box.find_by(user: self, status: "shipping") || Box.create(user: self, status: 'shipping')
   end
 end
