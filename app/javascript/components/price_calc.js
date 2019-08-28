@@ -38,5 +38,4 @@ const priceCalc = () => {
   }
 }
 
-
 export { priceCalc }
