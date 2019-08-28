@@ -31,7 +31,7 @@
             </p>
           </div>
           <p class="box-info-title">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
-          <p class="box-info-title"><%= humanized_money(@cart.total_price) %> EUR</p>
+          <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
         </div>
       <% end %>
     </div>
