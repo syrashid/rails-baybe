@@ -2,19 +2,8 @@
 
 <!-- PRODUCTS CARDS -->
 <div class="container">
-  <div class="cards-grid">
-    <% @products.each do |product| %>
-    <a href="<%= product_path(product) %>">
-      <div class="baybe-card baybe-price-card">
-        <p class="fixed-price"><%= (product.price * @min_buy_ratio).round %> - <%= (product.price * @max_buy_ratio).round %> €</p>
-        <!-- <i class="fixed-fav far fa-heart"></i> -->
-        <img src="<%= product.photo %>" alt="<%= product.name %>">
-        <p class="fixed-brand">
-          <%= product.brand %>
-        </p>
-      </div>
-    </a>
-    <% end %>
+  <div class="cards-grid" id="cards-container">
+    <%= render 'product_card_partial', products: @products %>
   </div>
 </div>
 <!-- --------------- -->

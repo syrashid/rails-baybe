@@ -1,21 +1,31 @@
 <nav class="navbar">
   <div class="container flex-column mb-4">
     <div class="filter-bar all-categories justify-content-between">
-      <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search" class="navbar-text filter-active">All Categories</a>
+      <%= link_to "All Categories",
+          products_path,
+          class: "navbar-text filter-active-cat" %>
       <% @categories.each do |category| %>
-        <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search" class="navbar-text"><%= category.description %></a>
+        <%= link_to category.description,
+            filt_cat_path(query: params[:query], cat: category.description),
+            class: "navbar-text",
+            id: category.description,
+            remote: true  %>
       <% end %>
     </div>
 
     <div class="filter-bar all-age">
-      <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search" class="navbar-text filter-active">All Sizes</a>
+      <%= link_to "All Ages",
+          products_path,
+          class: "navbar-text filter-active-age" %>
       <% @age_groups.each do |size| %>
         <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search"class="navbar-text"><%= size %></a>
       <% end %>
     </div>
 
     <div class="filter-bar all-conditions">
-      <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search" class="navbar-text filter-active">All Conditions</a>
+      <%= link_to "All Conditions",
+          products_path,
+          class: "navbar-text filter-active-con" %>
       <% @condition_groups.each do |condition| %>
         <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search " class="navbar-text"><%= condition %></a>
       <% end %>
