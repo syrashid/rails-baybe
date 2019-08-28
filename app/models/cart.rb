@@ -3,7 +3,7 @@ class Cart < ApplicationRecord
   STATUS = %w[pending paid denied].freeze
   has_many :stock_products
   has_many :cart_options
-  has_many :options, through: :cart_options
+  has_many :options, through: :cart_options, dependent: :destroy
 
   validates :paid, presence: true, inclusion: { in: STATUS }
 
