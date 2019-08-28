@@ -37,7 +37,7 @@
       <!-- --------------- -->
     </div>
     <!-- STOCK PRODUCT DETAILS -->
-    <div class="product-info-right">
+    <div class="product-info-right ml-4">
       <div class="product-info-row">
         <p class="product-info-row-title">Product Name</p>
         <p class="product-info-row-detail"><%= @product.name %></p>
@@ -52,7 +52,9 @@
         <p class="product-info-row-title">Features</p>
       </div>
         <p rows="5" cols="50" class="product-info-row-detail">
-          <%= @product.description %>
+          <% @product.description.split(".").each do |line| %>
+          <p>- <%= line %></p>
+          <% end %>
         </p>
     </div>
     <!-- --------------- -->
