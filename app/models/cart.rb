@@ -10,6 +10,8 @@ class Cart < ApplicationRecord
   scope :active, -> { joins(:stock_products).group("carts.id") }
   scope :paid, -> { where(paid: "paid") }
 
+  # after_update :set_current_cart
+
   monetize :total_price_cents
 
   STATUS.each do |state|
@@ -17,4 +19,15 @@ class Cart < ApplicationRecord
       paid == state
     end
   end
+
+  # private
+
+  # def set_current_cart
+  #   if saved_change_to_paid? && paid?
+  #     Cart.create(
+  #       paid: 'pending',
+  #       user: user
+  #     )
+  #   end
+  # end
 end

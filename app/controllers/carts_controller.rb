@@ -17,7 +17,6 @@ class CartsController < ApplicationController
 
   def confirm
     @cart = current_user.current_cart
-
     user = Stripe::Customer.create(
       source: params[:stripeToken],
       email:  params[:stripeEmail]
