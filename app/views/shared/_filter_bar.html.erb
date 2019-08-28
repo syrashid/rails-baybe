@@ -13,15 +13,6 @@
       <% end %>
     </div>
 
-    <div class="filter-bar all-age">
-      <%= link_to "All Ages",
-          products_path,
-          class: "navbar-text filter-active-age" %>
-      <% @age_groups.each do |size| %>
-        <a href="http://localhost:3000/products?utf8=%E2%9C%93&query=&commit=Search"class="navbar-text"><%= size %></a>
-      <% end %>
-    </div>
-
     <div class="filter-bar all-conditions">
       <%= link_to "All Conditions",
           products_path,
