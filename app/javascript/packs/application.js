@@ -5,6 +5,7 @@ import { confirmBox } from '../components/confirm_btn'
 import { priceCalc } from '../components/price_calc';
 import { initSelect2 } from '../components/init_select2';
 import { initSweetalert, initSweetalertCallback } from '../plugins/init_sweetalert';
+import { popover } from '../components/popover';
 
 
 confirmBox();
@@ -13,3 +14,4 @@ initSelect2();
 priceCalc();
 initSweetalert();
 initSweetalertCallback();
+popover();
