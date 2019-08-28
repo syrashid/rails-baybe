@@ -2,7 +2,6 @@
   <h4>YOUR BOX</h4>
   <div class="order">
     <% @stockproducts.each do |stockProd| %>
-      <!-- ORDER STOCK PRODUCTS -->
       <div class="baybe-list-card">
           <div class="baybe-list">
             <%= cl_image_tag stockProd.product.photo %>
@@ -10,20 +9,13 @@
           </div>
           <div class="baybe-list">
             <p>
-              <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
-              <%= link_to "", stock_product_path(stockProd, parent: "box"),method: :delete, id: "delete-link", class: "hidden" %>
+              <!-- <i id="sweet-alert-demo" class="far fa-trash-alt"></i> -->
+              <%= link_to "", stock_product_path(stockProd, parent: "box"),method: :delete, type: "delete-link",  class: "hidden delete-link far fa-trash-alt" %>
               &nbsp &nbsp
-              <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
+              <%= humanized_money((stockProd.product.price * stockProd.condition.sell_ratio * 0.8).round) %> - <%= humanized_money((stockProd.product.price * stockProd.condition.sell_ratio).round) %> EUR
             </p>
           </div>
-      </div>
-      <div class="baybe-list">
-        <p>
-          <%= link_to "", stock_product_path(stockProd, parent: "box"), method: :delete, data: { confirm: "Are you sure?" }, class: "far fa-trash-alt" %> &nbsp &nbsp
-          <%= humanized_money((stockProd.product.price * stockProd.condition.sell_ratio * 0.8).round) %> - <%= humanized_money((stockProd.product.price * stockProd.condition.sell_ratio).round) %> EUR
-        </p>
-      </div>
-    </div>
+  </div>
     <!------------------------>
     <% end %>
     <% if @stockproducts.any? %>
