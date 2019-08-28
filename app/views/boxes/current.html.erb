@@ -22,8 +22,9 @@
         </div>
         <div class="baybe-list">
           <p>
-            <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
-            <%= link_to "", stock_product_path(stockproduct, parent: "box"),method: :delete, id: "delete-link", class: "hidden" %>
+            <%= link_to stock_product_path(stockproduct, parent: "box"), method: :delete, remote: true do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
             &nbsp &nbsp
             <%= stockproduct.product.price * stockproduct.condition.buy_ratio%> EUR
           </p>

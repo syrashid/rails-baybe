@@ -13,7 +13,7 @@
   <div class="currentcart">
     <h5>Your Cart</h5>
     <% @currentcart.stock_products.each do  |stockproduct| %>
-      <div class="baybe-list-card">
+      <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>">
         <div class="baybe-list">
           <%# if stockproduct.photos.any? %>
             <%= cl_image_tag stockproduct.product.photo %>
@@ -22,12 +22,12 @@
         </div>
         <div class="baybe-list">
           <p>
-            <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
-            <%= link_to "", stock_product_path(stockproduct, parent: "cart"),method: :delete, id: "delete-link", class: "hidden" %>
+            <%= link_to stock_product_path(stockproduct, parent: "cart"), method: :delete, remote: true do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
             &nbsp &nbsp
             <%= stockproduct.product.price * stockproduct.condition.buy_ratio%> EUR
           </p>
-
         </div>
       </div>
     <% end %>
@@ -42,3 +42,12 @@
 </div>
 
 <%= render 'shared/people_also_bought' %>
+
+<!--
+  WHAT RAILS DOES WIth REMOTE TRUE line:28
+<a href="" data-remote="true"></a>
+            rails-ujs
+
+          document.querySelectorAll("[data-remote="true"]")
+ -->
+
