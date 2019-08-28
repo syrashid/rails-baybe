@@ -16,21 +16,24 @@
             <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
             <%= link_to "", stock_product_path(stockProd, parent: "cart"),method: :delete, id: "delete-link", class: "hidden" %>
             &nbsp &nbsp
-            <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
+            <%= humanized_money((stockProd.product.price * stockProd.condition.buy_ratio).round(2))%> EUR
           </p>
         </div>
       </div>
       <!------------------------>
       <% end %>
-      <div class="box-info-row">
-        <div class="box-info-title">
-          <p>TOTAL CART</p>
-          <p>
-            <i class="fas fa-gift"></i>
-          </p>
+      <% if @stockproducts.any? %>
+        <div class="box-info-row">
+          <div class="box-info-title">
+            <p>TOTAL CART</p>
+            <p>
+              <i class="fas fa-gift"></i>
+            </p>
+          </div>
+          <p class="box-info-title">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+          <p class="box-info-title"><%= humanized_money(@cart.total_price) %> EUR</p>
         </div>
-        <p class="box-info-title"><%= humanized_money_with_symbol(@currentcart.total_price) %></p>
-      </div>
+      <% end %>
     </div>
 
     <% if !@stockproducts.any? %>

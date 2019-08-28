@@ -5,7 +5,7 @@
       <% @products.each do |product| %>
       <a href="<%= product_path(product) %>">
         <div class="baybe-card baybe-price-card m-3">
-          <p class="fixed-price"><%= product.price %> €</p>
+          <p class="fixed-price"><%= humanized_money(product.price) %> €</p>
           <!-- <i class="fixed-fav far fa-heart"></i> -->
           <img src="<%= product.photo %>" alt="<%= product.name %>">
           <p class="fixed-brand">
