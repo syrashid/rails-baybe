@@ -11,14 +11,23 @@
         <p><%= cart.total_price %> EUR</p>
       </div>
       <!------------------------>
+       <% cart.cart_options.each do |option| %>
+          <% if option.content %>
+            <p><strong>Address:</strong> <%= option.content %></p>
+          <% end %>
+
+      <% end %>
         <% cart.stock_products.each do |stockProd| %>
           <!-- ORDER STOCK PRODUCTS -->
           <div class="baybe-list-card">
               <div class="baybe-list">
 
-                <% if stockProd.photos.any? %>
-                  <%= cl_image_tag stockProd.photos.first.photolink %>
-                <% end %>
+                <%# if stockProd.photos.any? %>
+                  <%= cl_image_tag stockProd.product.photo %>
+                <%# end %>
+
+
+
 
                 <p><%= stockProd.product.name %></p>
               </div>
