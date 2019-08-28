@@ -8,7 +8,8 @@ import { initSweetalert, initSweetalertCallback } from '../plugins/init_sweetale
 
 
 confirmBox();
-priceCalc();
+
 initSelect2();
+priceCalc();
 initSweetalert();
 initSweetalertCallback();
