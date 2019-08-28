@@ -11,11 +11,6 @@
         <p id= "savings" class="product-info-row-detail"> save <%= ((1 - @ratio)*100).round %>%</p>
 
       </div>
-      <!-- PRIMARY BUTTON -->
-      <div>
-        <button type="submit" class="buttonPrimary"><%= text %></button>
-      </div>
-
       <div class="options">
         <div>
           <select class="baybe-dropdown select2" name="stock_product[size]">
@@ -33,6 +28,11 @@
           </select>
         </div>
       </div>
+      <!-- PRIMARY BUTTON -->
+      <div>
+        <button type="submit" class="buttonPrimary"><%= text %></button>
+      </div>
+
       <!-- -------------- -->
       <!-- --------------- -->
     </div>
