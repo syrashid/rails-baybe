@@ -2,11 +2,9 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
   before_action :prod_vars, only: [:index, :show]
   before_action :find_prod, only: [:addToCart, :show, :edit, :update]
-
+  before_action :load_ratios, only: [:index, :filter_transport, :filter_bedroom, :filter_clothes, :filter_toys]
 
   def index
-    @max_buy_ratio = Condition.find_by("name=?", "Like New").buy_ratio
-    @min_buy_ratio = Condition.find_by("name=?", "Acceptable").buy_ratio
     @categories = Category.all
     if params[:query].present?
       @products = Product.search_by_name_and_description(params[:query])
@@ -27,18 +25,27 @@ class ProductsController < ApplicationController
   end
 
   def filter_transport
-    @max_buy_ratio = Condition.find_by("name=?", "Like New").buy_ratio
-    @min_buy_ratio = Condition.find_by("name=?", "Acceptable").buy_ratio
     if params[:query].present?
       @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
+      @products = @searchprods.select { |prod| prod.category.description == "Transport" }
+    else
+      @products = Category.find_by(description: "Transport").products
     end
-    @products = @searchprods.select { |prod| prod.category.description == "Transport" }
     respond_to do |format|
-      format.js { render :filtertransport}
+      format.js { render :filtercategory }
     end
   end
 
   def filter_bedroom
+    if params[:query].present?
+      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
+      @products = @searchprods.select { |prod| prod.category.description == "Bedroom" }
+    else
+      @products = Category.find_by(description: "Bedroom").products
+    end
+    respond_to do |format|
+      format.js { render :filtercategory }
+    end
   end
 
   def filter_clothes
@@ -109,5 +116,10 @@ class ProductsController < ApplicationController
 
   def find_prod
     @product = Product.find(params[:id])
+  end
+
+  def load_ratios
+    @max_buy_ratio = Condition.find_by("name=?", "Like New").buy_ratio
+    @min_buy_ratio = Condition.find_by("name=?", "Acceptable").buy_ratio
   end
 end
