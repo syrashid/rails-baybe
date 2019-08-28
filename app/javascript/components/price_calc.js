@@ -3,7 +3,7 @@ const priceCalc = () => {
   const sellProduct = document.querySelector(".sell-product");
 
   if (buyProduct || sellProduct) {
-    const select_condition = document.getElementById("selected-condition")
+    const select_condition = document.getElementById("select2-selected-condition-container")
     const price = document.getElementById("product-price")
     const savings = document.getElementById("savings")
 
@@ -32,7 +32,7 @@ const priceCalc = () => {
       }
     }
 
-    select_condition.addEventListener("click", calculateTotalPrice)
+    select_condition.addEventListener("DOMSubtreeModified", calculateTotalPrice)
 
     calculateTotalPrice();
   }
