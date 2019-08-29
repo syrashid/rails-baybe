@@ -1,0 +1,15 @@
+function removeElement () {
+  const product = document.getElementById("stock-product-<%= @stockproduct.id %>");
+  const number = document.getElementById("cart-number");
+
+  number.innerHTML = "(<%= current_user.current_cart.stock_products.count %>)"
+
+  swal("Poof! Your product has been deleted!", {
+    icon: "success",
+  });
+  product.remove();
+
+
+}
+
+removeElement();

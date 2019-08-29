@@ -9,10 +9,12 @@
           </div>
           <div class="baybe-list">
             <p>
-              <!-- <i id="sweet-alert-demo" class="far fa-trash-alt"></i> -->
-              <%= link_to "", stock_product_path(stockProd, parent: "box"),method: :delete, type: "delete-link",  class: "hidden delete-link far fa-trash-alt" %>
-              &nbsp &nbsp
+
+              <%#= link_to "", stock_product_path(stockProd, parent: "box"),method: :delete, type: "delete-link",  class: "hidden delete-link far fa-trash-alt" %>
+
               <%= humanized_money((stockProd.product.price * stockProd.condition.sell_ratio * 0.8).round) %> - <%= humanized_money((stockProd.product.price * stockProd.condition.sell_ratio).round) %> EUR
+              &nbsp &nbsp
+              <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
             </p>
           </div>
   </div>

@@ -24,7 +24,7 @@
           <div class="baybe-list">
             <p>
               <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
-            <%= link_to "", stock_product_path(stockproduct, parent: "box"),method: :delete, id: "delete-link", class: "hidden" %>
+            <%#= link_to "", stock_product_path(stockproduct, parent: "box"),method: :delete, id: "delete-link", class: "hidden" %>
             &nbsp &nbsp
               <%= humanized_money((stockproduct.product.price * stockproduct.condition.sell_ratio * 0.8).round) %> - <%= humanized_money((stockproduct.product.price * stockproduct.condition.sell_ratio).round) %> EUR
             </p>
