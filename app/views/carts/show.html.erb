@@ -5,22 +5,23 @@
       <% @stockproducts.each do |stockProd| %>
       <!-- ORDER STOCK PRODUCTS -->
       <div class="baybe-list-card">
-        <div class="baybe-list">
+        <div class="baybe-list" >
           <%# if stockProd.photos.any? %>
             <%= cl_image_tag stockProd.product.photo %>
           <%# end %>
           <p><%= stockProd.product.name %></p>
         </div>
-        <div class="baybe-list">
-          <p>
-            <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
+        <div class="baybe-list" style="justify-content: space-between; min-width: 150px; padding-right: 20px">
+          <p style="padding-left: 10px">
             <%= link_to "", stock_product_path(stockProd, parent: "cart"),method: :delete, id: "delete-link", class: "hidden" %>
             &nbsp &nbsp
             <%= humanized_money((stockProd.product.price * stockProd.condition.buy_ratio).round(2))%> EUR
           </p>
+          <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
         </div>
       </div>
       <!------------------------>
+      <hr>
       <% end %>
       <% if @stockproducts.any? %>
         <div class="box-info-row">
