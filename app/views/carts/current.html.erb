@@ -57,7 +57,11 @@
   </div>
   <div>
     <% if @currentcart.stock_products.any? %>
-    <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
+
+    <div style="display: flex">
+      <%= link_to "Continue Shopping", products_path, class: "ghostPrimary btn-block mr-3" %>
+      <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block mt-0" %>
+    </div>
     <% else %>
     <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary btn-block" %>
     <% end %>

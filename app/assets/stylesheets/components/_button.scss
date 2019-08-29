@@ -21,6 +21,39 @@
   border: 1px solid $red;
 }
 
+button.stripe-button-el,
+button.stripe-button-el>span {
+
+  color: $white !important;
+  background-color: $blue !important;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
+  width: 100%;
+
+  background-image: none;
+  // background-color: #FF3147 !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  // color: white;
+  border-radius: 4px;
+  background: $blue !important;
+  // height: 53px;
+  text-align: center;
+  text-decoration: none;
+  // font-size: 21px;
+  // font-family: Roboto;
+  border: 0px;
+  // width: 100%;
+  font-family: $body-font !important;
+  box-shadow: none;
+}
+
+
 .buttonPrimary:hover {
   opacity: 0.7;
   transition: opacity 1s ease-out;
@@ -58,6 +91,25 @@
 
 .ghostPrimary:hover {
   background-color: $blue;
+  color: $white;
+  transition: background-color 1s ease-out;
+}
+
+.ghostPrimarySell {
+  color: $red;
+  background-color: $white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
+  width: 100%;
+  border: 1px solid $red;
+}
+
+.ghostPrimarySell:hover {
+  background-color: $red;
   color: $white;
   transition: background-color 1s ease-out;
 }
