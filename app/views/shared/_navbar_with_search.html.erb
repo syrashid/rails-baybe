@@ -41,7 +41,7 @@
       <!-- RENDER CART IF SIGNED IN -->
       <% if user_signed_in? %>
       <%= link_to ('<i class="fas fa-baby-carriage"></i>').html_safe, cart_path(current_user.current_cart) %>
-      <p>(<%= current_user.current_cart.stock_products.count %>)</p>
+      <p id="cart-number">(<%= current_user.current_cart.stock_products.count %>)</p>
 
       <% end %>
       <!-- --------------------------- -->
