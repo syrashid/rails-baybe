@@ -29,4 +29,5 @@ Rails.application.routes.draw do
 
   get 'filtercategory', to: 'products#filter_category', as: :filt_cat
   get 'filtercondition', to: 'products#filter_condition', as: :filt_con
+  get 'sell_filter_category', to: 'sell_products#filter_category', as: :sell_filt_cat
 end

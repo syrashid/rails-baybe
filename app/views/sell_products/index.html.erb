@@ -1,36 +1,14 @@
-<%= render 'shared/filter_bar' %>
+<%= render 'shared/sell_filter_bar' %>
 
 
 <!-- PRODUCTS CARDS -->
 <div class="container">
   <h1 class="text-center m-4">Sellable products</h1>
-  <div class="cards-grid">
-    <% @products.each do |product| %>
-    <a href="<%= sell_product_path(product) %>">
-      <div class="baybe-card baybe-price-card">
-        <p class="fixed-price"><%= humanized_money(product.price.round) %> €</p>
-        <!-- <i class="fixed-fav far fa-heart"></i> -->
-        <img src="<%= product.photo %>" alt="<%= product.name %>">
-        <p class="fixed-brand">
-          <%= product.brand %>
-        </p>
-      </div>
-    </a>
-    <% end %>
-    <a href="<%= new_product_path %>" style="text-decoration: none !important">
-      <div class="baybe-card baybe-price-card">
-        <!-- <i class="fixed-fav far fa-heart"></i> -->
-        <i class="fas fa-plus fa-9x"></i>
-            <p class="fixed-brand">
-          Add a product
-        </p>
-      </div>
-    </a>
+  <div class="cards-grid" id="cards-container">
+  <%= render 'sell_product_card_partial', products: @products %>
   </div>
 </div>
 <!-- --------------- -->
-
-
   <div class="container">
     <h1 class="text-center m-4">Products to sell by category</h1>
     <div class="cards-grid">

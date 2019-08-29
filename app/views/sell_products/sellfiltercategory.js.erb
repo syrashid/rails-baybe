@@ -1,0 +1,12 @@
+function updateDom() {
+  // switch which link is active
+  const active = document.querySelector('.filter-active-cat').classList.remove('filter-active-cat');
+  const pressed = document.getElementById('<%= @cat %>').classList.add('filter-active-cat');
+
+  // rearrange the dom
+  const cards = document.getElementById('cards-container');
+  const html = '<%= j render "sell_product_card_partial", products: @products %>';
+  cards.innerHTML = html
+}
+
+updateDom()
