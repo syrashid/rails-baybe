@@ -1,63 +1,33 @@
 import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 
-const initSweetalert = (selector, options = {}) => {
-  const swalButton = document.querySelector(selector);
-  if (swalButton) { // protect other pages
-    swalButton.addEventListener('click', () => {
-      swal(options);
-    });
-  }
-};
+global.swal = swal
 
-const initSweetalertCallback = (selector, options = {}, callback = () => {}) => {
-  const swalButton = document.querySelectorAll(selector);
-  swalButton.forEach(function(element){
-    if (element) { // protect other pages
-      element.addEventListener('click', () => {
-        swal(options)
-        .then(callback); // <-- add the `.then(callback)`
-      });
-    }
-  })
-};
 
-initSweetalertCallback('.delete-link', {
-  title: "Are you sure?",
-  text: "Are you sure the delete product?",
-  icon: "warning",
-  buttons: true,
-  dangerMode: true,
-  closeOnConfirm: false
-}, (value) => {
-  if (value) {
-    const link = document.querySelector('#delete-link');
-    link.click();
-  }
-});
-
+global.SwalTwo = Swal
 
 const currentCart = document.querySelector('.currentcart')
 if (currentCart) {
-  swal({
-    title: "Your Product",
-    text: "Selected product added successfully!",
-    icon: "success",
-    timer: 4000
+  currentCart.querySelectorAll("[data-swal='true']").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const clicked = e.currentTarget;
+      if (clicked.dataset.confirmed == "false") {
+        e.stopImmediatePropagation()
+        e.preventDefault()
+        swal({
+          title: "Are you sure?",
+          text: clicked.dataset.text,
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            clicked.dataset.confirmed = "true"
+            clicked.click()
+          }
+        })
+      }
+    })
   })
 }
-
-
-const order = document.querySelector('.order-title')
-if (order) {
-  swal({
-    title: "Your Product",
-    text: "You order Paid, as soon as will be traking in your address!",
-    icon: "success",
-    timer: 5000
-  })
-}
-
-
-export { initSweetalert };
-export { initSweetalertCallback };
-

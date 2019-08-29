@@ -7,6 +7,10 @@ class StockProductsController < ApplicationController
     elsif parent == "cart"
       @stockproduct.update_attributes(cart_id: nil)
     end
-    redirect_back(fallback_location: root_path)
+
+    respond_to do |format|
+      format.js
+      format.html { redirect_back(fallback_location: root_path) }
+    end
   end
 end

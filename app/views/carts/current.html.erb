@@ -1,47 +1,65 @@
 <div class="sycontainer">
   <div class="productconfirmation">
     <% if @currentcart.stock_products.any? %>
-      <p>
-        <strong><%= @currentcart.stock_products.last.product.name %></strong> was successfully added to your box
-      </p>
+    <!-- START -->
+    <!-- THIS IS A QUICK FIX: TODO: CHANGE IMMEDIATELY -> move into ajax response -->
+    <% content_for(:after_js) do %>
+    <script>
+      var toast = SwalTwo.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      })
+      toast.fire({
+        type: 'success',
+        title: '<%= @currentcart.stock_products.last.product.name %> was successfully added to your box'
+      })
+    </script>
+    <% end %>
+    <!-- END -->
+    <p>
+      <strong><%= @currentcart.stock_products.last.product.name %></strong> was successfully added to your box
+    </p>
     <% else %>
-      <p>
-        You currently don't have any products in your Cart!
-      </p>
+    <p>
+      You currently don't have any products in your Cart!
+    </p>
     <% end %>
   </div>
   <div class="currentcart">
     <h5>Your Cart</h5>
     <% @currentcart.stock_products.each do  |stockproduct| %>
-      <div class="baybe-list-card">
-        <div class="baybe-list">
-          <%# if stockproduct.photos.any? %>
-            <%= cl_image_tag stockproduct.product.photo %>
-          <%# end %>
-          <p><%= stockproduct.product.name %></p>
-        </div>
-        <div class="baybe-list">
-          <p>
-            <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
-            <%= link_to "", stock_product_path(stockproduct, parent: "cart"),method: :delete, id: "delete-link", class: "hidden" %>
-            &nbsp &nbsp
-            <%= humanized_money(stockproduct.product.price * stockproduct.condition.buy_ratio) %> EUR
-          </p>
-
-        </div>
+    <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>">
+      <div class="baybe-list">
+        <%# if stockproduct.photos.any? %>
+        <%= cl_image_tag stockproduct.product.photo %>
+        <%# end %>
+        <p><%= stockproduct.product.name %></p>
       </div>
+      <div class="baybe-list">
+        <p>
+          <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockproduct.product.name}" },method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+          <% end %>
+          &nbsp &nbsp
+          <%= humanized_money(stockproduct.product.price * stockproduct.condition.buy_ratio) %> EUR
+        </p>
+
+      </div>
+    </div>
     <% end %>
     <div class="box-info-row">
-          <p>TOTAL ACTUAL CART</p>
-          <p class="box-info-title">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
-        <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
-      </div>
+      <p>TOTAL ACTUAL CART</p>
+      <p class="box-info-title">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+      <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
+    </div>
   </div>
   <div>
     <% if @currentcart.stock_products.any? %>
-      <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
+    <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary btn-block" %>
     <% else %>
-      <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary btn-block" %>
+    <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary btn-block" %>
     <% end %>
   </div>
 </div>
