@@ -4,349 +4,129 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    @import url(https://fonts.googleapis.com/css?family=Ubuntu);
-//variables
-$purple: #28254C;
-$l-purple: #332F63;
-$t-purple: #8C8AA7;
-$pink: #FF5E65;
-$white: #fff;
-
-html, body {
-  background: $purple;
-  font-family: 'Ubuntu';
-}
-* {
-  box-sizing: border-box;
-}
-
-.box {
-  width: 350px;
-  height: 100%;
-  max-height: 600px;
-  min-height: 450px;
-  background: $l-purple;
-  border-radius: 20px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 30px 50px;
-
-  .box__ghost {
-    padding: 15px 25px 25px;
-    position: absolute;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -30%);
-
-    .symbol{
-      &:nth-child(1) {
-        opacity: .2;
-        animation: shine 4s ease-in-out 3s infinite;
-
-        &:before, &:after {
-          content: '';
-          width: 12px;
-          height: 4px;
-          background: $white;
-          position: absolute;
-          border-radius: 5px;
-          bottom: 65px;
-          left: 0;
-        }
-        &:before {
-          transform: rotate(45deg);
-        }
-        &:after {
-          transform: rotate(-45deg);
-        }
-      }
-      &:nth-child(2) {
-        position: absolute;
-        left: -5px;
-        top: 30px;
-        height: 18px;
-        width: 18px;
-        border: 4px solid;
-        border-radius: 50%;
-        border-color: $white;
-        opacity: .2;
-        animation: shine 4s ease-in-out 1.3s infinite;
-      }
-      &:nth-child(3) {
-        opacity: .2;
-        animation: shine 3s ease-in-out .5s infinite;
-
-        &:before, &:after {
-          content: '';
-          width: 12px;
-          height: 4px;
-          background: $white;
-          position: absolute;
-          border-radius: 5px;
-          top: 5px;
-          left: 40px;
-        }
-        &:before {
-          transform: rotate(90deg);
-        }
-        &:after {
-          transform: rotate(180deg);
-        }
-      }
-      &:nth-child(4) {
-        opacity: .2;
-        animation: shine 6s ease-in-out 1.6s infinite;
-
-        &:before, &:after {
-          content: '';
-          width: 15px;
-          height: 4px;
-          background: $white;
-          position: absolute;
-          border-radius: 5px;
-          top: 10px;
-          right: 30px;
-        }
-        &:before {
-          transform: rotate(45deg);
-        }
-        &:after {
-          transform: rotate(-45deg);
-        }
-      }
-      &:nth-child(5) {
-        position: absolute;
-        right: 5px;
-        top: 40px;
-        height: 12px;
-        width: 12px;
-        border: 3px solid;
-        border-radius: 50%;
-        border-color: $white;
-        opacity: .2;
-        animation: shine 1.7s ease-in-out 7s infinite;
-      }
-      &:nth-child(6) {
-        opacity: .2;
-        animation: shine 2s ease-in-out 6s infinite;
-
-        &:before, &:after {
-          content: '';
-          width: 15px;
-          height: 4px;
-          background: $white;
-          position: absolute;
-          border-radius: 5px;
-          bottom: 65px;
-          right: -5px;
-        }
-        &:before {
-          transform: rotate(90deg);
-        }
-        &:after {
-          transform: rotate(180deg);
-        }
-      }
+    * {
+      border: 0;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-
-    .box__ghost-container {
-      background: $white;
-      width: 100px;
-      height: 100px;
-      border-radius: 100px 100px 0 0;
-      position: relative;
-      margin: 0 auto;
-      animation: upndown 3s ease-in-out infinite;
-
-      .box__ghost-eyes {
-        position: absolute;
-        left: 50%;
-        top: 45%;
-        //transform: translate(-50%, -45%);
-        height: 12px;
-        width: 70px;
-
-        .box__eye-left {
-          width: 12px;
-          height: 12px;
-          background: $l-purple;
-          border-radius: 50%;
-          margin: 0 10px;
-          position: absolute;
-          left: 0;
-        }
-        .box__eye-right {
-          width: 12px;
-          height: 12px;
-          background: $l-purple;
-          border-radius: 50%;
-          margin: 0 10px;
-          position: absolute;
-          right: 0;
-        }
-      }
-
-      .box__ghost-bottom {
-        display:flex;
-        position: absolute;
-        top:100%;
-        left:0;
-        right:0;
-
-        div {
-          flex-grow:1;
-          position: relative;
-          top:-10px;
-          height:20px;
-          border-radius:100%;
-          background-color: $white;
-
-          &:nth-child(2n) {
-            top: -12px;
-            margin: 0 -0px;
-            border-top: 15px solid $l-purple;
-            background: transparent;
-          }
-        }
-      }
+    body {
+      background: currentColor;
     }
-
-    .box__ghost-shadow {
-      height: 20px;
-      box-shadow: 0 50px 15px 5px #3B3769;
-      border-radius: 50%;
-      margin: 0 auto;
-      animation: smallnbig 3s ease-in-out infinite;
+    /* I. Containers */
+    figure {
+      font-size: 6px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 64em;
     }
-  }
-
-  .box__description {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    .box__description-container {
-      color: $white;
-      text-align: center;
-      width: 200px;
-      font-size: 16px;
-      margin: 0 auto;
-
-      .box__description-title {
-        font-size: 24px;
-        letter-spacing: .5px;
-      }
-
-      .box__description-text {
-        color: $t-purple;
-        line-height: 20px;
-        margin-top: 20px;
-      }
+    figcaption {
+      color: #fff;
+      display: flex;
+      align-content: space-between;
+      flex-wrap: wrap;
+      height: 17em;
     }
-
-    .box__button {
+    figcaption span:before, .sad-mac:before {
+      content: "";
       display: block;
-      position: relative;
-      background: $pink;
-      border: 1px solid transparent;
-      border-radius: 50px;
-      height: 50px;
-      text-align: center;
-      text-decoration: none;
-      color: $white;
-      line-height: 50px;
-      font-size: 18px;
-      padding: 0 70px;
-      white-space: nowrap;
-      margin-top: 25px;
-      transition: background .5s ease;
+      width: 1em;
+      height: 1em;
+      transform: translate(-1em,-1em);
+    }
+    figcaption span {
+      display: inline-block;
+      margin: 0 2em;
+      width: 4em;
+      height: 6em;
+    }
+    .sr-text {
       overflow: hidden;
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
-
-      &:before {
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 100px;
-        background: $white;
-        bottom: -25px;
-        left: 0;
-        border: 2px solid $white;
-        transform: translateX(-50px) rotate(45deg);
-        transition: transform .5s ease;
-      }
-
-      &:hover {
-        background: transparent;
-        border-color: $white;
-
-        &:before {
-          transform: translateX(250px) rotate(45deg);
-        }
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+    /* II. Sprites */
+    /* 1. Sad Mac */
+    .sad-mac {
+      background: #fff;
+      margin: 0 auto 7em auto;
+      width: 23em;
+      height: 30em;
+    }
+    .sad-mac:before {
+      box-shadow: 1em 1em, 23em 1em, 4em 3em, 5em 3em, 6em 3em, 7em 3em, 8em 3em, 9em 3em, 10em 3em, 11em 3em, 12em 3em, 13em 3em, 14em 3em, 15em 3em, 16em 3em, 17em 3em, 18em 3em, 19em 3em, 20em 3em, 3em 4em, 21em 4em, 3em 5em, 21em 5em, 3em 6em, 7em 6em, 9em 6em, 15em 6em, 17em 6em, 21em 6em, 3em 7em, 8em 7em, 16em 7em, 21em 7em, 3em 8em, 7em 8em, 9em 8em, 15em 8em, 17em 8em, 21em 8em, 3em 9em, 21em 9em, 3em 10em, 10em 10em, 13em 10em, 21em 10em, 3em 11em, 11em 11em, 12em 11em, 21em 11em, 3em 12em, 21em 12em, 3em 13em, 10em 13em, 11em 13em, 12em 13em, 13em 13em, 14em 13em, 21em 13em, 3em 14em, 9em 14em, 15em 14em, 16em 14em, 21em 14em, 3em 15em, 17em 15em, 21em 15em, 3em 16em, 21em 16em, 4em 17em, 5em 17em, 6em 17em, 7em 17em, 8em 17em, 9em 17em, 10em 17em, 11em 17em, 12em 17em, 13em 17em, 14em 17em, 15em 17em, 16em 17em, 17em 17em, 18em 17em, 19em 17em, 20em 17em, 3em 22em, 4em 22em, 5em 22em, 14em 22em, 15em 22em, 16em 22em, 17em 22em, 18em 22em, 19em 22em, 20em 22em, 1em 27em, 2em 27em, 3em 27em, 4em 27em, 5em 27em, 6em 27em, 7em 27em, 8em 27em, 9em 27em, 10em 27em, 11em 27em, 12em 27em, 13em 27em, 14em 27em, 15em 27em, 16em 27em, 17em 27em, 18em 27em, 19em 27em, 20em 27em, 21em 27em, 22em 27em, 23em 27em, 1em 28em, 23em 28em, 1em 29em, 23em 29em, 1em 30em, 23em 30em;
+    }
+    /* 2. Letters */
+    ._0:before {
+      box-shadow: 2em 1em, 3em 1em, 1em 2em, 1em 3em, 1em 4em, 1em 5em, 4em 2em, 4em 3em, 4em 4em, 4em 5em, 2em 4em, 3em 3em, 2em 6em, 3em 6em;
+    }
+    ._4:before {
+      box-shadow: 1em 1em, 1em 2em, 1em 3em, 1em 4em, 4em 1em, 4em 2em, 4em 3em, 4em 4em, 2em 4em, 3em 4em, 4em 5em, 4em 6em;
+    }
+    .d:before {
+      box-shadow: 1em 1em, 2em 1em, 3em 1em, 1em 2em, 4em 2em, 1em 3em, 4em 3em, 1em 4em, 4em 4em, 1em 5em, 4em 5em, 1em 6em, 2em 6em, 3em 6em;
+    }
+    .e:before {
+      box-shadow: 1em 1em, 2em 1em, 3em 1em, 4em 1em, 1em 2em, 1em 3em, 2em 3em, 3em 3em, 1em 4em, 1em 5em, 1em 6em, 2em 6em, 3em 6em, 4em 6em;
+    }
+    .f:before {
+      box-shadow: 1em 1em, 2em 1em, 3em 1em, 4em 1em, 1em 2em, 1em 3em, 2em 3em, 3em 3em, 1em 4em, 1em 5em, 1em 6em;
+    }
+    .n:before {
+      box-shadow: 1em 1em, 1em 2em, 1em 3em, 1em 4em, 1em 5em, 1em 6em, 4em 1em, 4em 2em, 4em 3em, 4em 4em, 4em 5em, 4em 6em, 2em 3em, 3em 4em;
+    }
+    .o:before {
+      box-shadow: 2em 1em, 3em 1em, 1em 2em, 1em 3em, 1em 4em, 1em 5em, 4em 2em, 4em 3em, 4em 4em, 4em 5em, 2em 6em, 3em 6em;
+    }
+    .r:before {
+      box-shadow: 1em 1em, 2em 1em, 3em 1em, 4em 2em, 1em 2em, 1em 3em, 1em 4em, 2em 3em, 3em 3em, 1em 5em, 1em 6em, 4em 4em, 4em 5em, 4em 6em;
+    }
+    .t:before {
+      box-shadow: 1em 1em, 2em 1em, 3em 1em, 2em 2em, 2em 3em, 2em 4em, 2em 5em, 2em 6em;
+    }
+    .u:before {
+      box-shadow: 1em 1em, 1em 2em, 1em 3em, 1em 4em, 1em 5em, 4em 1em, 4em 2em, 4em 3em, 4em 4em, 4em 5em, 2em 6em, 3em 6em;
+    }
+    /* III. Responsiveness */
+    /* This cannot be smoothly done using viewport units; sprite pixels will look divided when font size is a floating point. */
+    @media screen and (min-width: 720px) {
+      figure {
+        font-size: 7px;
       }
     }
-  }
-}
-
-//keyframes
-@keyframes upndown {
-  0% {transform: translateY(5px);}
-  50% {transform: translateY(15px);}
-  100% {transform: translateY(5px);}
-}
-@keyframes smallnbig {
-  0% {width: 90px;}
-  50% {width: 100px;}
-  100% {width: 90px;}
-}
-@keyframes shine {
-  0% {opacity: .2;}
-  25% {opacity: .1;}
-  50% {opacity: .2;}
-  100% {opacity: .2;}
-}
+    @media screen and (min-width: 1440px) {
+      figure {
+        font-size: 8px;
+      }
+    }
   </style>
 </head>
 
 <body class="rails-default-error-page">
- <div class="box">
-  <div class="box__ghost">
-    <div class="symbol"></div>
-    <div class="symbol"></div>
-    <div class="symbol"></div>
-    <div class="symbol"></div>
-    <div class="symbol"></div>
-    <div class="symbol"></div>
-
-    <div class="box__ghost-container">
-      <div class="box__ghost-eyes">
-        <div class="box__eye-left"></div>
-        <div class="box__eye-right"></div>
-      </div>
-      <div class="box__ghost-bottom">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-    <div class="box__ghost-shadow"></div>
-  </div>
-
-  <div class="box__description">
-    <div class="box__description-container">
-      <div class="box__description-title">Whoops!</div>
-      <div class="box__description-text">It seems like we couldn't find the page you were looking for</div>
-    </div>
-
-    <a href="https://www.baybe.store" target="_blank" class="box__button">Go Back</a>
-
-  </div>
-
-</div>
+  <figure>
+    <div class="sad-mac"></div>
+    <figcaption>
+      <span class="sr-text">Error 404: Not Found</span>
+      <span class="e"></span>
+      <span class="r"></span>
+      <span class="r"></span>
+      <span class="o"></span>
+      <span class="r"></span>
+      <span class="_4"></span>
+      <span class="_0"></span>
+      <span class="_4"></span>
+      <span class="n"></span>
+      <span class="o"></span>
+      <span class="t"></span>
+      <span class="f"></span>
+      <span class="o"></span>
+      <span class="u"></span>
+      <span class="n"></span>
+      <span class="d"></span>
+    </figcaption>
+  </figure>
 </body>
 </html>
