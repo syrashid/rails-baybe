@@ -1,5 +1,4 @@
 meta_product_name: "Baybe"
-meta_title: "Baybe - Baby's get more, you pay less."
-meta_description: "We need to write description!"
-meta_image: "baybelogo.png" # should exist in `app/assets/images/`
-# facebook_account: "https://www.facebook.com/baybe.baybe.50951"
+meta_title: "Baybe - Your baby gets more, you pay less."
+meta_description: "Baybe is a marketplace to purchase quality, certified, refurbished baby goods for your little one.  We purchase lightly used baby goods from parents, certify and refurbish them, and then add them to our marketplace for parents to purchase and save.  Buying the best for your baby has never cost less!"
+meta_image: "baybecover.png"
