@@ -14,12 +14,13 @@
             </div>
             <div class="baybe-list">
               <p>
-                <%= link_to stock_product_path(stockProd, parent: "cart"), method: :delete, remote: true do %>
+                <%= link_to stock_product_path(stockProd, parent: "cart"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockProd.product.name}" },method: :delete do %>
                   <i class="far fa-trash-alt"></i>
                 <% end %>
                 &nbsp &nbsp
                 <%= stockProd.product.price * stockProd.condition.buy_ratio%> EUR
               </p>
+
             </div>
           </div>
         <!------------------------>

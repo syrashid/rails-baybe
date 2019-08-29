@@ -1,23 +1,11 @@
-function removeElement() {
-  const element = document.getElementById("stock-product-<%= @stockproduct.id %>")
+const removeElement = () => {
+  const product = document.getElementById("stock-product-<%= @stockproduct.id %>")
 
-  swal({
-    title: "Are you sure?",
-    text: "<%= @stockproduct.product.name %> will delete",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then((willDelete) => {
-    if (willDelete) {
-      swal("Poof! Your product has been deleted!", {
-        icon: "success",
-      });
-      element.remove();
-    } else {
-      swal("Your product is safe!");
-    }
+  swal("Poof! Your product has been deleted!", {
+    icon: "success",
   });
+  product.remove();
+
 }
 
 removeElement();
