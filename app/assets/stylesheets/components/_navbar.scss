@@ -82,9 +82,14 @@
 }
 
 .selling {
+
+
   .searchbar {
     background-color: $light-red !important;
   }
+    .searchbar::placeholder {
+      color: $red;
+    }
 
   .buttonPrimarySearch {
     background-color: $red;
