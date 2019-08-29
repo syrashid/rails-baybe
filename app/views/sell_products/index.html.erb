@@ -6,20 +6,9 @@
   <h1 class="text-center m-4">Sellable products</h1>
   <div class="cards-grid" id="cards-container">
   <%= render 'sell_product_card_partial', products: @products %>
-    <a href="<%= new_product_path %>" style="text-decoration: none !important">
-      <div class="baybe-card baybe-price-card">
-        <!-- <i class="fixed-fav far fa-heart"></i> -->
-        <i class="fas fa-plus fa-9x"></i>
-            <p class="fixed-brand">
-          Add a product
-        </p>
-      </div>
-    </a>
   </div>
 </div>
 <!-- --------------- -->
-
-
   <div class="container">
     <h1 class="text-center m-4">Products to sell by category</h1>
     <div class="cards-grid">
