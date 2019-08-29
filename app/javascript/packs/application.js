@@ -8,6 +8,6 @@ import { popover } from '../components/popover';
 import {  } from '../plugins/init_sweetalert';
 
 confirmBox();
-priceCalc();
 initSelect2();
+priceCalc();
 popover();
