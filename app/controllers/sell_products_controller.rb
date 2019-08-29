@@ -21,6 +21,19 @@ class SellProductsController < ApplicationController
   def current
   end
 
+  def filter_category
+    if params[:query].present?
+      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
+      @products = @searchprods.select { |prod| prod.category.description == params[:cat] }
+    else
+      @products = Category.find_by(description: params[:cat]).products
+    end
+    @cat = params[:cat]
+    respond_to do |format|
+      format.js { render :sellfiltercategory }
+    end
+  end
+
   def addToBox
     stock_product = StockProduct.new
 
