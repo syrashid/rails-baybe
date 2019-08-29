@@ -41,7 +41,7 @@
       <%= render 'shared/searchbarforsell' %>
       <!-- RENDER CART IF SIGNED IN -->
       <% if user_signed_in? %>
-      <%= link_to ('<i class="fas fa-box-open"></i>').html_safe, box_path(current_user.current_box) %>
+      <%= link_to ('<i class="fas fa-box-open"></i>').html_safe, box_path(current_user.current_box, class: "box") %>
       <p>(<%= current_user.current_box.stock_products.count %>)</p>
 
       <% end %>

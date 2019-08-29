@@ -81,8 +81,15 @@
   border: none !important;
 }
 
-.selling {
+.fa-box-open {
+  width: 5vh;
+}
 
+.fa-baby-carriage {
+  width: 5vh;
+}
+
+.selling {
 
   .searchbar {
     background-color: $light-red !important;
@@ -97,10 +104,12 @@
 
   a {
     color: $red;
+
   }
 
   .navbar-right p {
     color: $red;
+    width: 1vh;
   }
 }
 
@@ -135,6 +144,7 @@
     margin-left: 15px;
     font-size: 25px;
     color: #05A4C3;
+    width: 1vh;
   }
 }
 
