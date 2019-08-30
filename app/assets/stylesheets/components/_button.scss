@@ -15,6 +15,7 @@
 .selling .buttonPrimary  {
   background-color: $red;
   color: $white !important;
+
 }
 
 .selling .options div {
@@ -33,22 +34,15 @@ button.stripe-button-el>span {
   text-transform: uppercase;
   padding: 15px;
   width: 100%;
-
   background-image: none;
-  // background-color: #FF3147 !important;
   display: flex !important;
   justify-content: center;
   align-items: center;
-  // color: white;
   border-radius: 4px;
   background: $blue !important;
-  // height: 53px;
   text-align: center;
   text-decoration: none;
-  // font-size: 21px;
-  // font-family: Roboto;
   border: 0px;
-  // width: 100%;
   font-family: $body-font !important;
   box-shadow: none;
 }
@@ -57,6 +51,8 @@ button.stripe-button-el>span {
 .buttonPrimary:hover {
   opacity: 0.7;
   transition: opacity 1s ease-out;
+  text-decoration: none;
+  color: $white;
 }
 
 .buttonPrimarySearch {
@@ -93,6 +89,7 @@ button.stripe-button-el>span {
   background-color: $blue;
   color: $white;
   transition: background-color 1s ease-out;
+  text-decoration: none;
 }
 
 .ghostPrimarySell {
@@ -111,6 +108,7 @@ button.stripe-button-el>span {
 .ghostPrimarySell:hover {
   background-color: $red;
   color: $white;
+  text-decoration: none;
   transition: background-color 1s ease-out;
 }
 
