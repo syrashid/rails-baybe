@@ -46,40 +46,47 @@
     display: flex;
   }
 }
-// LE WAGON SEARCH CSS
-.search-form-control {
-  position: relative;
 
-}
 
-.search-form-control .btn {
-  position: absolute;
-  top: 1px;
-  bottom: 1px;
-  right: 1px;
-  background-color: $blue;
-  color: white;
-  height: 97%;
+// -----searchbar-------
 
-}
 
-.search-form-control .form-control {
-  height: 2.4rem;
-  background-color: white;
-  width: 35rem;
-  border: none;
+// .search-form-control {
+  // position: relative;
+// }
 
-}
 
-.search-form-control .form-control:focus {
-  border: 1px solid $blue;
-  outline: none !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
+// .search-form-control .btn {
+//   position: absolute;
+//   top: 1px;
+//   bottom: 1px;
+//   right: 1px;
+//   background-color: $blue;
+//   color: white;
+//   height: 97%;
 
-.searchbar {
-  border: none !important;
-}
+// }
+
+// .search-form-control .form-control {
+//   height: 2.4rem;
+//   background-color: white;
+//   width: 35rem;
+//   border: none;
+
+// }
+
+// .search-form-control .form-control:focus {
+//   border: 1px solid $blue;
+//   outline: none !important;
+//   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+// }
+
+// .searchbar {
+//   border: none !important;
+// }
+
+// ----------------
+
 
 .fa-box-open {
   width: 5vh;

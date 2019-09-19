@@ -1,0 +1,17 @@
+.searchbar {
+  display: flex;
+}
+
+.searchbar-input {
+  border: none;
+  width: 100%;
+  max-width: 560px;
+  min-width: 228px;
+  padding-left: 2vh;
+}
+
+.searchbar-input:focus {
+  border: 0.5px solid $blue;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}

@@ -1,15 +1,7 @@
-<div class="form-inline">
-  <%= form_tag products_path, method: :get, class:
-    "search-form-control form-group" do %>
-  <%= text_field_tag :query,
-  params[:query],
-  class: "form-control string required searchbar",
-    size: "40",
-    style: "border:none;border-radius: 0;",
-    placeholder: "Search"
-    %>
-    <%= button_tag(type: "submit", class: "buttonPrimarySearch") do %>
-      <i class="fas fa-search"></i>
-      <% end %>
+<%= form_tag products_path, method: :get, class: "searchbar" do %>
+  <%= text_field_tag :query, params[:query], class: "searchbar-input", placeholder: "Search" %>
+  <%= button_tag(type: "submit", class: "buttonPrimarySearch") do %>
+    <i class="fas fa-search"></i>
   <% end %>
-</div>
+<% end %>
+
