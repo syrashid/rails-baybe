@@ -1,5 +1,5 @@
-<div class="container d-flex justify-content-between">
-  <div class="your-cart col-md-8">
+<div class="cart-confirm-container row">
+  <div class="your-cart col-lg-8 col-sm-12">
     <h4>YOUR CART</h4>
     <div class="order">
       <% @stockproducts.each do |stockProd| %>
@@ -38,7 +38,7 @@
     </div>
 
     <% if !@stockproducts.any? %>
-      <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary btn-block" %>
+      <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary buttonBlock" %>
     <% else %>
       <%= form_tag confirm_cart_path(@currentcart), method: :patch,class: "stripe-form" do %>
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -52,7 +52,7 @@
   </div>
 
 
-  <div class="delivery-address col-md-4">
+  <div class="delivery-info col-lg-4 col-sm-12">
     <div class="mt-5">
       <div class="custom-control custom-checkbox">
         <!-- <input name="gift" type="checkbox" class="custom-control-input" id="gift">
@@ -73,33 +73,33 @@
       <div class="form-row mt-5">
         <div class="form-group col-md-6">
           <label for="inputEmail4">First Name</label>
-          <input name="first_name" type="text" class="form-control" id="inputEmail4" placeholder="Chad">
+          <input name="first_name" type="text" class="form-control" id="inputEmail4" placeholder="John">
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">Last Name</label>
-          <input name="last_name" type="text" class="form-control" id="inputPassword4" placeholder="Saglam">
+          <input name="last_name" type="text" class="form-control" id="inputPassword4" placeholder="Doe">
         </div>
       </div>
       <div class="form-group">
         <label for="inputAddress">Address</label>
-        <input name="address" type="text" class="form-control" id="inputAddress" placeholder="Hohlstarsse">
+        <input name="address" type="text" class="form-control" id="inputAddress" placeholder="123 Alphabet Street">
       </div>
       <div class="form-group">
         <label for="inputAddress2">Address 2</label>
-        <input name="address2" type="text" class="form-control" id="inputAddress2" placeholder="111">
+        <input name="address2" type="text" class="form-control" id="inputAddress2" placeholder="Apartment 1">
       </div>
       <div class="form-row">
         <div class="form-group col-md-5">
           <label for="inputCountry">Country</label>
-          <input name="country" type="text" class="form-control" id="inputCountry" placeholder="Switzerland">
+          <input name="country" type="text" class="form-control" id="inputCountry" placeholder="USA">
         </div>
         <div class="form-group col-md-4">
           <label for="inputCity">City</label>
-          <input name="city" type="text" class="form-control" id="inputCity" placeholder="Zürich">
+          <input name="city" type="text" class="form-control" id="inputCity" placeholder="LA">
         </div>
         <div class="form-group col-md-3">
           <label for="inputZip">Zip</label>
-          <input name="zip" type="text" class="form-control" id="inputZip" placeholder="8307">
+          <input name="zip" type="text" class="form-control" id="inputZip" placeholder="90210">
         </div>
       </div>
     </div>
