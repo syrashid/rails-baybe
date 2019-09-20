@@ -1,3 +1,54 @@
+// -----navbar-------
+.baybe-navbar {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  text-transform: lowercase;
+  align-items: center;
+  padding: 2% 0% 0% 6%;
+  width: 100%;
+
+  .baybe-logo img {
+    width: 10vh;
+    margin-right: 2vh;
+    min-width: 80px;
+  }
+
+  .dropdown-item:hover {
+    text-decoration: underline !important;
+    background: none !important;
+  }
+
+  .nav-link {
+      color: $light-gray !important;
+      padding-right: 2vh !important;
+      padding-left: 2vh !important;
+  }
+
+  .navbar-toggler {
+    border: none;
+    padding-left: 0 ;
+  }
+}
+
+.herobanner {
+  .navbar {
+    justify-content: normal !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    background: #ffffff7a;
+    width: 30%;
+    max-width: 200px;
+    border-radius: 2px;
+  }
+}
+
+// ------------------
+
+
 .bg-w {
     background-color: white;
 }
@@ -9,15 +60,13 @@
 }
 
 .navbar-lewagon {
-
-
   a {
     text-transform: lowercase;
   }
   // NEST
-  a:hover {
-    text-decoration: underline;
-  }
+  // a:hover {
+  //   text-decoration: underline;
+  // }
 
   .navbar-brand {
     font-size: 40px;
@@ -36,13 +85,12 @@
   margin-bottom: 10px;
 }
 
-
 .baybe-navbar {
-  display: flex;
-  justify-content: space-between;
-  height: 40px;
+  // display: flex;
+  // justify-content: space-between;
+  // height: 40px;
 
-  .navbar-login, .navbar-search, .navbar-cart {
+  .navbar-search, .navbar-cart {
     display: flex;
   }
 }
@@ -161,9 +209,6 @@
   }
 }
 
-
-
-
 #show {
   background-color: $white;
   padding: 1vh;
@@ -171,5 +216,3 @@
     background-color: #ffffff6e;
   }
 }
-
-

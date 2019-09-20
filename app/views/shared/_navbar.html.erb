@@ -1,37 +1,38 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon relative px-5">
-  <!-- BABYE LOGO -->
-  <%= link_to root_path, :class => "navbar-brand" do %>
+<nav class="baybe-navbar navbar navbar-expand-lg navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to root_path, :class => "baybe-logo" do %>
     <%= cl_image_tag("https://res.cloudinary.com/syrashid/image/upload/v1566557725/baybelogo_oeccrt.png") %>
   <% end %>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Shop", products_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sell", sell_products_path, class: "nav-link" %>
+      </li>
 
-  <div class="baybe-navbar w-100">
-    <div class="navbar-login">
-      <%= link_to "Shop", products_path, class: "nav-link text-dark" %>
-      <%= link_to "Sell", sell_products_path, class: "nav-link text-dark" %>
-
-      <!-- DIFFERENT NAVBAR IF SIGNED IN -->
       <% if user_signed_in? %>
 
-        <div class="dropdown nav-link text-dark" >
-          <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.first_name.downcase %>
-          </div>
-          <div id="show" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Edit Profile',edit_user_registration_path, class: "dropdown-item" %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.first_name.downcase %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Edit Profile',edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to 'Buying orders',carts_path, class: "dropdown-item" %>
             <%= link_to 'Selling orders',boxes_path, class: "dropdown-item" %>
             <%= link_to 'Review Products', review_products_path, class: "dropdown-item" if current_user.admin %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
         </div>
+      </li>
 
       <% else %>
-
-        <%= link_to "Login", new_user_session_path, class: "nav-link text-dark" %>
-
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
       <% end %>
-      <!-- --------------------------- -->
-    </div>
+    </ul>
   </div>
-</div>
+</nav>
