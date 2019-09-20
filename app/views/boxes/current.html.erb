@@ -42,11 +42,11 @@
   <div>
     <% if @currentbox.stock_products.any? %>
     <div style="display: flex">
-      <%= link_to "Sell other products", sell_products_path, class: "ghostPrimarySell buttonSpan" %>
-      <%= link_to "Proceed to Confirmation", box_path(@currentbox), class: "buttonPrimary buttonSpan" %>
+      <%= link_to "Sell other products", sell_products_path, class: "ghostPrimarySell" %>
+      <%= link_to "Proceed to Confirmation", box_path(@currentbox), class: "buttonPrimary" %>
     </div>
     <% else %>
-    <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary buttonSpan" %>
+    <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary" %>
     <% end %>
   </div>
   </div>
