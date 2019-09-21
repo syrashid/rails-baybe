@@ -11,3 +11,9 @@
   max-width: 600px;
   width: 100%;
 }
+
+@media only screen and (orientation: landscape) {
+  .baybe-diagram {
+    width: 100vh;
+  }
+}
