@@ -1,15 +1,13 @@
 <div class="herobanner">
   <%= render 'shared/navbar' %>
-  <div class="bcontainer">
+  <div class="hero-text">
     <h1>Your baby gets more,</h1>
     <h1>You pay less</h1>
-    <br>
-    <%= render 'shared/searchbar' %>
-    <%#= render 'shared/web_description' %>
   </div>
+  <%= render 'shared/searchbar' %>
 </div>
 
-<div class= "container mt-5" style="display: flex">
+<div class= "action-btn container mt-5">
   <%= link_to "buy", products_path, class: "ghostPrimary btn-block mr-3" %>
   <%= link_to "sell", sell_products_path, class: "ghostPrimarySell btn-block mt-0" %>
 </div>

@@ -1,11 +1,49 @@
 .herobanner {
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-position-x: 70%;
+  background-repeat: no-repeat;
   height: 100vh;
   padding: 45vh 38vw 0vh 6vw;
   background-image: url('https://res.cloudinary.com/syrashid/image/upload/v1566384176/25_04_19_kids_baby_epsp_hero_deisvg.jpg');
+
+  .hero-text {
+    margin-bottom: 8vh;
+  }
 }
 
 .baybe-diagram {
-  height: 600px;
+  max-height: 600px;
+  max-width: 600px;
+  width: 100%;
 }
+
+@media only screen and (orientation: landscape) {
+  .baybe-diagram {
+    width: 100vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .herobanner {
+    padding: 38vh 36vw 0vh 6vw;
+
+    .hero-text {
+      margin-bottom: 15vh;
+      width: 75%;
+    }
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .herobanner {
+    padding: 30vh 36vw 0vh 6vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .herobanner {
+    padding: 23vh 26vw 0vh 6vw;
+  }
+}
+
