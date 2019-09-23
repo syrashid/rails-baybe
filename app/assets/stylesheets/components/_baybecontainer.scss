@@ -7,25 +7,40 @@
 @media (min-width: 576px) {
   .baybecontainer {
     max-width: 540px;
+    &.w-xl {
+      max-width: 90%;
+    }
   }
 }
 
 @media (min-width: 768px) {
   .baybecontainer {
     max-width: 720px;
+    &.w-xl {
+      max-width: 90%;
+    }
   }
 }
 
 @media (min-width: 992px) {
   .baybecontainer {
     max-width: 960px;
+    &.w-xl {
+      max-width: 90%;
+    }
   }
 }
 
 @media (min-width: 1200px) {
   .baybecontainer {
     max-width: 1140px;
+        &.w-xl {
+      max-width: 90%;
+    }
   }
 }
 
 // Custom Baybecontainer implementing bootstrap container breakpoints
+
+
+

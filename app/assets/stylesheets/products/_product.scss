@@ -7,12 +7,19 @@
   }
 }
 
-
-
 .product-info-right {
-  width: 650px;
+  width: 50%;
+  height: 90vh;
 
- .product-info-row {
+  p {
+    text-align: left;
+  }
+
+  .prod-features {
+    overflow: scroll;
+    max-height: 50%;
+  }
+  .product-info-row {
     display: flex;
 
     .product-info-row-title {
@@ -33,4 +40,20 @@
 
 .buy-product {
   margin-bottom: 4rem;
+}
+
+@media (max-width: 576px) {
+  .baybecontainer.product-options {
+    display: block;
+  }
+}
+
+@media (max-width: 320px) {
+  .options {
+    display: block;
+  }
+  .product-options div {
+      width: 100%;
+      margin-bottom: 2%;
+  }
 }

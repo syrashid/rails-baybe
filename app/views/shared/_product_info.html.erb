@@ -1,6 +1,5 @@
 <form action="<%= path %>" method="GET">
-  <div class="baybecontainer product-options">
-    <div>
+  <div class="baybecontainer product-options w-xl">
       <!-- PRODUCT CAROUSEL -->
       <div class="baybe-card baybe-carousel-card">
         <i class="fas fa-chevron-right"></i>
@@ -11,8 +10,29 @@
         <p id= "savings" class="product-info-row-detail"> save <%= ((1 - @ratio)*100).round %>%</p>
 
       </div>
+    <!-- STOCK PRODUCT DETAILS -->
+    <div class="product-info-right">
+      <div class="product-info-row">
+        <p class="product-info-row-title">Product Name</p>
+        <p class="product-info-row-detail"><%= @product.name %></p>
+      </div>
 
-      <div class="options mb-4">
+      <div class="product-info-row">
+        <!-- <p class="product-info-row-title">standard price</p> -->
+        <!-- <p class="product-info-row-detail"><%= @product.price.round %> €</p> -->
+      </div>
+
+      <div class="product-info-row">
+        <p class="product-info-row-title">Features</p>
+      </div>
+      <div class="prod-features">
+        <p rows="5" cols="50" class="product-info-row-detail">
+          <% @product.description.split(".").each do |line| %>
+          <p>- <%= line %></p>
+          <% end %>
+        </p>
+      </div>
+      <div class="options mb-4 mt-4">
         <div>
           <select class="baybe-dropdown select2" name="stock_product[size]">
             <%= options_for_select(@age_groups) %>
@@ -34,29 +54,6 @@
         <button type="submit" class="buttonPrimary"><%= text %></button>
       </div>
 
-      <!-- -------------- -->
-      <!-- --------------- -->
-    </div>
-    <!-- STOCK PRODUCT DETAILS -->
-    <div class="product-info-right ml-4">
-      <div class="product-info-row">
-        <p class="product-info-row-title">Product Name</p>
-        <p class="product-info-row-detail"><%= @product.name %></p>
-      </div>
-
-      <div class="product-info-row">
-        <!-- <p class="product-info-row-title">standard price</p> -->
-        <!-- <p class="product-info-row-detail"><%= @product.price.round %> €</p> -->
-      </div>
-
-      <div class="product-info-row">
-        <p class="product-info-row-title">Features</p>
-      </div>
-        <p rows="5" cols="50" class="product-info-row-detail">
-          <% @product.description.split(".").each do |line| %>
-          <p>- <%= line %></p>
-          <% end %>
-        </p>
     </div>
     <!-- --------------- -->
   </div>
