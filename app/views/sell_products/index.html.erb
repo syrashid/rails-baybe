@@ -1,16 +1,15 @@
 <%= render 'shared/sell_filter_bar' %>
 
-
 <!-- PRODUCTS CARDS -->
-<div class="container">
-  <h1 class="text-center m-4">Choose the items you are selling</h1>
+<div class="baybecontainer">
+  <h1 class="sell-header">Choose the items you are selling</h1>
   <div class="cards-grid" id="cards-container">
   <%= render 'sell_product_card_partial', products: @products %>
   </div>
 </div>
 <!-- --------------- -->
-  <div class="container">
-    <h1 class="text-center m-4">Products to sell by category</h1>
+  <div class="baybecontainer">
+    <h1 class="sell-header">Products to sell by category</h1>
     <div class="cards-grid">
       <% @categories.each do |category| %>
       <a href="<%= category_path(category) %>">
