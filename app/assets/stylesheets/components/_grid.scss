@@ -5,23 +5,14 @@
   grid-gap: 16px;
 }
 
-
-@media (min-width: 1200px) {
+@media (max-width: 768px) {
   .cards-grid {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 320px) {
   .cards-grid {
       grid-template-columns: 1fr 1fr;
   }
 }
-
-@media (max-width: 575px) and (min-width: 100px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-
