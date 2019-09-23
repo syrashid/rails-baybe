@@ -1,0 +1,31 @@
+.baybecontainer {
+  padding: 0 15px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .baybecontainer {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .baybecontainer {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .baybecontainer {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .baybecontainer {
+    max-width: 1140px;
+  }
+}
+
+// Custom Baybecontainer implementing bootstrap container breakpoints

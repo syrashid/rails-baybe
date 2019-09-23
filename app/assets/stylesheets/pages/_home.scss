@@ -6,22 +6,8 @@ body {
 .home-page {
   padding-top: 0;
   position: relative;
-
-  .action-btn {
-    display: flex;
-  }
 }
 
-@media (max-width: 576px) {
-  .home-page {
-    .action-btn {
-      display: block;
 
-      .ghostPrimary{
-        margin-bottom: 2vh;
-      }
-    }
-  }
-}
 
 

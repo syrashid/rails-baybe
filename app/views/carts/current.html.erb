@@ -58,8 +58,8 @@
   <div>
     <% if @currentcart.stock_products.any? %>
 
-    <div style="display: flex">
-      <%= link_to "Continue Shopping", products_path, class: "ghostPrimary mr-3" %>
+    <div class = "action-btn">
+      <%= link_to "Continue Shopping", products_path, class: "ghostPrimary" %>
       <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary" %>
     </div>
     <% else %>

@@ -7,12 +7,12 @@
   <%= render 'shared/searchbar' %>
 </div>
 
-<div class= "action-btn container mt-5">
-  <%= link_to "buy", products_path, class: "ghostPrimary btn-block mr-3" %>
-  <%= link_to "sell", sell_products_path, class: "ghostPrimarySell btn-block mt-0" %>
+<div class= "baybecontainer action-btn mt-5">
+  <%= link_to "buy", products_path, class: "ghostPrimary buttonBlock" %>
+  <%= link_to "sell", sell_products_path, class: "ghostPrimarySell buttonBlock" %>
 </div>
 
-<div class="container mt-5 text-center">
+<div class="baybecontainer mt-5">
   <h1>How Baybe Works</h1>
   <%= image_tag("https://res.cloudinary.com/syrashid/image/upload/v1567149486/Baybe-Diagram_fyrlxa.png", class: "baybe-diagram") %>
 </div>
@@ -20,8 +20,8 @@
 <br>
 <br>
 
-<div class="container">
-  <h1 class="text-center">Our Categories</h1>
+<div class="baybecontainer">
+  <h1>Our Categories</h1>
   <div class="cards-grid">
     <% @categories.each do |category| %>
     <a href="<%= category_path(category) %>">
