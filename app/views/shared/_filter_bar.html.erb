@@ -1,6 +1,5 @@
-<nav class="navbar">
-  <div class="container flex-column mb-4">
-    <div class="filter-bar all-categories justify-content-between">
+
+    <div class="baybecontainer filter-bar all-categories">
       <%= link_to "All Categories",
           products_path,
           class: "navbar-text filter-active-cat" %>
@@ -13,7 +12,7 @@
       <% end %>
     </div>
 
-    <div class="filter-bar all-conditions">
+    <div class="baybecontainer filter-bar all-conditions">
       <%= link_to "All Conditions",
           products_path,
           class: "navbar-text filter-active-con" %>
@@ -25,5 +24,3 @@
             remote: true  %>
       <% end %>
     </div>
-  </div>
-</nav>
