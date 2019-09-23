@@ -29,15 +29,12 @@
 }
 
 .baybe-price-card {
-  width: 278px;
-  height: 310px;
+  width: 100%;
   box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.1);
   position: relative;
-  margin: 1rem;
 
   img {
-    width: 210px;
-    height: 210px;
+    width: 85%;
   }
 
   p {

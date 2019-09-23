@@ -1,6 +1,6 @@
 <div class="baybecontainer">
   <h1><%= Category.find(params[:id]).description %> products</h1>
-  <div class="cards-grid">
+  <div class="cat-grid">
     <!-- PRODUCTS CARDS -->
       <% @products.each do |product| %>
       <a href="<%= product_path(product) %>">
