@@ -170,13 +170,11 @@
       .fixed-brand {
         position: absolute;
         top: 0%;
-        right: 0%;
+        right: auto;
       }
     }
   }
-}
 
-@media (max-width: 320px) {
   .baybe-carousel-card{
     #product-price {
       top: auto;
