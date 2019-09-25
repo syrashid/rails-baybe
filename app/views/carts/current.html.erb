@@ -1,4 +1,4 @@
-<div class="cart-confirm-container row">
+<div class="cart-confirm-container row justify-content-center">
     <% if @currentcart.stock_products.any? %>
     <!-- START -->
     <!-- THIS IS A QUICK FIX: TODO: CHANGE IMMEDIATELY -> move into ajax response -->
@@ -23,7 +23,7 @@
       You currently don't have any products in your Cart!
     </p>
     <% end %>
-  <div class="your-cart w-100 col-12">
+  <div class="your-cart col-md-12 col-lg-8">
     <h4>YOUR CART</h4>
     <% @currentcart.stock_products.each do  |stockproduct| %>
     <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>">
@@ -50,7 +50,7 @@
   </div>
     <% if @currentcart.stock_products.any? %>
 
-    <div class = "action-btn w-100 col-12 mb-3">
+    <div class = "action-btn col-md-12 col-lg-8 mb-3">
       <%= link_to "Continue Shopping", products_path, class: "ghostPrimary" %>
       <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary" %>
     </div>
