@@ -8,7 +8,6 @@
           <div class="box-info-row">
 
             <p class="info-big">ORDER Nº: <%= cart.updated_at.strftime("%Y%m%dT%H%M") %>N<%= cart.id %> - <%= cart.paid %></p>
-            <p class="info-big">STATUS - <%= cart.paid %></p>
             <p class="info-big"><%= humanized_money(cart.total_price) %> EUR</p>
 
             <div class="info-small">
@@ -47,7 +46,7 @@
                 <%# end %>
                 <p class="pl-3 pr-3"><%= stockProd.product.name %></p>
               </div>
-                <p class="text-nowrap"><%= humanized_money((stockProd.product.price * stockProd.condition.buy_ratio).round(2)) %> EUR</p>
+                <p class="right-info"><%= humanized_money((stockProd.product.price * stockProd.condition.buy_ratio).round(2)) %> EUR</p>
             </div>
             <!------------------------>
           <% end %>
