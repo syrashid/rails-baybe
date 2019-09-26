@@ -3,15 +3,15 @@
 
   <% content_for(:cart_current_js) do %>
   <script>
-    var swal_alert = localStorage.getItem("alert");
-    var currentcount = '<%= current_user.current_cart.stock_products.count %>'
+    var swal_alert = localStorage.getItem("cart_alert");
+    var currentcount = '<%= current_user.current_cart.stock_products.count %>';
 
     if (swal_alert != currentcount) {
       var toast = SwalTwo.mixin({
         toast: true,
         position: 'bottom-end',
         showConfirmButton: false,
-        timer: 3000
+        timer: 4000
       })
       toast.fire({
         type: 'success',
@@ -19,7 +19,7 @@
       })
     }
 
-    localStorage.setItem("alert", currentcount);
+    localStorage.setItem("cart_alert", currentcount);
   </script>
   <% end %>
 

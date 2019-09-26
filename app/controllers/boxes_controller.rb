@@ -10,7 +10,6 @@ class BoxesController < ApplicationController
   def show
     @stockproducts = @box.stock_products
     sum_total
-
   end
 
   def confirm

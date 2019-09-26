@@ -47,7 +47,7 @@
       <% if user_signed_in? %>
         <div class="cart">
           <%= link_to ('<i class="fas fa-box-open"></i>').html_safe, box_path(current_user.current_box) %>
-          <p id="cart-number">(<%= current_user.current_box.stock_products.count %>)</p>
+          <p id="box-number">(<%= current_user.current_box.stock_products.count %>)</p>
         </div>
       <% end %>
       <!-- --------------------------- -->

@@ -1,24 +1,48 @@
 function removeElement () {
   const product = document.getElementById("stock-product-<%= @stockproduct.id %>");
-  const number = document.getElementById("cart-number");
-  const savings = document.getElementById("savings");
-  const total_price = document.getElementById("total-price");
+  const cart_items = document.getElementById("cart-number");
+  const box_items = document.getElementById("box-number")
 
-  // Update cart item number
-  number.innerHTML = "(<%= current_user.current_cart.stock_products.count %>)";
+  if (cart_items) {
+    const savings = document.getElementById("savings");
+    const total_price = document.getElementById("total-price");
 
-  // Update total cart price
-  <% stockproducts = current_user.current_cart.stock_products %>
-  <% new_price = stockproducts.sum do |stockproduct| %>
-    <% stockproduct.product.price * stockproduct.condition.buy_ratio %>
-  <% end %>
-  total_price.innerHTML = "<%= humanized_money(new_price) %> EUR"
+    // Update cart item number
+    cart_items.innerHTML = "(<%= current_user.current_cart.stock_products.count %>)";
 
-  // Update total cart savings
-  <% savings = stockproducts.sum do |stockproduct| %>
-    <% ((1 - stockproduct.condition.buy_ratio) * stockproduct.product.price) %>
-  <% end %>
-  savings.innerHTML = "saving (<%= humanized_money(savings.round(2)) %> EUR) "
+    // Update total cart price
+    <% stockproducts = current_user.current_cart.stock_products %>
+    <% new_price = stockproducts.sum do |stockproduct| %>
+      <% stockproduct.product.price * stockproduct.condition.buy_ratio %>
+    <% end %>
+    total_price.innerHTML = "<%= humanized_money(new_price) %> EUR";
+
+    // Update total cart savings
+    <% savings = stockproducts.sum do |stockproduct| %>
+      <% ((1 - stockproduct.condition.buy_ratio) * stockproduct.product.price) %>
+    <% end %>
+    savings.innerHTML = "saving (<%= humanized_money(savings.round(2)) %> EUR) ";
+
+    // Update current count in localstorage
+    var currentcount = '<%= current_user.current_cart.stock_products.count %>';
+    localStorage.setItem("cart_alert", currentcount);
+  } else {
+    const total_payout = document.getElementById("total-payout");
+
+    // Update box item number
+    box_items.innerHTML = "(<%= current_user.current_box.stock_products.count %>)";
+
+    // Update potential box payout
+    <% stockproducts = current_user.current_box.stock_products %>
+    <% expected_price = stockproducts.sum do |stockproduct| %>
+      <% stockproduct.product.price * stockproduct.condition.sell_ratio %>
+    <% end %>
+    total_payout.innerHTML = "<%= humanized_money((expected_price * 0.8).round) %> - <%= humanized_money(expected_price.round) %> EUR";
+
+    // Update current count in localstorage
+    var currentcount = '<%= current_user.current_box.stock_products.count %>'
+    localStorage.setItem("box_alert", currentcount);
+  }
 
   // Sweet alert removal notification
   var toast = SwalTwo.mixin({
@@ -34,9 +58,7 @@ function removeElement () {
 
   product.remove();
 
-  // Update current count in localstorage
-  var currentcount = '<%= current_user.current_cart.stock_products.count %>'
-  localStorage.setItem("alert", currentcount);
+
 }
 
 removeElement();
