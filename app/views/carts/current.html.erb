@@ -12,7 +12,7 @@
       })
       toast.fire({
         type: 'success',
-        title: '<%= @currentcart.stock_products.last.product.name %> was successfully added to your cart'
+        title: 'This was successfully added to your cart'
       })
     </script>
     <% end %>
@@ -31,11 +31,11 @@
         <%# if stockproduct.photos.any? %>
         <%= cl_image_tag stockproduct.product.photo %>
         <%# end %>
-        <p class="pl-3 pr-3"><%= stockproduct.product.name %></p>
+        <p class="pl-3 pr-3" id="product-name"><%= stockproduct.product.name %></p>
       </div>
         <p>
           <%= humanized_money(stockproduct.product.price * stockproduct.condition.buy_ratio) %> EUR &nbsp &nbsp
-          <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockproduct.product.name}" },method: :delete do %>
+          <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, method: :delete do %>
           <i class="far fa-trash-alt"></i>
           <% end %>
         </p>
@@ -43,8 +43,8 @@
     <% end %>
     <div class="box-info-row">
       <p>ACTUAL CART</p>
-      <p class="box-info-title saving-big">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
-      <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
+      <p class="box-info-title saving-big" id="savings">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+      <p class="box-info-title" id="total-price"><%= humanized_money(@currentcart.total_price) %> EUR</p>
     </div>
     <p class="box-info-row saving-small">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
   </div>

@@ -8,12 +8,12 @@
       <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>" >
         <div class="baybe-list">
             <%= cl_image_tag stockproduct.product.photo %>
-          <p class="pl-3 pr-3"><%= stockproduct.product.name %></p>
+          <p class="pl-3 pr-3" id="product-name"><%= stockproduct.product.name %></p>
         </div>
           <p class="right-info">
             <%= humanized_money((stockproduct.product.price * stockproduct.condition.buy_ratio).round(2))%> EUR
             &nbsp &nbsp
-            <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockproduct.product.name}" },method: :delete do %>
+            <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, method: :delete do %>
           <i class="far fa-trash-alt"></i>
           <% end %>
           </p>
@@ -24,8 +24,8 @@
       <% if @stockproducts.any? %>
         <div class="box-info-row">
           <div class="box-info-title"><p>TOTAL CART</p></div>
-          <p class="box-info-title saving-big">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
-          <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
+          <p class="box-info-title saving-big" id="savings">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+          <p class="box-info-title" id="total-price"><%= humanized_money(@currentcart.total_price) %> EUR</p>
         </div>
           <p class="box-info-row saving-small">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
       <% end %>

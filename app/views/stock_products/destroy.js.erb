@@ -1,15 +1,36 @@
 function removeElement () {
   const product = document.getElementById("stock-product-<%= @stockproduct.id %>");
+  const product_name = document.getElementById("product-name");
   const number = document.getElementById("cart-number");
+  const savings = document.getElementById("savings");
+  const total_price = document.getElementById("total-price");
 
-  number.innerHTML = "(<%= current_user.current_cart.stock_products.count %>)"
+  // Update cart item number
+  number.innerHTML = "(<%= current_user.current_cart.stock_products.count %>)";
 
-  swal("Poof! Your product has been deleted!", {
-    icon: "success",
-  });
+  // Update total cart price
+  <% stockproducts = current_user.current_cart.stock_products %>
+  <% new_price = stockproducts.sum do |stockproduct| %>
+    <% stockproduct.product.price * stockproduct.condition.buy_ratio %>
+  <% end %>
+  total_price.innerHTML = "<%= humanized_money(new_price) %> EUR"
+
+  // Update total cart savings
+
+
+
+  var toast = SwalTwo.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 4000
+  })
+  toast.fire({
+    type: 'error',
+    title: product_name.innerText.toLowerCase() + ' was removed'
+  })
+
   product.remove();
-
-
 }
 
 removeElement();
