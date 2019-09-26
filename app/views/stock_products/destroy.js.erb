@@ -1,6 +1,5 @@
 function removeElement () {
   const product = document.getElementById("stock-product-<%= @stockproduct.id %>");
-  const product_name = document.getElementById("product-name");
   const number = document.getElementById("cart-number");
   const savings = document.getElementById("savings");
   const total_price = document.getElementById("total-price");
@@ -30,10 +29,14 @@ function removeElement () {
   })
   toast.fire({
     type: 'error',
-    title: product_name.innerText.toLowerCase() + ' removed'
+    title: '<%=@stockproduct.product.name%> removed'
   })
 
   product.remove();
+
+  // Update current count in localstorage
+  var currentcount = '<%= current_user.current_cart.stock_products.count %>'
+  localStorage.setItem("alert", currentcount);
 }
 
 removeElement();
