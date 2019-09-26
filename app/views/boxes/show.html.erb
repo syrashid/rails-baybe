@@ -13,7 +13,7 @@
             <p class="right-info">
               <%= humanized_money((stockproduct.product.price * stockproduct.condition.sell_ratio * 0.8).round) %> - <%= humanized_money((stockproduct.product.price * stockproduct.condition.sell_ratio).round) %> EUR
               &nbsp &nbsp
-              <%= link_to stock_product_path(stockproduct, parent: "box"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockproduct.product.name}" },method: :delete do %>
+              <%= link_to stock_product_path(stockproduct, parent: "box"), remote: true, method: :delete do %>
             <i class="far fa-trash-alt"></i>
             <% end %>
             </p>
