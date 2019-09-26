@@ -39,7 +39,7 @@
 
   p {
     text-transform: capitalize;
-    font-size: 18px;
+    font-size: calc(#{$bfs} * 3);
     font-weight: 700;
   }
 
@@ -54,7 +54,7 @@
     bottom: 4%;
     left: 10%;
     font-weight: 700;
-    font-size: 24px;
+    font-size: calc(#{$bfs} * 4);
   }
 
   .fixed-fav {
@@ -62,7 +62,7 @@
     top: 5%;
     right: 10%;
     opacity: 0.5;
-    font-size: 24px;
+    font-size: calc(#{$bfs} * 4);
   }
 }
 
@@ -78,7 +78,7 @@
 
   p {
     text-transform: capitalize;
-    font-size: 24px;
+    font-size: calc(#{$bfs} * 4);
   }
 
   .fa-chevron-left, .fa-chevron-right {
@@ -88,7 +88,7 @@
     // display: -webkit-box;
     opacity: 0.5;
     transition: opacity 0.25s ease;
-    font-size: 24px;
+    font-size: calc(#{$bfs} * 4);
   }
   .fa-chevron-left {
     left: 10%;

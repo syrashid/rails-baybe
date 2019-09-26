@@ -10,7 +10,7 @@
   a {
     color: $light-gray;
     text-decoration: underline;
-    font-size: 12px;
+    font-size: calc(#{$bfs} * 2);
     margin: 0 2% 0 2%;
   }
 }
