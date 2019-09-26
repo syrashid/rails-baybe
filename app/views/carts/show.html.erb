@@ -2,18 +2,20 @@
   <div class="your-cart col-lg-8 col-sm-12">
     <h4>YOUR CART</h4>
     <div class="order">
-      <% @stockproducts.each do |stockProd| %>
+
+      <% @stockproducts.each do |stockproduct| %>
       <!-- ORDER STOCK PRODUCTS -->
-      <div class="baybe-list-card">
+      <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>" >
         <div class="baybe-list">
-            <%= cl_image_tag stockProd.product.photo %>
-          <p class="pl-3 pr-3"><%= stockProd.product.name %></p>
+            <%= cl_image_tag stockproduct.product.photo %>
+          <p class="pl-3 pr-3"><%= stockproduct.product.name %></p>
         </div>
           <p>
-            <%#= link_to "", stock_product_path(stockProd, parent: "cart"),method: :delete, id: "delete-link", class: "hidden" %>
-            <%= humanized_money((stockProd.product.price * stockProd.condition.buy_ratio).round(2))%> EUR
+            <%= humanized_money((stockproduct.product.price * stockproduct.condition.buy_ratio).round(2))%> EUR
             &nbsp &nbsp
-            <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
+            <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockproduct.product.name}" },method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+          <% end %>
           </p>
       </div>
       <!------------------------>
