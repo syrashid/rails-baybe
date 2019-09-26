@@ -68,13 +68,12 @@
 
 
 .baybe-carousel-card {
-  width: 608px;
-  height: 608px;
+  width: 45%;
+  height: 76vh;
   position: relative;
 
   img {
-    width: 495px;
-    height: 495px;
+    height: 80%;
   }
 
   p {
@@ -162,5 +161,33 @@
   }
 }
 
+@media (max-width: 576px) {
+  .baybecontainer {
+    .baybe-carousel-card, .product-info-right {
+      width: 90%;
+      margin: auto;
+
+      .fixed-brand {
+        position: absolute;
+        top: 0%;
+        right: auto;
+      }
+    }
+  }
+
+  .baybe-carousel-card{
+    #product-price {
+      top: auto;
+      bottom: 6%;
+    }
+
+    #savings {
+      top: auto;
+      bottom: 8%;
+      left: auto;
+      right: 0%;
+    }
+  }
+}
 
 
