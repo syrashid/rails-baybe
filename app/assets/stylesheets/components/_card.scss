@@ -146,6 +146,11 @@
     opacity: 0.5;
     display: flex;
     align-items: baseline;
+
+    &.right-info {
+      width: 70%;
+      justify-content: flex-end;
+    }
   }
 
   .fa-trash-alt {
@@ -160,12 +165,25 @@
   .baybe-list{
     display: flex;
     align-items: center;
+
+    p {
+      width: 46vh;
+    }
   }
 }
 
 .box-info-row.saving-small {
     display: none;
   }
+
+
+@media (max-width: 992px) {
+  .baybe-list-card .baybe-list{
+    p {
+      width: 55vh;
+    }
+  }
+}
 
 @media (max-width: 576px) {
   .baybecontainer {
@@ -204,18 +222,31 @@
   }
 
   .baybe-list p {
-    width: 50vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  .baybe-list-card .baybe-list{
+    p {
+      width: 35vh;
+    }
+  }
 }
 
 @media (max-width: 320px) {
-  .baybe-list p {
-      width: 35vw;
+  .baybe-list-card {
+    display: block;
+
+    p {
+      width: 27vh;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      &.right-info {
+        width: 100%;
+      }
     }
+  }
 }

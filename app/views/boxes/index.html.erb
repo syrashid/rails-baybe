@@ -1,30 +1,51 @@
-<div class="nicontainer">
-  <h4>YOUR ORDERS</h4>
-  <% @boxes.order(id: :desc).where(status: "pending").each do |box| %>
-    <div class="order">
-      <!-- ORDER TITLE, STATUS AND PRICE -->
-      <div class="order-title">
-        <div class="order-title">
-          <p>ORDER Nº: <%= box.id %> - </p>
-          <p class="status"> <%= box.status %></p>
-        </div>
-        <p><%= humanized_money(box.expected_price) %> EUR</p>
-      </div>
-      <!------------------------>
-        <% box.stock_products.each do |stockProd| %>
-          <!-- ORDER STOCK PRODUCTS -->
-          <div class="baybe-list-card">
-              <div class="baybe-list">
-                <%= cl_image_tag stockProd.product.photo %>
-                <p><%= stockProd.product.name %></p>
-              </div>
-              <div class="baybe-list">
-                <p><%= humanized_money(stockProd.product.price * stockProd.condition.buy_ratio)%> EUR</p>
-              </div>
+<div class="cart-confirm-container row justify-content-center">
+  <div class="your-cart col-md-12 col-lg-10">
+    <h4>YOUR SELLING BOXES</h4>
+    <% @boxes.order(id: :desc).where(status: "pending").each do |box| %>
+      <div class="order">
+        <!-- ORDER TITLE, STATUS AND PRICE -->
+        <div class="order-info">
+          <div class="box-info-row">
+
+            <p class="info-big">ORDER Nº: <%= box.id %> - <%= box.status %></p>
+            <p class="info-big">
+              <%= money_without_cents((box.expected_price * 0.8).round(1)) %> - <%= money_without_cents(box.expected_price.round(1)) %> EUR
+            </p>
+
+            <div class="info-small">
+              <p>ORDER Nº</p>
+              <p><%= box.id %></p>
+            </div>
+            <div class="info-small">
+              <p>STATUS </p>
+              <p><%= box.status %></p>
+            </div>
+            <div class="info-small">
+              <p>TOTAL</p>
+              <p>
+                <%= money_without_cents((box.expected_price * 0.8).round(1)) %> - <%= money_without_cents(box.expected_price.round(1)) %> EUR
+              </p>
+            </div>
           </div>
-          <!------------------------>
-        <% end %>
-      </div>
-          <hr>
-  <% end %>
+        </div>
+        <!------------------------>
+          <% box.stock_products.each do |stockProd| %>
+            <!-- ORDER STOCK PRODUCTS -->
+            <div class="baybe-list-card">
+              <div class="baybe-list">
+                <%# if stockproduct.photos.any? %>
+                <%= cl_image_tag stockProd.product.photo %>
+                <%# end %>
+                <p class="pl-3 pr-3"><%= stockProd.product.name %></p>
+              </div>
+                <p class="right-info">
+                  <%= money_without_cents((stockProd.product.price * 0.8).round(1)) %> - <%= money_without_cents((stockProd.product.price.round(1))) %> EUR
+                </p>
+            </div>
+            <!------------------------>
+          <% end %>
+        </div>
+        <hr>
+    <% end %>
+  </div>
 </div>

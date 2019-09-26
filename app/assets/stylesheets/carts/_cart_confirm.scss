@@ -4,21 +4,26 @@
   justify-content: space-between;
   max-width: 75%;
 
-
-  // TO DO: Apply media queries to shrink text at breakpoints and remove max-width
-  .your-cart {
-
-  }
-
-  .delivery-ino {
-
+  &.small {
+    max-width: 60%;
   }
 }
 
+@media (max-width: 768px) {
+  .cart-confirm-container {
+    &.small {
+      max-width: 75%;
+    }
+  }
+}
 
 
 @media (max-width: 576px) {
   .cart-confirm-container {
     max-width: 100%;
+
+    &.small {
+      max-width: 100%;
+    }
   }
 }

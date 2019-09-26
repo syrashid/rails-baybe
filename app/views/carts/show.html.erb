@@ -10,7 +10,7 @@
             <%= cl_image_tag stockproduct.product.photo %>
           <p class="pl-3 pr-3"><%= stockproduct.product.name %></p>
         </div>
-          <p>
+          <p class="right-info">
             <%= humanized_money((stockproduct.product.price * stockproduct.condition.buy_ratio).round(2))%> EUR
             &nbsp &nbsp
             <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockproduct.product.name}" },method: :delete do %>
