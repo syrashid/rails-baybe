@@ -1,47 +1,43 @@
-<div class="nicontainer">
-  <h4>YOUR BOX</h4>
-  <div class="order">
-    <% @stockproducts.each do |stockProd| %>
-      <div class="baybe-list-card">
+<div class="cart-confirm-container small row col-lg-8 col-sm-12">
+  <div class="your-cart w-100">
+    <h4>YOUR BOX</h4>
+    <div class="order">
+
+      <% @stockproducts.each do |stockproduct| %>
+        <!-- ORDER STOCK PRODUCTS -->
+        <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>" >
           <div class="baybe-list">
-            <%= cl_image_tag stockProd.product.photo %>
-            <p><%= stockProd.product.name %></p>
+              <%= cl_image_tag stockproduct.product.photo %>
+            <p class="pl-3 pr-3"><%= stockproduct.product.name %></p>
           </div>
-          <div class="baybe-list">
-            <p>
-
-              <%#= link_to "", stock_product_path(stockProd, parent: "box"),method: :delete, type: "delete-link",  class: "hidden delete-link far fa-trash-alt" %>
-
-              <%= humanized_money((stockProd.product.price * stockProd.condition.sell_ratio * 0.8).round) %> - <%= humanized_money((stockProd.product.price * stockProd.condition.sell_ratio).round) %> EUR
+            <p class="right-info">
+              <%= humanized_money((stockproduct.product.price * stockproduct.condition.sell_ratio * 0.8).round) %> - <%= humanized_money((stockproduct.product.price * stockproduct.condition.sell_ratio).round) %> EUR
               &nbsp &nbsp
-              <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
+              <%= link_to stock_product_path(stockproduct, parent: "box"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockproduct.product.name}" },method: :delete do %>
+            <i class="far fa-trash-alt"></i>
+            <% end %>
             </p>
-          </div>
-  </div>
-    <!------------------------>
-    <% end %>
-    <% if @stockproducts.any? %>
-    <div class="box-info-row">
-      <div class="box-info-title">
-        <p>TOTAL BOX</p>
-        <p>
-          <i class="fas fa-gift"></i>
-        </p>
-      </div>
-      <p class="box-info-title"><%= humanized_money((@currentbox.expected_price * 0.8).round) %> - <%= humanized_money((@currentbox.expected_price).round) %> EUR</p>
-    </div>
-    <% end %>
+        </div>
+        <!------------------------>
+      <% end %>
 
+      <% if @stockproducts.any? %>
+        <div class="box-info-row">
+          <div class="box-info-title"><p>TOTAL BOX</p></div>
+          <p class="box-info-title"><%= humanized_money((@currentbox.expected_price * 0.8).round) %> - <%= humanized_money((@currentbox.expected_price).round) %> EUR</p>
+        </div>
+      <% end %>
+    </div>
 
     <% if @stockproducts.any? %>
       <%= link_to "Confirm Your Box", confirm_box_path(@box),
-      method: :patch,
-      class: "buttonPrimary buttonBlock",
-      id: "confBoxBtn"  %>
+        method: :patch,
+        class: "buttonPrimary buttonBlock",
+        id: "confBoxBtn"  %>
     <% else %>
       <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary buttonBlock" %>
     <% end %>
-
-      <br>
-    </div>
   </div>
+</div>
+
+
