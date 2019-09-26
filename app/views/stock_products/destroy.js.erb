@@ -16,9 +16,12 @@ function removeElement () {
   total_price.innerHTML = "<%= humanized_money(new_price) %> EUR"
 
   // Update total cart savings
+  <% savings = stockproducts.sum do |stockproduct| %>
+    <% ((1 - stockproduct.condition.buy_ratio) * stockproduct.product.price) %>
+  <% end %>
+  savings.innerHTML = "saving (<%= humanized_money(savings.round(2)) %> EUR) "
 
-
-
+  // Sweet alert removal notification
   var toast = SwalTwo.mixin({
     toast: true,
     position: 'bottom-end',
@@ -27,7 +30,7 @@ function removeElement () {
   })
   toast.fire({
     type: 'error',
-    title: product_name.innerText.toLowerCase() + ' was removed'
+    title: product_name.innerText.toLowerCase() + ' removed'
   })
 
   product.remove();
