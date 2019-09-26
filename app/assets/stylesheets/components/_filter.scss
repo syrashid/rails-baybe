@@ -12,13 +12,17 @@
 
 .filter-bar {
   display: flex;
-  justify-content: space-between;
-  a {
+  list-style: none;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  li a {
     color: $light-gray;
-    opacity: 0.5;
+    opacity: 0.7;
+    padding: 1vw;
     transition: opacity 0.25s ease;
   }
-  a:hover {
+  li a:hover {
     opacity: 0.9;
   }
 }
@@ -29,4 +33,6 @@
   opacity: 0.9 !important;
 }
 
-
+.baybecontainer.filter-bar {
+  margin-top: -20px;
+}
