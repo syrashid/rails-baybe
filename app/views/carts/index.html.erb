@@ -1,46 +1,60 @@
-<div class="chadainer">
-  <h4>YOUR ORDERS</h4>
-  <% @activecarts.order(id: :desc).each do |cart| %>
-    <div class="order">
-      <!-- ORDER TITLE, STATUS AND PRICE -->
-      <div class="order-info">
-        <div class="order-title-info">
-          <p>ORDER Nº: <%= cart.updated_at.strftime("%Y%m%dT%H%M") %>N<%= cart.id %> - </p>
-          <p class="status"> <%= cart.paid %></p>
-        </div>
+<div class="cart-confirm-container row justify-content-center">
+  <div class="your-cart col-md-12 col-lg-10">
+    <h4>YOUR ORDERS</h4>
+    <% @activecarts.order(id: :desc).each do |cart| %>
+      <div class="order">
+        <!-- ORDER TITLE, STATUS AND PRICE -->
+        <div class="order-info">
+          <div class="box-info-row">
 
-        <div class="order-title-info">
-         <% cart.cart_options.each do |option| %>
-            <% if option.content %>
-              <a class="status" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<%= option.content %>">
-                Delivery Address
-              </a>
+            <p class="info-big">ORDER Nº: <%= cart.updated_at.strftime("%Y%m%dT%H%M") %>N<%= cart.id %> - <%= cart.paid %></p>
+            <p class="info-big">STATUS - <%= cart.paid %></p>
+            <p class="info-big"><%= humanized_money(cart.total_price) %> EUR</p>
+
+            <div class="info-small">
+              <p>ORDER Nº</p>
+              <p><%= cart.updated_at.strftime("%Y%m%dT%H%M") %>N<%= cart.id %></p>
+            </div>
+            <div class="info-small">
+              <p>STATUS </p>
+              <p><%= cart.paid %></p>
+            </div>
+            <div class="info-small">
+              <p>TOTAL</p>
+              <p><%= humanized_money(cart.total_price) %> EUR</p>
+            </div>
+
+
+          </div>
+
+          <div class="order-title-info">
+           <% cart.cart_options.each do |option| %>
+              <% if option.content %>
+                <a class="status" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<%= option.content %>">
+                  Delivery Address
+                </a>
+              <% end %>
             <% end %>
+          </div>
+        </div>
+        <!------------------------>
+          <% cart.stock_products.each do |stockProd| %>
+            <!-- ORDER STOCK PRODUCTS -->
+            <div class="baybe-list-card">
+              <div class="baybe-list">
+                <%# if stockproduct.photos.any? %>
+                <%= cl_image_tag stockProd.product.photo %>
+                <%# end %>
+                <p class="pl-3 pr-3"><%= stockProd.product.name %></p>
+              </div>
+                <p class="text-nowrap"><%= humanized_money((stockProd.product.price * stockProd.condition.buy_ratio).round(2)) %> EUR</p>
+            </div>
+            <!------------------------>
           <% end %>
         </div>
-
-        <div class="order-title-info">
-          <p><%= cart.total_price %> EUR</p>
-        </div>
-      </div>
-      <!------------------------>
-        <% cart.stock_products.each do |stockProd| %>
-          <!-- ORDER STOCK PRODUCTS -->
-          <div class="baybe-list-card">
-              <div class="baybe-list">
-
-                <%# if stockProd.photos.any? %>
-                  <%= cl_image_tag stockProd.product.photo %>
-                <%# end %>
-                <p><%= stockProd.product.name %></p>
-              </div>
-              <div class="baybe-list">
-                <p><%= humanized_money((stockProd.product.price * stockProd.condition.buy_ratio).round(2)) %> EUR</p>
-              </div>
-          </div>
-          <!------------------------>
-        <% end %>
-      </div>
-      <hr>
-  <% end %>
+        <hr>
+    <% end %>
+  </div>
 </div>
+
+

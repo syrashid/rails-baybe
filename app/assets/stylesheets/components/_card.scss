@@ -202,8 +202,20 @@
   .box-info-row.saving-small {
     display: block;
   }
+
+  .baybe-list p {
+    width: 50vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
-
-
-
+@media (max-width: 320px) {
+  .baybe-list p {
+      width: 35vw;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+}
