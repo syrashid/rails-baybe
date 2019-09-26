@@ -147,14 +147,14 @@
   a {
     i {
       padding: 2%;
-      font-size: 2rem;
+      font-size: calc(#{$bfs} * 5);
     }
   }
 
   p {
     margin: 0;
     margin-left: 6vh;
-    font-size: 25px;
+    font-size: calc(#{$bfs} * 4);
     color: #05A4C3;
     width: 1vh;
   }
@@ -194,7 +194,7 @@
   // }
 
   .navbar-brand {
-    font-size: 40px;
+    font-size: calc(#{$bfs} * 6.5);
   }
   .navbar-brand:hover {
     text-decoration: none;

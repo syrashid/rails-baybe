@@ -2,7 +2,7 @@
   background-color: $blue;
   border: none;
   color: $white;
-  font-size: 18px;
+  font-size: calc(#{$bfs} * 3);
   font-weight: 400;
   line-height: 1.5;
   padding: 15px;
@@ -36,7 +36,7 @@
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: calc(#{$bfs} * 3);
   padding: 5px 10px;
   border: none;
 
@@ -50,7 +50,7 @@
   color: $blue;
   background-color: $white;
   font-weight: 400;
-  font-size: 18px;
+  font-size: calc(#{$bfs} * 3);
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
@@ -70,7 +70,7 @@
   color: $red;
   background-color: $white;
   font-weight: 400;
-  font-size: 18px;
+  font-size: calc(#{$bfs} * 3);
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
@@ -93,7 +93,7 @@ button.stripe-button-el>span {
   color: $white !important;
   background-color: $blue !important;
   font-weight: 400;
-  font-size: 18px;
+  font-size: calc(#{$bfs} * 3);
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
@@ -123,32 +123,4 @@ button.stripe-button-el>span {
 }
 
 .buttonBlock { display: block; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
