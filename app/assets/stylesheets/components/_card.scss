@@ -140,10 +140,12 @@
   }
 
   p {
-    padding: 0 25px;
+    // padding: 0 25px;
     text-transform: uppercase;
     margin: 0;
     opacity: 0.5;
+    display: flex;
+    align-items: baseline;
   }
 
   .fa-trash-alt {
@@ -160,6 +162,10 @@
     align-items: center;
   }
 }
+
+.box-info-row.saving-small {
+    display: none;
+  }
 
 @media (max-width: 576px) {
   .baybecontainer {
@@ -188,6 +194,16 @@
       right: 0%;
     }
   }
+
+  .box-info-row .box-info-title.saving-big {
+    display: none;
+  }
+
+  .box-info-row.saving-small {
+    display: block;
+  }
 }
+
+
 
 

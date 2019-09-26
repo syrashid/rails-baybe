@@ -6,59 +6,38 @@
       <!-- ORDER STOCK PRODUCTS -->
       <div class="baybe-list-card">
         <div class="baybe-list">
-          <%# if stockProd.photos.any? %>
             <%= cl_image_tag stockProd.product.photo %>
-          <%# end %>
-          <p><%= stockProd.product.name %></p>
+          <p class="pl-3 pr-3"><%= stockProd.product.name %></p>
         </div>
-        <div class="baybe-list">
           <p>
             <%#= link_to "", stock_product_path(stockProd, parent: "cart"),method: :delete, id: "delete-link", class: "hidden" %>
-
             <%= humanized_money((stockProd.product.price * stockProd.condition.buy_ratio).round(2))%> EUR
             &nbsp &nbsp
             <i id="sweet-alert-demo" class="far fa-trash-alt"></i>
           </p>
-        </div>
       </div>
       <!------------------------>
       <% end %>
+
       <% if @stockproducts.any? %>
         <div class="box-info-row">
-          <div class="box-info-title">
-            <p>TOTAL CART</p>
-            <!-- <p>
-              <i class="fas fa-gift"></i>
-            </p> -->
-          </div>
-          <p class="box-info-title">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+          <div class="box-info-title"><p>TOTAL CART</p></div>
+          <p class="box-info-title saving-big">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
           <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
         </div>
+          <p class="box-info-row saving-small">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
       <% end %>
     </div>
 
     <% if !@stockproducts.any? %>
       <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary buttonBlock" %>
     <% else %>
-      <%= form_tag confirm_cart_path(@currentcart), method: :patch,class: "stripe-form" do %>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="ORDER Nº: <%= Time.now.strftime("%Y%m%dT%H%M") %>N<%= @currentcart.id %>"
-          data-email="<%= current_user.email %>"
-          data-amount="<%= @currentcart.total_price_cents %>"
-          data-currency="<%= @currentcart.total_price.currency %>">
-        </script>
-
   </div>
 
 
   <div class="delivery-info col-lg-4 col-sm-12">
-    <div class="mt-5">
-      <div class="custom-control custom-checkbox">
-        <!-- <input name="gift" type="checkbox" class="custom-control-input" id="gift">
-        <label class="custom-control-label" for="gift">GIFT</label> -->
-      </div>
-
+    <h4>CHECKOUT</h4>
+    <div class="mt-4 mb-3">
       <div class="custom-control custom-radio">
         <input type="radio" id="customRadio1" name="delivery_place" value="home" class="custom-control-input">
         <label class="custom-control-label" for="customRadio1">HOME ADDRESS</label>
@@ -70,7 +49,7 @@
     </div>
 
     <div class="">
-      <div class="form-row mt-5">
+      <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputEmail4">First Name</label>
           <input name="first_name" type="text" class="form-control" id="inputEmail4" placeholder="John">
@@ -103,7 +82,21 @@
         </div>
       </div>
     </div>
+        <div class="box-info-row">
+          <div class="box-info-title"><p>TOTAL</p></div>
+          <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
+        </div>
+          <%= form_tag confirm_cart_path(@currentcart), method: :patch,class: "stripe-form" do %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="ORDER Nº: <%= Time.now.strftime("%Y%m%dT%H%M") %>N<%= @currentcart.id %>"
+          data-email="<%= current_user.email %>"
+          data-amount="<%= @currentcart.total_price_cents %>"
+          data-currency="<%= @currentcart.total_price.currency %>">
+        </script>
+
   </div>
+
   <% end %>
   <% end %>
 </div>

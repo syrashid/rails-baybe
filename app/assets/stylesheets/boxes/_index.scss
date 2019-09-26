@@ -3,13 +3,12 @@
   justify-content: space-between;
   text-transform: uppercase;
   font-weight: 700;
-  margin: 0 3% 0 0%;
 
   .box-info-title {
     display: flex;
-
-    p:first-child {
-      margin-right: 25px;
-    }
   }
+}
+
+.delivery-info {
+  margin-top: 4vh;
 }
