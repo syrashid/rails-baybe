@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# tell Rails not to bootstrap your application during asset compilation
+config.assets.initialize_on_precompile = false
+
 module RailsBaybe
   class Application < Rails::Application
     config.generators do |generate|
