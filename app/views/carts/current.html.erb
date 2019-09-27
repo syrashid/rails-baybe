@@ -1,62 +1,63 @@
 <div class="cart-confirm-container row justify-content-center">
-    <% if @currentcart.stock_products.any? %>
-    <!-- START -->
-    <!-- THIS IS A QUICK FIX: TODO: CHANGE IMMEDIATELY -> move into ajax response -->
-    <% content_for(:after_js) do %>
-    <script>
+  <% if @currentcart.stock_products.any? %>
+
+  <% content_for(:cart_current_js) do %>
+  <script>
+    var swal_alert = localStorage.getItem("cart_alert");
+    var currentcount = '<%= current_user.current_cart.stock_products.count %>';
+
+    if (swal_alert != currentcount) {
       var toast = SwalTwo.mixin({
         toast: true,
-        position: 'top-end',
+        position: 'bottom-end',
         showConfirmButton: false,
-        timer: 3000
+        timer: 4000
       })
       toast.fire({
         type: 'success',
         title: '<%= @currentcart.stock_products.last.product.name %> was successfully added to your cart'
       })
-    </script>
-    <% end %>
-    <!-- END -->
+    }
 
-    <% else %>
-    <p>
-      You currently don't have any products in your Cart!
-    </p>
-    <% end %>
+    localStorage.setItem("cart_alert", currentcount);
+  </script>
+  <% end %>
+
+  <% end %>
   <div class="your-cart col-md-12 col-lg-8">
-    <h4>YOUR CART</h4>
-    <% @currentcart.stock_products.each do  |stockproduct| %>
-    <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>">
-      <div class="baybe-list">
-        <%# if stockproduct.photos.any? %>
-        <%= cl_image_tag stockproduct.product.photo %>
-        <%# end %>
-        <p class="pl-3 pr-3"><%= stockproduct.product.name %></p>
-      </div>
-        <p>
-          <%= humanized_money(stockproduct.product.price * stockproduct.condition.buy_ratio) %> EUR &nbsp &nbsp
-          <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, data: { swal: true, confirmed: false, text: "You are about to delete #{stockproduct.product.name}" },method: :delete do %>
-          <i class="far fa-trash-alt"></i>
-          <% end %>
-        </p>
-    </div>
-    <% end %>
-    <div class="box-info-row">
-      <p>ACTUAL CART</p>
-      <p class="box-info-title saving-big">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
-      <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
-    </div>
-    <p class="box-info-row saving-small">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
-  </div>
-    <% if @currentcart.stock_products.any? %>
+   <h4>YOUR CART</h4>
+   <% @currentcart.stock_products.each do  |stockproduct| %>
+   <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>">
+     <div class="baybe-list">
+       <%# if stockproduct.photos.any? %>
+       <%= cl_image_tag stockproduct.product.photo %>
+       <%# end %>
+       <p class="pl-3 pr-3" id="product-name"><%= stockproduct.product.name %></p>
+     </div>
+     <p>
+       <%= humanized_money(stockproduct.product.price * stockproduct.condition.buy_ratio) %> EUR &nbsp &nbsp
+       <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, method: :delete do %>
+       <i class="far fa-trash-alt"></i>
+       <% end %>
+     </p>
+   </div>
+   <% end %>
+   <div class="box-info-row">
+     <p>ACTUAL CART</p>
+     <p class="box-info-title saving-big" id="savings">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+     <p class="box-info-title" id="total-price"><%= humanized_money(@currentcart.total_price) %> EUR</p>
+   </div>
+   <p class="box-info-row saving-small">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+ </div>
+ <% if @currentcart.stock_products.any? %>
 
-    <div class = "action-btn col-md-12 col-lg-8 mb-3">
-      <%= link_to "Continue Shopping", products_path, class: "ghostPrimary" %>
-      <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary" %>
-    </div>
-    <% else %>
-    <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary" %>
-    <% end %>
+ <div class = "action-btn col-md-12 col-lg-8 mb-3">
+   <%= link_to "Continue Shopping", products_path, class: "ghostPrimary" %>
+   <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary" %>
+ </div>
+ <% else %>
+ <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary mb-3" %>
+ <% end %>
 </div>
 
 <%= render 'shared/people_also_bought' %>

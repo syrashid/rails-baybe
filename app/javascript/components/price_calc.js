@@ -9,7 +9,6 @@ const priceCalc = () => {
 
 
     function calculateTotalPrice() {
-      console.log("hi there")
       var condition = document.getElementById("selected-condition").value
 
       const conds = document.getElementById('conditions')

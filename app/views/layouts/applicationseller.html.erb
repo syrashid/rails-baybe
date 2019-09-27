@@ -33,6 +33,7 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= yield(:box_current_js) %>
 
     <%= render 'shared/footer' %>
   </body>
