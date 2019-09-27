@@ -65,7 +65,6 @@ class CartsController < ApplicationController
   end
 
   def order_info
-    raise
     # CART OPTIONS PART
     # if params[:gift] == "on"
     #   @gift_option = Option.find_by("name=?", "gift")
