@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'categories#index'
   get 'home', to: 'pages#home', as: :home
   resources :products, only: [ :index, :show, :create, :new, :edit, :update ]
-  get 'products/:id/added', to: 'products#addToCart', as: :add_to_cart
+  get 'products/:id/added', to: 'products#add_to_cart', as: :add_to_cart
   resources :categories, only: [ :index, :show]
 
   resources :sell_products, only: [ :index, :show, :new, :create]
