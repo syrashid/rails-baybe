@@ -22,29 +22,8 @@ class CartsController < ApplicationController
     charge = Stripe::Charge.create(customer: user.id, amount: @cart.total_price_cents,
       description: "Payment for cart #{@cart.id}", currency: @cart.total_price.currency)
 
-    # CART OPTIONS PART
-    # if params[:gift] == "on"
-    #   @gift_option = Option.find_by("name=?", "gift")
+    order_info
 
-    #   @cart_gift_option = CartOption.new
-    #   @cart_gift_option.cart = @cart
-    #   @cart_gift_option.option = @gift_option
-
-    #   @cart_gift_option.save!
-    # end
-
-    @address_option = Option.find_by("name=?", "address")
-
-    @cart_address_option = CartOption.new
-    @cart_address_option.cart = @cart
-    @cart_address_option.option = @address_option
-
-    params[:delivery_place] == "home" ? @address = current_user.address : @address = "#{params[:address]}, #{params[:address2]}, #{params[:city]}, #{params[:country]}, #{params[:zip]}"
-
-    @cart_address_option.content = @address
-    @cart_address_option.save!
-
-    # -----------------
     @cart.update(payment: charge.to_json, paid: 'paid')
 
     redirect_to carts_path
@@ -83,5 +62,30 @@ class CartsController < ApplicationController
   def rel_and_savings
     @rel_products = Product.all.sample(4)
     @cart_savings = savings
+  end
+
+  def order_info
+    raise
+    # CART OPTIONS PART
+    # if params[:gift] == "on"
+    #   @gift_option = Option.find_by("name=?", "gift")
+
+    #   @cart_gift_option = CartOption.new
+    #   @cart_gift_option.cart = @cart
+    #   @cart_gift_option.option = @gift_option
+
+    #   @cart_gift_option.save!
+    # end
+
+    @address_option = Option.find_by("name=?", "address")
+
+    @cart_address_option = CartOption.new
+    @cart_address_option.cart = @cart
+    @cart_address_option.option = @address_option
+
+    params[:delivery_place] == "home" ? @address = current_user.address : @address = "#{params[:address]}, #{params[:address2]}, #{params[:city]}, #{params[:country]}, #{params[:zip]}"
+
+    @cart_address_option.content = @address
+    @cart_address_option.save!
   end
 end

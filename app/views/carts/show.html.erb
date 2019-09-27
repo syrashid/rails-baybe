@@ -5,19 +5,19 @@
 
       <% @stockproducts.each do |stockproduct| %>
       <!-- ORDER STOCK PRODUCTS -->
-      <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>" >
-        <div class="baybe-list">
+        <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>" >
+          <div class="baybe-list">
             <%= cl_image_tag stockproduct.product.photo %>
-          <p class="pl-3 pr-3" id="product-name"><%= stockproduct.product.name %></p>
+            <p class="pl-3 pr-3" id="product-name"><%= stockproduct.product.name %></p>
+          </div>
+            <p class="right-info">
+              <%= humanized_money((stockproduct.product.price * stockproduct.condition.buy_ratio).round(2))%> EUR
+              &nbsp &nbsp
+              <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </p>
         </div>
-          <p class="right-info">
-            <%= humanized_money((stockproduct.product.price * stockproduct.condition.buy_ratio).round(2))%> EUR
-            &nbsp &nbsp
-            <%= link_to stock_product_path(stockproduct, parent: "cart"), remote: true, method: :delete do %>
-          <i class="far fa-trash-alt"></i>
-          <% end %>
-          </p>
-      </div>
       <!------------------------>
       <% end %>
 
@@ -27,7 +27,7 @@
           <p class="box-info-title saving-big" id="savings">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
           <p class="box-info-title" id="total-price"><%= humanized_money(@currentcart.total_price) %> EUR</p>
         </div>
-          <p class="box-info-row saving-small">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
+        <p class="box-info-row saving-small">saving (<%= humanized_money(@cart_savings.round(2)) %> EUR) </p>
       <% end %>
     </div>
 
@@ -35,9 +35,8 @@
       <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary buttonBlock" %>
     <% else %>
   </div>
-
-
   <div class="delivery-info col-lg-4 col-sm-12">
+  <%= form_tag confirm_cart_path(@currentcart), method: :patch,class: "" do %>
     <h4>CHECKOUT</h4>
     <div class="mt-4 mb-3">
       <div class="custom-control custom-radio">
@@ -88,19 +87,17 @@
           <div class="box-info-title"><p>TOTAL</p></div>
           <p class="box-info-title"><%= humanized_money(@currentcart.total_price) %> EUR</p>
         </div>
-          <%= form_tag confirm_cart_path(@currentcart), method: :patch,class: "stripe-form" do %>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="ORDER Nº: <%= Time.now.strftime("%Y%m%dT%H%M") %>N<%= @currentcart.id %>"
-          data-email="<%= current_user.email %>"
-          data-amount="<%= @currentcart.total_price_cents %>"
-          data-currency="<%= @currentcart.total_price.currency %>">
-        </script>
 
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="ORDER Nº: <%= Time.now.strftime("%Y%m%dT%H%M") %>N<%= @currentcart.id %>"
+            data-email="<%= current_user.email %>"
+            data-amount="<%= @currentcart.total_price_cents %>"
+            data-currency="<%= @currentcart.total_price.currency %>">
+          </script>
   </div>
-
   <% end %>
-  <% end %>
+    <% end %>
 </div>
 
 
