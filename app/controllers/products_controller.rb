@@ -67,12 +67,9 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update_attributes(product_params)
-      redirect_to review_products_path
-    else
-      render :edit
-    end
+    @product.update_attributes(product_params) ? (redirect_to review_products_path) : (render :edit)
   end
+
   def review_products
     @products = Product.where(public: false)
   end
