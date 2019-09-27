@@ -6,8 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# tell Rails not to bootstrap your application during asset compilation
-config.assets.initialize_on_precompile = false
+
+
 
 module RailsBaybe
   class Application < Rails::Application
@@ -23,5 +23,8 @@ module RailsBaybe
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # tell Rails not to bootstrap your application during asset compilation
+    config.assets.initialize_on_precompile = false
   end
 end
