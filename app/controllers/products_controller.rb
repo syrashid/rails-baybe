@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
   before_action :prod_vars, only: [:index, :show]
-  before_action :find_prod, only: [:addToCart, :show, :edit, :update]
+  before_action :find_prod, only: [:add_to_cart, :show, :edit, :update]
   before_action :load_ratios, only: [:index, :filter_category, :filter_condition]
 
   def index
@@ -60,41 +60,32 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    @product.save ? (redirect_to root_path) : (render :new)
   end
 
   def edit
   end
 
   def update
-    if @product.update_attributes(product_params)
-      redirect_to review_products_path
-    else
-      render :edit
-    end
+    @product.update_attributes(product_params) ? (redirect_to review_products_path) : (render :edit)
   end
+
   def review_products
     @products = Product.where(public: false)
   end
 
-  def addToCart
-    stock_product = StockProduct.new
-    stock_product.product = @product
-
+  def add_to_cart
     condition = Condition.find_by("name=?", stock_product_params[:condition])
-    stock_product.condition = condition
-
     usercart = current_user.current_cart
-    stock_product.cart = usercart
 
-    stock_product.color = stock_product_params[:color]
-    stock_product.size = stock_product_params[:size]
+    stock_product = StockProduct.new(
+      product: @product,
+      color: stock_product_params[:color],
+      size: stock_product_params[:size],
+      condition: condition, cart: usercart
+    )
+
     stock_product.save
-
     redirect_to current_cart_path(usercart)
   end
 

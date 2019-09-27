@@ -1,10 +1,10 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :confirm]
+  before_action :find_box, only: [:index, :current]
   before_action :find_info, only: [:show, :sum_total, :current]
   layout "applicationseller"
 
   def index
-    @boxes = Box.where("user_id=?", current_user.id)
   end
 
   def show
@@ -19,7 +19,6 @@ class BoxesController < ApplicationController
   end
 
   def current
-    @boxes = Box.where("user_id=?", current_user.id)
     sum_total
   end
 
@@ -41,5 +40,9 @@ class BoxesController < ApplicationController
     @user = current_user
     @boxes = Box.where("user_id=?", @user.id)
     @currentbox = current_user.current_box
+  end
+
+  def find_box
+    @boxes = Box.where("user_id=?", current_user.id)
   end
 end
