@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :categories, only: [ :index, :show]
 
   resources :sell_products, only: [ :index, :show, :new, :create]
-  get 'sell_products/:id/added', to: 'sell_products#addToBox', as: :add_product
+  get 'sell_products/:id/added', to: 'sell_products#add_to_box', as: :add_product
   get 'review_products', to: "products#review_products"
 
   resources :carts, only: [ :index, :show, :destroy ] do
