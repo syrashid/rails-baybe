@@ -1,4 +1,5 @@
 class SellProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show, :filter_category, :filter_condition]
   before_action :filter_load, only: [:index, :show]
   before_action :find_prod, only: [:show, :add_to_box]
   layout "applicationseller"
