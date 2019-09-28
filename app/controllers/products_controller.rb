@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :prod_vars, only: [:index, :show]
   before_action :find_prod, only: [:add_to_cart, :show, :edit, :update]
   before_action :load_ratios, only: [:index, :filter_category, :filter_condition]
@@ -18,10 +18,6 @@ class ProductsController < ApplicationController
     @ratio = Condition.find_by("name=?", "Like New").buy_ratio
 
     @rel_products = Product.all.sample(4)
-
-    @user = current_user
-    @carts = Cart.where("user_id=?", @user.id)
-    @currentcart = @carts.find_by(paid: "pending")
   end
 
   def filter_category
