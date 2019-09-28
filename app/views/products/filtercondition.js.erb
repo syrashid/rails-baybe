@@ -1,7 +1,11 @@
 function updateDom() {
   // switch which link is active
-  const active = document.querySelector('.filter-active-con').classList.remove('filter-active-con');
-  const pressed = document.getElementById('<%= @con %>').classList.add('filter-active-con');
+  document.querySelector('.filter-active-con').classList.remove('filter-active-con');
+  document.getElementById('<%= @con %>').classList.add('filter-active-con');
+
+  // find which category is active and swap it
+  document.querySelector('.filter-active-cat').classList.remove('filter-active-cat');
+  document.querySelector('.all-cat').classList.add('filter-active-cat');
 
   // rearrange the dom
   const cards = document.getElementById('cards-container');
