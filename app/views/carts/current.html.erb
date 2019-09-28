@@ -54,10 +54,11 @@
  <div class = "action-btn col-md-12 col-lg-8 mb-3">
    <%= link_to "Continue Shopping", products_path, class: "ghostPrimary" %>
    <%= link_to "Proceed to Checkout", cart_path(@currentcart), class: "buttonPrimary" %>
- </div>
  <% else %>
+ <div class = "action-btn col-md-12 col-lg-8 mb-3">
  <%= link_to "Add Items to your Cart", products_path, class: "buttonPrimary mb-3" %>
  <% end %>
+ </div>
 </div>
 
 <%= render 'shared/people_also_bought' %>
