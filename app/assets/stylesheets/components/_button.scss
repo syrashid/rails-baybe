@@ -16,16 +16,10 @@
     text-decoration: none;
     color: $white;
   }
-}
 
-.selling {
-  .buttonPrimary {
+  &.sell-btn {
     background-color: $red;
     color: $white !important;
-  }
-
-  .options div {
-    border: 1px solid $red;
   }
 }
 
@@ -43,6 +37,10 @@
   &:hover {
     opacity: 0.7;
     transition: opacity 1s ease-out;
+  }
+
+  &.bg-sell {
+    background-color: $red;
   }
 }
 

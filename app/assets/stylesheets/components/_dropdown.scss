@@ -20,4 +20,8 @@
     width: 30%;
     text-align: center;
   }
+
+  &.drop-sell div {
+    border: 1px solid $red;
+  }
 }

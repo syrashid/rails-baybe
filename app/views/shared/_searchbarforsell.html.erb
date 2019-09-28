@@ -1,6 +1,6 @@
 <%= form_tag sell_products_path, method: :get, class: "searchbar" do %>
   <%= text_field_tag :query, params[:query], class: "searchbar-input bg-lr", placeholder: "Search" %>
-  <%= button_tag(type: "submit", class: "buttonPrimarySearch") do %>
+  <%= button_tag(type: "submit", class: "buttonPrimarySearch bg-sell") do %>
     <i class="fas fa-search"></i>
   <% end %>
 <% end %>
