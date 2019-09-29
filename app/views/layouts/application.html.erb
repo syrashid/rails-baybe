@@ -28,10 +28,10 @@
   <!-- something -->
 
   <% if current_page?(root_path) %>
-  <body class="home-page <%= theme %>">
+  <body class="home-page">
 
   <% else %>
-  <body class="<%= theme %>">
+  <body>
     <%= render 'shared/navbar_with_search' %>
   <% end %>
 

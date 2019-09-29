@@ -56,7 +56,6 @@
 }
 
 .navbar-right {
-  // width: 50%;
   flex-grow: 1;
 }
 
@@ -158,6 +157,12 @@
     color: #05A4C3;
     width: 1vh;
   }
+
+  &.nav-sell{
+    a, p {
+      color: $red;
+    }
+  }
 }
 
 .navbar-cart{
@@ -168,11 +173,6 @@
 
 
 // ------------------
-
-
-
-
-
 
 .bg-w {
     background-color: white;
@@ -188,10 +188,6 @@
   a {
     text-transform: lowercase;
   }
-  // NEST
-  // a:hover {
-  //   text-decoration: underline;
-  // }
 
   .navbar-brand {
     font-size: calc(#{$bfs} * 6.5);
@@ -211,55 +207,11 @@
 }
 
 .baybe-navbar {
-  // display: flex;
-  // justify-content: space-between;
-  // height: 40px;
 
   .navbar-search, .navbar-cart {
     display: flex;
   }
 }
-
-
-// -----searchbar-------
-
-
-// .search-form-control {
-  // position: relative;
-// }
-
-
-// .search-form-control .btn {
-//   position: absolute;
-//   top: 1px;
-//   bottom: 1px;
-//   right: 1px;
-//   background-color: $blue;
-//   color: white;
-//   height: 97%;
-
-// }
-
-// .search-form-control .form-control {
-//   height: 2.4rem;
-//   background-color: white;
-//   width: 35rem;
-//   border: none;
-
-// }
-
-// .search-form-control .form-control:focus {
-//   border: 1px solid $blue;
-//   outline: none !important;
-//   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-// }
-
-// .searchbar {
-//   border: none !important;
-// }
-
-// ----------------
-
 
 .fa-box-open {
   width: 5vh;
@@ -267,30 +219,6 @@
 
 .fa-baby-carriage {
   width: 5vh;
-}
-
-.selling {
-
-  .searchbar {
-
-  }
-    .searchbar::placeholder {
-      color: $red;
-    }
-
-  .buttonPrimarySearch {
-    background-color: $red;
-  }
-
-  a {
-    color: $red;
-
-  }
-
-  .navbar-right p {
-    color: $red;
-    width: 1vh;
-  }
 }
 
 

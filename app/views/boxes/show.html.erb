@@ -32,10 +32,10 @@
     <% if @stockproducts.any? %>
       <%= link_to "Confirm Your Box", confirm_box_path(@box),
         method: :patch,
-        class: "buttonPrimary buttonBlock",
+        class: "buttonPrimary sell-btn buttonBlock",
         id: "confBoxBtn"  %>
     <% else %>
-      <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary buttonBlock" %>
+      <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary sell-btn buttonBlock" %>
     <% end %>
   </div>
 </div>
