@@ -58,7 +58,7 @@ class SellProductsController < ApplicationController
     @rel_products = Product.all.sample(4)
     @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
     @condition_groups = ['Like New', 'Very Good', 'Good', 'Acceptable']
-    @color_groups = ['Red', 'Black', 'Blue', 'Braun']
+    @color_groups = ['Red', 'Black', 'Blue', 'Brown']
   end
 
   def find_prod
