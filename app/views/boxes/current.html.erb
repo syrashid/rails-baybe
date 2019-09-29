@@ -1,4 +1,5 @@
 <div class="cart-confirm-container row justify-content-center">
+  <!-- ---------------- -->
   <% if @currentbox.stock_products.any? %>
     <% content_for(:box_current_js) do %>
       <script>
@@ -22,37 +23,44 @@
       </script>
     <% end %>
   <% end %>
+  <!-- ---------------- -->
+
   <div class="your-cart col-md-12 col-lg-8">
     <h4>YOUR CART</h4>
     <% @currentbox.stock_products.each do  |stockproduct| %>
-    <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>">
-      <div class="baybe-list">
-        <%# if stockproduct.photos.any? %>
-        <%= cl_image_tag stockproduct.product.photo %>
-        <%# end %>
-        <p class="pl-3 pr-3"><%= stockproduct.product.name %></p>
+      <div class="baybe-list-card" id="stock-product-<%= stockproduct.id %>">
+        <div class="baybe-list">
+          <%# if stockproduct.photos.any? %>
+          <%= cl_image_tag stockproduct.product.photo %>
+          <%# end %>
+          <p class="pl-3 pr-3"><%= stockproduct.product.name %></p>
+        </div>
+        <p>
+          <%= humanized_money(stockproduct.product.price * stockproduct.condition.buy_ratio) %> EUR &nbsp &nbsp
+          <%= link_to stock_product_path(stockproduct, parent: "box"), remote: true, method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+          <% end %>
+        </p>
       </div>
-      <p>
-        <%= humanized_money(stockproduct.product.price * stockproduct.condition.buy_ratio) %> EUR &nbsp &nbsp
-        <%= link_to stock_product_path(stockproduct, parent: "box"), remote: true, method: :delete do %>
-        <i class="far fa-trash-alt"></i>
-        <% end %>
-      </p>
-    </div>
     <% end %>
-    <div class="box-info-row">
-      <p>TOTAL BOX RANGE</p>
-      <p class="box-info-title" id="total-payout"><%= humanized_money((@currentbox.expected_price * 0.8).round) %> - <%= humanized_money((@currentbox.expected_price).round) %> EUR</p>
-    </div>
-  </div>
-  <% if @currentbox.stock_products.any? %>
 
-  <div class="action-btn col-md-12 col-lg-8 mb-3">
-    <%= link_to "Sell other products", sell_products_path, class: "ghostPrimarySell" %>
-    <%= link_to "Confirm Box", box_path(@currentbox), class: "buttonPrimary sell-btn" %>
-  <% else %>
-  <div class="action-btn col-md-12 col-lg-8 mb-3">
-  <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary sell-btn" %>
-  <% end %>
+    <% if @currentbox.stock_products.any? %>
+      <div class="box-info-row">
+        <p>TOTAL BOX RANGE</p>
+        <p class="box-info-title" id="total-payout"><%= humanized_money((@currentbox.expected_price * 0.8).round) %> - <%= humanized_money((@currentbox.expected_price).round) %> EUR</p>
+      </div>
+    <% end %>
   </div>
+
+  <% if @currentbox.stock_products.any? %>
+    <div class="action-btn col-md-12 col-lg-8 mb-3">
+      <%= link_to "Sell other products", sell_products_path, class: "ghostPrimarySell" %>
+      <%= link_to "Confirm Box", box_path(@currentbox), class: "buttonPrimary sell-btn" %>
+    </div>
+  <% else %>
+    <div class="action-btn col-md-12 col-lg-8 mb-3">
+      <%= link_to "Add Items to your Box", sell_products_path, class: "buttonPrimary sell-btn" %>
+    </div>
+  <% end %>
+
 </div>
