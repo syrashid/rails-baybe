@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
       @products = Product.all
     end
     @cat = params[:cat]
+    session[:category] = params[:cat]
   end
 
   def show
@@ -40,6 +41,11 @@ class ProductsController < ApplicationController
     if params[:query].present?
       @searchprods = Product.search_by_name_and_description(params[:query]).includes(:stock_products)
       @products = @searchprods.select do |product|
+        product.stock_products.find { |stock_product| stock_product.condition.name == params[:con] }
+      end
+    elsif session[:category].present?
+      @categoryproducts = Category.find_by(description: session[:category]).products
+      @products = @categoryproducts.select do |product|
         product.stock_products.find { |stock_product| stock_product.condition.name == params[:con] }
       end
     else
