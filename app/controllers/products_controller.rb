@@ -98,7 +98,7 @@ class ProductsController < ApplicationController
   def prod_vars
     @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
     @condition_groups = ['Like New', 'Very Good', 'Good', 'Acceptable']
-    @color_groups = ['Red', 'Black', 'Blue', 'Braun']
+    @color_groups = ['Red', 'Black', 'Blue', 'Brown']
   end
 
   def find_prod
