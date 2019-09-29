@@ -26,8 +26,9 @@ class SellProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    @product.save ? (redirect_to root_path) : (render :new)
+    redirect_to root_path
+    # @product = Product.new(product_params)
+    # @product.save ? (redirect_to root_path) : (render :new)
   end
 
   def filter_category
