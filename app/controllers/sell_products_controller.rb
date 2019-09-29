@@ -21,6 +21,16 @@ class SellProductsController < ApplicationController
   def current
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def create
+    redirect_to root_path
+    # @product = Product.new(product_params)
+    # @product.save ? (redirect_to root_path) : (render :new)
+  end
+
   def filter_category
     if params[:query].present?
       @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
