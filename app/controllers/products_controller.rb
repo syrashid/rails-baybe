@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :filter_category, :filter_condition]
   before_action :prod_vars, only: [:index, :show]
   before_action :find_prod, only: [:add_to_cart, :show, :edit, :update]
   before_action :load_ratios, only: [:index, :filter_category, :filter_condition]

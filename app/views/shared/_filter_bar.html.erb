@@ -1,6 +1,6 @@
 <ul class="baybecontainer filter-bar all-categories">
   <li>
-    <%= link_to "All Categories", products_path, class: "navbar-text filter-active-cat" %>
+    <%= link_to "All Categories", products_path, class: "navbar-text filter-active-cat all-cat" %>
   </li>
   <% @categories.each do |category| %>
   <li>
@@ -15,7 +15,7 @@
 
 <ul class="baybecontainer filter-bar all-conditions mb-3 mt-3">
   <li>
-  <%= link_to "All Conditions", products_path, class: "navbar-text filter-active-con" %>
+  <%= link_to "All Conditions", products_path, class: "navbar-text filter-active-con all-con" %>
   </li>
   <% @condition_groups.each do |condition| %>
   <li>
