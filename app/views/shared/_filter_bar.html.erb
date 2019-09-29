@@ -1,21 +1,34 @@
 <ul class="baybecontainer filter-bar all-categories">
   <li>
-    <%= link_to "All Categories", products_path, class: "navbar-text filter-active-cat all-cat" %>
+    <% if @cat %>
+      <%= link_to "All Categories", products_path, class: "navbar-text all-cat" %>
+    <% else %>
+      <%= link_to "All Categories", products_path, class: "navbar-text filter-active-cat all-cat" %>
+    <% end %>
+
   </li>
   <% @categories.each do |category| %>
   <li>
+    <% if @cat == category.description %>
+      <%= link_to category.description,
+      products_path(cat: category.description),
+      class: "navbar-text filter-active-cat",
+      id: category.description %>
+    <% else %>
     <%= link_to category.description,
-        filt_cat_path(query: params[:query], cat: category.description),
+        products_path(cat: category.description),
         class: "navbar-text",
-        id: category.description,
-        remote: true  %>
+        id: category.description %>
+    <% end %>
   </li>
   <% end %>
 </ul>
 
 <ul class="baybecontainer filter-bar all-conditions mb-3 mt-3">
   <li>
-  <%= link_to "All Conditions", products_path, class: "navbar-text filter-active-con all-con" %>
+  <%= link_to "All Conditions",
+  products_path(cat: @cat),
+  class: "navbar-text filter-active-con all-con" %>
   </li>
   <% @condition_groups.each do |condition| %>
   <li>

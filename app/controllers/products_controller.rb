@@ -8,9 +8,13 @@ class ProductsController < ApplicationController
     @categories = Category.all
     if params[:query].present?
       @products = Product.search_by_name_and_description(params[:query])
+    elsif params[:cat].present?
+      @products = Category.find_by(description: params[:cat]).products
     else
       @products = Product.all
     end
+    @cat = params[:cat]
+    session[:category] = params[:cat]
   end
 
   def show
@@ -20,23 +24,15 @@ class ProductsController < ApplicationController
     @rel_products = Product.all.sample(4)
   end
 
-  def filter_category
-    if params[:query].present?
-      @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
-      @products = @searchprods.select { |prod| prod.category.description == params[:cat] }
-    else
-      @products = Category.find_by(description: params[:cat]).products
-    end
-    @cat = params[:cat]
-    respond_to do |format|
-      format.js { render :filtercategory }
-    end
-  end
-
   def filter_condition
     if params[:query].present?
       @searchprods = Product.search_by_name_and_description(params[:query]).includes(:stock_products)
       @products = @searchprods.select do |product|
+        product.stock_products.find { |stock_product| stock_product.condition.name == params[:con] }
+      end
+    elsif session[:category].present?
+      @categoryproducts = Category.find_by(description: session[:category]).products
+      @products = @categoryproducts.select do |product|
         product.stock_products.find { |stock_product| stock_product.condition.name == params[:con] }
       end
     else
