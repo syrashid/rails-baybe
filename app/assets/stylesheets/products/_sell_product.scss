@@ -2,3 +2,13 @@
   text-align: center;
   margin: 1.5rem;
 }
+
+.new-product{
+  color: $red;
+    &:hover {
+    color: $red;
+    opacity: 0.7;
+    transition: opacity 1s ease-out;
+    text-decoration: none;
+  }
+}

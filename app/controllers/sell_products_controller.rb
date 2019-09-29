@@ -21,6 +21,10 @@ class SellProductsController < ApplicationController
   def current
   end
 
+  def new
+    @product = Product.new
+  end
+
   def filter_category
     if params[:query].present?
       @searchprods = Product.search_by_name_and_description(params[:query]).includes(:category)
