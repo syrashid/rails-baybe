@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show, :filter_category, :filter_condition]
-  before_action :prod_vars, only: [:index, :show]
   before_action :find_prod, only: [:add_to_cart, :show, :edit, :update]
   before_action :load_ratios, only: [:index, :filter_category, :filter_condition]
 
   def index
     @categories = Category.all
+    @condition_groups = ['Like New', 'Very Good', 'Good', 'Acceptable']
     if params[:query].present?
       @products = Product.search_by_name_and_description(params[:query])
     elsif params[:cat].present?
@@ -20,6 +20,12 @@ class ProductsController < ApplicationController
   def show
     @conditions = Condition.all
     @ratio = Condition.find_by("name=?", "Like New").buy_ratio
+
+    @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
+    @color_groups = ['Red', 'Black', 'Blue', 'Brown']
+    @condition_groups = @product.stock_products.map do |stock_product|
+      stock_product.condition.name
+    end.uniq
 
     @rel_products = Product.all.sample(4)
   end
@@ -81,12 +87,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :price, :public, :gender, :age_min, :photo, :age_max, :brand, :category_id)
-  end
-
-  def prod_vars
-    @age_groups = ['0 - 3', '3 - 6', '6 - 9', '9 - 12']
-    @condition_groups = ['Like New', 'Very Good', 'Good', 'Acceptable']
-    @color_groups = ['Red', 'Black', 'Blue', 'Brown']
   end
 
   def find_prod
