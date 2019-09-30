@@ -59,14 +59,14 @@ printLine
 # ADD CATEGORIES
 puts "Creating Categories for Products"
 
-transport = Category.create!(description: "Transport", remote_photo_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
+babycare = Category.create!(description: "Baby Care", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/71Qk9Fg%2B-UL._SX522_.jpg')
 bedroom = Category.create!(description: "Bedroom", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81WxL5ICcoL._SL1500_.jpg')
 clothes = Category.create!(description: "Clothes", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81J2ZOwcGNL._SL1500_.jpg')
-toys = Category.create!(description: "Toys", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/71Slr1Wil9L._SL1000_.jpg')
-babycare = Category.create!(description: "Baby Care", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/71Qk9Fg%2B-UL._SX522_.jpg')
-feeding = Category.create!(description: "Feeding", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/71ctVuvVMuL._SY879_.jpg')
-safety = Category.create!(description: "Safety", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/61TfCqsL6SL._SL1025_.jpg')
 essentials = Category.create!(description: "Essentials", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81-MC34MYWL._SL1500_.jpg')
+feeding = Category.create!(description: "Feeding", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/71ctVuvVMuL._SY879_.jpg')
+toys = Category.create!(description: "Toys", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/71Slr1Wil9L._SL1000_.jpg')
+transport = Category.create!(description: "Transport", remote_photo_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
+safety = Category.create!(description: "Safety", remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/61TfCqsL6SL._SL1025_.jpg')
 
 puts "Done Creating Categories"
 
@@ -74,6 +74,7 @@ printLine
 
 
 puts "Creating Products for Each Category 🔨🛠"
+
 stroller1 = Product.create!(category: transport,
   name: "Baby Trend TS27760",
   description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket stroller on the hood, viewing great window.",
@@ -387,6 +388,353 @@ toy12 = Product.create!(category: toys,
 
 puts "Done Creating Toys 🧸"
 
+babycare1 = Product.create!(category: babycare,
+  name: 'Baby Care Play Mat Pen',
+  price: 245,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71kUmyNCKpL._SL1500_.jpg",
+  brand: 'Play Mat'
+  )
+babycare2 = Product.create!(category: babycare,
+  name: 'American Health and Grooming Kit',
+  price: 18,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81bekucErlL._SL1500_.jpg",
+  brand: 'Grooming Kit'
+  )
+babycare3 = Product.create!(category: babycare,
+  name: 'Baby Nail Electric Nail Trimmer',
+  price: 13,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71-6iyzBXBL._SL1300_.jpg",
+  brand: 'Nail Trimmer'
+  )
+babycare4 = Product.create!(category: babycare,
+  name: 'Fisher-Price Healthy Care Booster Seat',
+  price: 28,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/31eOf7CiLRL.jpg",
+  brand: 'Fisher-Price Seat'
+  )
+babycare5 = Product.create!(category: babycare,
+  name: 'Nuby 4 Stage Oral Care Set System',
+  price: 5,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/51WcrN-VRLL._SL1000_.jpg",
+  brand: 'Nuby 4'
+  )
+babycare6 = Product.create!(category: babycare,
+  name: 'Philips Avent Soothie Pacifier',
+  price: 4,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/61sz0rWWZ%2BL._SL1300_.jpg",
+  brand: 'Philips Pacifier'
+  )
+babycare7 = Product.create!(category: babycare,
+  name: 'Summer Brush and Comb',
+  price: 3,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/51vCwjp4J8L._SL1000_.jpg",
+  brand: 'Summer Brush'
+  )
+babycare8 = Product.create!(category: babycare,
+  name: 'Nuby Silicone Teethe',
+  price: 5,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71HR1CNMdpL._SL1500_.jpg",
+  brand: 'Nuby Teether'
+  )
+babycare9 = Product.create!(category: babycare,
+  name: 'MAM Pacifiers 3 pack',
+  price: 10,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71kWv3ECpIL._SL1500_.jpg",
+  brand: 'MAM Pacifiers'
+  )
+babycare10 = Product.create!(category: babycare,
+  name: 'Summer Infant My Bath Seat',
+  price: 35,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71yYWqJwUOL._SL1500_.jpg",
+  brand: 'Summer Bath Seat'
+  )
+babycare11 = Product.create!(category: babycare,
+  name: 'Summer Comfort Height Bath Tub',
+  price: 30,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/51FUUvetlLL._SL1024_.jpg",
+  brand: 'Summer Bath Tub'
+  )
+babycare12 = Product.create!(category: babycare,
+  name: 'Hooded Baby Towel',
+  price: 20,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71-QDGRZwgL._SL1500_.jpg",
+  brand: 'Baby Towel'
+  )
+
+puts "Done Creating Baby Care 🧼"
+
+feeding1 = Product.create!(category: feeding,
+  name: 'Silicone Baby Bibs Easily Wipe',
+  price: 18,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/61-x3sIzdrL._SL1000_.jpg",
+  brand: 'Baby Bibs'
+  )
+feeding2 = Product.create!(category: feeding,
+  name: 'NUK Large Learner Sippy Cup',
+  price: 8,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/712OF-AeaAL._SL1500_.jpg",
+  brand: 'Sippy Cup'
+  )
+feeding3 = Product.create!(category: feeding,
+  name: 'Medela, Harmony Breast Pump',
+  price: 25,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71dY1tJ4BuL._SL1500_.jpg",
+  brand: 'Breast Pump'
+  )
+feeding4 = Product.create!(category: feeding,
+  name: 'Munchkin Stay Put Suction Bowl, 3 Pack',
+  price: 8,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71qVriMZ28L._SL1500_.jpg",
+  brand: 'Suction Bowl'
+  )
+feeding5 = Product.create!(category: feeding,
+  name: 'Philips Avent My Bendy Straw Cup 2 pack',
+  price: 9,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81U7K7a%2B4sL._SL1500_.jpg",
+  brand: 'Philips Straw'
+  )
+feeding6 = Product.create!(category: feeding,
+  name: 'Munchkin 6 Piece Fork and Spoon Set',
+  price: 5,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81mbIPEl7FL._SL1500_.jpg",
+  brand: 'Munchkin Spoon Set'
+  )
+feeding7 = Product.create!(category: feeding,
+  name: 'Boon Lawn Countertop Drying Rack Green',
+  price: 16,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71JUKYpzL7L._SL1500_.jpg",
+  brand: 'Drying Rack'
+  )
+feeding8 = Product.create!(category: feeding,
+  name: 'Munchkin Snack Catcher, 2 Pack',
+  price: 5,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/814rhxHg5wL._SL1500_.jpg",
+  brand: 'Snack Catcher'
+  )
+feeding9 = Product.create!(category: feeding,
+  name: 'NUK Sesame Street Active Cup, 10oz',
+  price: 9,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71k4APFG6pL._SL1500_.jpg",
+  brand: 'Sesame Street Cup'
+  )
+feeding10 = Product.create!(category: feeding,
+  name: 'Bubos Heating Baby Bottle Warmer',
+  price: 18,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/518THxknnZL._SL1180_.jpg",
+  brand: 'Baby Bottle Warmer'
+  )
+feeding11 = Product.create!(category: feeding,
+  name: 'Baby Bandana Drool Bibs 6-Pack',
+  price: 15,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71wcVSx5uoL._SL1100_.jpg",
+  brand: 'Bandana Drool Bibs'
+  )
+feeding12 = Product.create!(category: feeding,
+  name: 'Kiinde Breast Milk Storage Twist Pouch',
+  price: 38,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71n-5z19ILL._SL1500_.jpg",
+  brand: 'Milk Storage Pouch'
+  )
+
+puts "Done Creating Feeding products 🍼"
+
+safety1 = Product.create!(category: safety,
+  name: 'NetGear Arlo Baby Monitor',
+  price: 131,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71l21XusvRL._SL1500_.jpg",
+  brand: 'Baby Monitor'
+  )
+safety2 = Product.create!(category: safety,
+  name: 'BBTKCARE Noise Cancelling Headphones',
+  price: 17,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/41nn6pNM2xL.jpg",
+  brand: 'Baby Noise Headphones'
+  )
+safety3 = Product.create!(category: safety,
+  name: 'Safety Pressure Mount Lift',
+  price: 32,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71CrfeYsAaL._SL1500_.jpg",
+  brand: 'Pressure Mount Lift'
+  )
+safety4 = Product.create!(category: safety,
+  name: 'Boppy Noggin Nest Head Support',
+  price: 15,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81K%2BFeoOF%2BL._SL1500_.jpg",
+  brand: 'Boppy Head Support'
+  )
+safety5 = Product.create!(category: safety,
+  name: 'LBtech Video Baby Monitor',
+  price: 93,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/51GYzYnhIAL._SL1000_.jpg",
+  brand: 'LBtech Baby Monitor'
+  )
+safety6 = Product.create!(category: safety,
+  name: 'Munchkin Faucet Extender 2 Piece Set',
+  price: 10,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71T4YmSH0YL._SL1500_.jpg",
+  brand: 'Munchkin Faucet'
+  )
+safety7 = Product.create!(category: safety,
+  name: 'Baby Proofing Edge & Corner Guards',
+  price: 20,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/41GcBfN4BTL.jpg",
+  brand: 'Edge Guards'
+  )
+safety8 = Product.create!(category: safety,
+  name: 'Evenflo Position and Lock Wood Gate',
+  price: 13,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81MnsZ%2B6mvL._SL1500_.jpg",
+  brand: 'Evenflo lock gate'
+  )
+safety9 = Product.create!(category: safety,
+  name: 'Infant Video Baby Monitor',
+  price: 166,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/61TfCqsL6SL._SL1025_.jpg",
+  brand: 'Infant Baby Monitor'
+  )
+safety10 = Product.create!(category: safety,
+  name: 'Toddler Leash & Harness for Child Safety',
+  price: 7,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71WjsjuQfZL._SL1500_.jpg",
+  brand: 'Toddler Leash'
+  )
+safety11 = Product.create!(category: safety,
+  name: 'Dream On Me Mesh Security Rail',
+  price: 23,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/51y89xKYf1L._SL1200_.jpg",
+  brand: 'Security Rail'
+  )
+safety12 = Product.create!(category: safety,
+  name: 'Infantino Cap The Tap Bath Spout Cover',
+  price: 10,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/91DrG3liCjL._SL1500_.jpg",
+  brand: 'Bath Spout Cover'
+  )
+
+puts "Done Creating Safety products 🧷"
+
+essential1 = Product.create!(category: essentials,
+  name: 'Fisher-Price Perfect Fit Potty Ring',
+  price: 40,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71OGmAHH3pL._SL1500_.jpg",
+  brand: 'Fisher-Price Potty Ring'
+  )
+essential2 = Product.create!(category: essentials,
+  name: 'Sesame Street "Framed Friends" Soft Potty Seat',
+  price: 18,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/91liVNyRe-L._SL1500_.jpg",
+  brand: 'Sesame Street Seat'
+  )
+essential3 = Product.create!(category: essentials,
+  name: 'Philips Avent Thermal Gel Pads, 2-Pack',
+  price: 13,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81E1UQktMcL._SL1500_.jpg",
+  brand: 'Thermal Gel Pads'
+  )
+essential4 = Product.create!(category: essentials,
+  name: 'Graco Changing Pad Cover 2 Pack',
+  price: 12,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81ZuixqHGpL._SL1500_.jpg",
+  brand: 'Changing Pad'
+  )
+essential5 = Product.create!(category: essentials,
+  name: 'Chevron Plush Changing Pad Cover',
+  price: 10,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71Wox7W8yBL._SL1500_.jpg",
+  brand: 'Chevron Pad Cover'
+  )
+essential6 = Product.create!(category: essentials,
+  name: 'Green Croc Bath Thermometer',
+  price: 13,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/71zMVOr5rFL._SL1500_.jpg",
+  brand: 'Green Croc Thermometer'
+  )
+essential7 = Product.create!(category: essentials,
+  name: 'BabyElf Baby Thermometer',
+  price: 13,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/51Qejiw46wL._SL1000_.jpg",
+  brand: 'BabyElf Thermometer'
+  )
+essential8 = Product.create!(category: essentials,
+  name: 'Rumble Silky Minky Changing Pad Cover',
+  price: 12,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/51xUIfDKJnL._SL1000_.jpg",
+  brand: 'Minky Pad Cover'
+  )
+essential9 = Product.create!(category: essentials,
+  name: 'BlueSnail Comfy Changing Pad Cover',
+  price: 14,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/61hAenc3xwL._SL1200_.jpg",
+  brand: 'BlueSnail Pad Cover'
+  )
+essential10 = Product.create!(category: essentials,
+  name: 'LittleHippo Nursery Night Light',
+  price: 25,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81tb2HAoE-L._SL1500_.jpg",
+  brand: 'Hippo Night Light'
+  )
+essential11 = Product.create!(category: essentials,
+  name: 'Boppy Nursing Pillow and Positioner',
+  price: 40,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81cE%2BbioN8L._SL1500_.jpg",
+  brand: 'Nursing Pillow'
+  )
+essential12 = Product.create!(category: essentials,
+  name: 'Boppy Original Pillow Cover',
+  price: 19,
+  description: "Includes a unique leatherette bumper bar that folds. Ergonomic curved seat back keeps baby separate. Compact shopping basket. One hand 4-position recline seat. Reflective harness, carry strap, rear wheel brake. One hand 4-position recline seat, soft, padded seat. Extendable hood with sun visor and ventilated panel. 360° front lockable swivel wheels, compact umbrella fold. Storage pocket on the hood, viewing great window.",
+  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/81J%2BYeCkIFL._SL1500_.jpg",
+  brand: 'Boppy Pillow Cover'
+  )
+
+puts "Done Creating Essentials products 🌡"
 
 puts "Done Creating Products for Each Category 😓"
 
@@ -405,20 +753,28 @@ printLine
 puts "Creating Stock_Products for Each Product 📦📦📦"
 
 conditionArray = Condition.all
-strollerArray = Product.where(category: transport)
+
+babycareArray = Product.where(category: babycare)
 cribArray = Product.where(category: bedroom)
 clothesArray = Product.where(category: clothes)
+essentialsArray = Product.where(category: essentials)
+feedingArray = Product.where(category: feeding)
 toysArray = Product.where(category: toys)
+strollerArray = Product.where(category: transport)
+safetyArray = Product.where(category: safety)
 
-10.times do
-  StockProduct.create!(condition: conditionArray.except(good).sample, product: strollerArray.sample, cart: Cart.all.sample)
-  StockProduct.create!(condition: conditionArray.sample, product: cribArray.sample, cart: Cart.all.sample)
-  StockProduct.create!(condition: conditionArray.sample, product: clothesArray.sample, cart: Cart.all.sample)
-  StockProduct.create!(condition: conditionArray.except(good).sample, product: toysArray.sample, cart: Cart.all.sample)
+conditionArray.each do |condition|
+  4.times do
+    StockProduct.create!(condition: condition, product: babycareArray.sample, cart: Cart.all.sample)
+    StockProduct.create!(condition: condition, product: cribArray.sample, cart: Cart.all.sample)
+    StockProduct.create!(condition: condition, product: clothesArray.sample, cart: Cart.all.sample)
+    StockProduct.create!(condition: condition, product: essentialsArray.sample, cart: Cart.all.sample)
+    StockProduct.create!(condition: condition, product: feedingArray.sample, cart: Cart.all.sample)
+    StockProduct.create!(condition: condition, product: toysArray.sample, cart: Cart.all.sample)
+    StockProduct.create!(condition: condition, product: strollerArray.sample, cart: Cart.all.sample)
+    StockProduct.create!(condition: condition, product: safetyArray.sample, cart: Cart.all.sample)
+  end
 end
-
-StockProduct.create!(condition: good, product: stroller3, cart: Cart.all.sample)
-
 
 puts "Done Creating Stock_Products for Each Product 🥵"
 
@@ -430,26 +786,6 @@ gift = Option.create!(name: "gift")
 address = Option.create!(name: "address")
 
 printLine
-
-# puts "Adding Photos to each Stock_Product 📸"
-# photo1 = Photo.create(stock_product: strollerprod1, remote_photolink_url: 'https://silvercrossus.com/pub/media/catalog/product/cache/1/image/beff4985b56e3afdbeabfc89641a4582/s/i/silver-cross-jet-ultra-compact-stroller-sterling-3.jpg')
-# photo2 = Photo.create(stock_product: strollerprod2, remote_photolink_url: 'https://cdn.shopify.com/s/files/1/1267/0473/products/icandy-peach-stroller-phantom-dove-grey-2_2000x.jpg')
-# photo3 = Photo.create(stock_product: strollerprod3, remote_photolink_url: 'https://s.yimg.com/aah/albee-baby/maxi-cosi-lila-double-stroller-nomad-black-5.jpg')
-# photo4 = Photo.create(stock_product: strollerprod4, remote_photolink_url: 'https://cdn.shopify.com/s/files/1/0004/0855/1482/products/doona_2019_eu_car_seat_stroller_flame_red.jpg')
-# photo5 = Photo.create(stock_product: strollerprod5, remote_photolink_url: 'https://cdn.shopify.com/s/files/1/2341/8943/products/Bumbleride_Speed_Jogging_Stroller_Maritime_Blue_1500x1500.jpg')
-# photo6 = Photo.create(stock_product: cribsprod1, remote_photolink_url: 'https://images-na.ssl-images-amazon.com/images/I/81WxL5ICcoL._SL1500_.jpg')
-# photo7 = Photo.create(stock_product: cribsprod2, remote_photolink_url: 'https://storkcraftdirect.com/wp-content/uploads/2019/06/StorkcraftMissionRidgeCrib_White1.jpg')
-# photo8 = Photo.create(stock_product: cribsprod3, remote_photolink_url: 'https://storkcraftdirect.com/wp-content/uploads/2019/06/StorkcraftMontereyCrib_Driftwood1.jpg')
-# photo9 = Photo.create(stock_product: cribsprod4, remote_photolink_url: 'https://images-na.ssl-images-amazon.com/images/I/81CUwl-g2iL._SY355_.jpg')
-# photo10 = Photo.create(stock_product: cribsprod5, remote_photolink_url: 'http://ep.yimg.com/ay/yhst-32204204442389/storkcraft-valentia-4-in-1-convertible-crib-in-dove-brown-44.jpg')
-# photo11 = Photo.create(stock_product: clothprod1, remote_photolink_url: 'https://images-na.ssl-images-amazon.com/images/I/513AhM-zUdL._UX385_.jpg')
-# photo12 = Photo.create(stock_product: clothprod2, remote_photolink_url: 'https://www.dhresource.com/0x0s/f2-albu-g5-M00-91-B9-rBVaI1nPU3eAAqmcAAH9LQS4Tck878.jpg')
-# photo13 = Photo.create(stock_product: clothprod3, remote_photolink_url: 'https://images-na.ssl-images-amazon.com/images/I/51dijlIQ0vL._UX679_.jpg')
-# photo14 = Photo.create(stock_product: clothprod4, remote_photolink_url: 'https://asset1.cxnmarksandspencer.com/is/image/mands/SD_04_T78_2422P_K9_X_EC_0?wid=600&qlt=40&fmt=pjpeg')
-# photo15 = Photo.create(stock_product: clothprod5, remote_photolink_url: 'https://cdn.shopify.com/s/files/1/1624/1285/products/little-mr-romper-1_spo.jpg?v=1506660209')
-# photo16 = Photo.create(stock_product: clothprod6, remote_photolink_url: 'https://images-na.ssl-images-amazon.com/images/I/61VaLqR1bxL._UX522_.jpg')
-# puts "Done Adding Photos to All Stock_Products 😭"
-
 
 puts "Left To Do: Review, Cart Option, and Option Seeds"
 puts "But for now we're Done!!  🎊 🥳🎉 🥳🎉 🥳🎉 🎊"
