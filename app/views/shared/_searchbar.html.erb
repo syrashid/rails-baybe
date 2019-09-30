@@ -1,4 +1,4 @@
-<%= form_tag products_path, method: :get, class: "searchbar" do %>
+<%= form_tag products_path, method: :get, class: "searchbar home-search" do %>
   <%= text_field_tag :query, params[:query], class: "searchbar-input", placeholder: "Search" %>
   <%= button_tag(type: "submit", class: "buttonPrimarySearch") do %>
     <i class="fas fa-search"></i>

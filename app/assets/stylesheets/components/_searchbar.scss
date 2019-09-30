@@ -9,6 +9,7 @@
   max-width: 560px;
   min-width: 228px;
   padding-left: 2vh;
+  border-radius: 0px;
 }
 
 .searchbar-input:focus {
@@ -40,6 +41,10 @@
 
   .searchbar {
     width: 58%;
+
+    &.home-search {
+      width: 100%;
+    }
   }
 
 }
