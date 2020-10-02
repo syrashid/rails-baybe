@@ -22,6 +22,8 @@ gem 'webpacker'
 gem 'money-rails'
 gem 'stripe'
 
+gem "serviceworker-rails"
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
